@@ -1,5 +1,5 @@
-Package: strap
-Title: Sets up configuration files for binder for a R package or compendium.
+Package: holepunch
+Title: Sets up configuration files to make your R project a binder that works with a binderhub
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Karthik",
@@ -12,5 +12,5 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Imports: packrat,glue
-URL: https://github.com/karthik/strap
-BugReports: https://github.com/karthik/strap/issues
+URL: https://github.com/karthik/holepunch
+BugReports: https://github.com/karthik/holepunch/issues

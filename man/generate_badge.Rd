@@ -2,10 +2,16 @@
 % Please edit documentation in R/badges.R
 \name{generate_badge}
 \alias{generate_badge}
-\title{Title}
+\title{Generates a Binder badge to add to your README}
 \usage{
-generate_badge()
+generate_badge(path = ".")
+}
+\arguments{
+\item{path}{Assumes local folder unless you say otherwise}
 }
 \description{
-Title
+Generates a Binder badge to add to your README
+}
+\examples{
+# generate_badge("/path/to/repo")
 }

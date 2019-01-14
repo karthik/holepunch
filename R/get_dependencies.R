@@ -6,15 +6,17 @@ appDependencies <- getFromNamespace("appDependencies", "packrat")
 #' @param dir Root directory to search from
 #'
 #' @return vector
-#' @impor packrat 
+#' @importFrom  packrat status 
 #' @importFrom glue glue
 #' @importFrom utils getFromNamespace
 #' @export
 #'
-#' @examples
 get_dependencies <- function(dir = ".") {
-used_pkgs <- appDependencies(dir)
-# install_p <- function(x) { glue::glue("install.packages('", x, "')")}
-# z <- lapply(used_pkgs, install_p) %>% unlist
-unlist(used_pkgs)
+used_pkgs <- packrat:::appDependencies(dir)
+pkgs <- unlist(used_pkgs)
+pkgs <- pkgs[order(pkgs)]
+paste0(pkgs, collapse = ",")
 }
+
+# TODO: I am just importing something from packat for the sake of importing
+# What I really need is the internal function called appDependencies
