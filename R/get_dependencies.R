@@ -12,7 +12,8 @@ appDependencies <- getFromNamespace("appDependencies", "packrat")
 #' @export
 #'
 get_dependencies <- function(dir = ".") {
-used_pkgs <- packrat:::appDependencies(dir)
+  appDependencies <- packrat:::appDependencies
+used_pkgs <- appDependencies(dir)
 pkgs <- unlist(used_pkgs)
 pkgs <- pkgs[order(pkgs)]
 paste0(pkgs, collapse = ",")

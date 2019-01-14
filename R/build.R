@@ -17,6 +17,8 @@ build_binder <- function(path = ".") {
 }
 
 #' @noRd
+#' @importFrom jsonlite fromJSON
+#' @importFrom curl curl
 #' @keywords internal
 parse_streamer <- function(url, cb = print){
   # Many thanks to Jeroem Ooms for this parser!
