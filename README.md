@@ -1,7 +1,7 @@
 
 # Hole punch
 
- ![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+ ![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)]
 
 This helper R package is designed to make your R project or  compendium binder ready. It provides some very simple functionality to:
 
