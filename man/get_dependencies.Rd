@@ -2,16 +2,13 @@
 % Please edit documentation in R/get_dependencies.R
 \name{get_dependencies}
 \alias{get_dependencies}
-\title{Get project dependencies}
+\title{Pulls out R dependencies from a folder.}
 \usage{
-get_dependencies(dir = ".")
+get_dependencies(path = ".")
 }
 \arguments{
-\item{dir}{Root directory to search from}
-}
-\value{
-vector
+\item{path}{Path to search}
 }
 \description{
-Get project dependencies
+Pulls out R dependencies from a folder.
 }
