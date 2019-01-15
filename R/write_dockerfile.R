@@ -1,5 +1,6 @@
 
 
+
 #' Write a minimal Dockerfile for a binder
 #'
 #' @param base Rocker base
@@ -21,7 +22,8 @@ write_dockerfile <-
       silent = TRUE,
       cmd = containerit::Cmd("R")
     )
-    write(z, file = "Dockerfile")
+   
+    containerit::write(z, file = "Dockerfile")
     line1 = "USER root"
     line2 = "COPY . ${HOME}"
     line3 = "RUN chown -R ${NB_USER} ${HOME}"
@@ -35,10 +37,10 @@ R -e \"devtools::install_deps()\""
     df <- df[1:2]
     writeLines(df, con = "Dockerfile")
     write(line1, file = "Dockerfile", append = TRUE)
-     write(line2, file = "Dockerfile", append = TRUE)
-     write(line3, file = "Dockerfile", append = TRUE)
-     write(line4, file = "Dockerfile", append = TRUE)
-     write(line5, file = "Dockerfile", append = TRUE)
-     write(line6, file = "Dockerfile", append = TRUE)
+    write(line2, file = "Dockerfile", append = TRUE)
+    write(line3, file = "Dockerfile", append = TRUE)
+    write(line4, file = "Dockerfile", append = TRUE)
+    write(line5, file = "Dockerfile", append = TRUE)
+    write(line6, file = "Dockerfile", append = TRUE)
     
   }
