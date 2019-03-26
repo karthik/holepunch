@@ -30,7 +30,7 @@ write_dockerfile <-
     line4 = "## Become normal user again"
     line5 = "USER ${NB_USER}"
     line6 = glue(
-      "RUN wget https://github.com/{user}/{repo}/raw/master/DESCRIPTION && \
+      "RUN wget https://github.com/{user}/{repo}/raw/master/DESCRIPTION && \\\
 R -e \"devtools::install_deps()\""
     )
     df <- readLines("Dockerfile")
