@@ -9,11 +9,12 @@
 
 This helper R package is designed to make your R project or  compendium binder ready. It provides some very simple functionality to:
 
-- `write_compendium_description` and `get_dependencies` Create a description file in case this isn't a package
+- `write_compendium_description` and `get_dependencies` Create a description file in case this isn't a package.
 - `write_dockerfile` Writes out a Dockerfile that is binderhub ready
 - `build_binder` Kicks off a binder build
 - `generate_badge` And adds a badge with a Rstudio endpoint 
 
+For a typical workflow, you'll add a dockerfile and a badge, commit the files and push to GitHub, then run build binder to complete the final steps. Once your image is built, the badge will lead to a live Rstudio instance that will have all of your analysis dependencies installed and ready to go.
 
 ## A few different ways to approach the setup
 
