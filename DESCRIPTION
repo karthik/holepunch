@@ -6,7 +6,7 @@ Authors@R:
     person(given = "Karthik",
            family = "Ram",
            role = c("aut", "cre"),
-           email = "karthik.ram@example.com")
+           email = "karthik.ram@gmail.com")
 Description: This package provides a set of helper tools to
     set up binder for a project or package.
 License: MIT + file LICENSE
