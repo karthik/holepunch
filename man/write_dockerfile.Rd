@@ -4,7 +4,8 @@
 \alias{write_dockerfile}
 \title{Write a minimal Dockerfile for a binder}
 \usage{
-write_dockerfile(base = "rocker/binder:latest", path = ".")
+write_dockerfile(base = "rocker/binder:latest", path = ".",
+  method = "desc")
 }
 \arguments{
 \item{base}{Rocker base}

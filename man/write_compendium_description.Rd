@@ -17,5 +17,7 @@ write_compendium_description(Type = "Compendium",
 \item{path}{path to project (in case it is elsewhere)}
 }
 \description{
-Creates a description file for a compendium
+The idea behind a compendium is to have a minimal description file that makes
+it easy for anyone to 'install' your analysis dependencies. This makes it
+possible for someone to run your code easily.
 }
