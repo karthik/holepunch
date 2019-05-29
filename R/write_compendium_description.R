@@ -21,7 +21,7 @@ write_compendium_description <-
         Type = Type,
         Package = Package,
         Version = Version,
-        Depends = Depends
+        Depends = paste0(Depends, collapse = ", ")
       )
     # Using an internal function here
     build_desc <- usethis:::build_description
