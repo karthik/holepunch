@@ -13,6 +13,7 @@ License: MIT + file LICENSE
 URL: https://github.com/karthik/holepunch
 BugReports: https://github.com/karthik/holepunch/issues
 Imports: 
+    containerit,
     curl,
     desc,
     fs,
