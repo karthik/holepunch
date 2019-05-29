@@ -31,8 +31,7 @@ write_dockerfile <-
     line5 = "USER ${NB_USER}"
     if(method == "desc") {
     line6 = glue(
-      "RUN wget https://github.com/{user}/{repo}/raw/master/DESCRIPTION && \
-R -e \"devtools::install_deps()\""
+      "RUN wget https://github.com/{user}/{repo}/raw/master/DESCRIPTION && R -e \"devtools::install_deps()\""
     )
   }
   if(method == "install") {
