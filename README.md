@@ -3,33 +3,58 @@
 
  ![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
  
- ⚠ This package is currently just a proof of concept for turning a R project (package or compendium) more binder friendly. There is a lot of spaghetti code that needs to be cleaned up but I hope to make that happen soon.
+ Motivation: Binder is an open source project that can take ~~any~~ most GitHub repos of notebooks (R or Jupyter) and turn them into a free, live instance that not only has all dependencies ready to go but also provides Jupyter or Rstudio server to run the code on. The instances are small and should not be used to demonstrate resource intensive computation. However they are ideal for reproducing papers/figures/examples and make a great addition to any public analysis project that is being hosted on GitHub.
+ 
+ ⚠ This package is currently a WIP for turning a R project (package or compendium) more binder friendly
 
----
+## Installation
 
-This helper R package is designed to make your R project or  compendium binder ready. It provides some very simple functionality to:
+```r
+remotes::install_github("karthik/holepunch")
+# Please report any installation problems in the issues
+```
 
-- `write_compendium_description` and `get_dependencies` Create a description file in case this isn't a package.
-- `write_dockerfile` Writes out a Dockerfile that is binderhub ready
-- `build_binder` Kicks off a binder build
-- `generate_badge` And adds a badge with a Rstudio endpoint 
+## Simple Binder setup
 
-For a typical workflow, you'll add a dockerfile and a badge, commit the files and push to GitHub, then run build binder to complete the final steps. Once your image is built, the badge will lead to a live Rstudio instance that will have all of your analysis dependencies installed and ready to go.
+In a project containing a collection of R scripts, run the following code to make it Binder ready.
 
-## A few different ways to approach the setup
+```r
+library(holepunch)
+write_install()
+# Writes install.r will all dependencies discovered in the folder
+write_runtime()
+# Writes a file with the current R date (proxy for version).
+# Can be changed to any date (more explanation to come)
+generate_badge()
+
+# At this time, commit the files to Github
+
+# Then click the badge on your README or run
+
+build_binder() # to kick off the build process
+# 🤞🚀
+```
 
 
+## For more complex projects and compendia
 
-Using `install.R` and `runtime.txt` is the easiest way but also the slowest because you have to build an image from scratch. If you require tidyverse, this step can take hours.
 
-Instead, I recommend using a rocker base (one that already contains Jupyter bits required to make this all work). Rocker has a binder base, so `rocker:binder/latest` should work for most people. Rocker/binder already has tidyverse, Rstudio and many other commonly used packages ready to go. With this approach, you'll just have to install a few more packages listed in your DESCRIPTION file and you'll be good to go in minutes.
+```r
+library(holepunch)
+# 🚫🚨No need for install.r or runtime.txt 🚨 🚫
+write_compendium_description()
+# to write a description, with dependencies listed 
+write_dockerfile() 
+# To write a dockerfile (more on how to adapt this)
+# generate_badge()
 
-## Why I think the `DESCRIPTION` + `Dockerfile` approach is best
+# At this time push the code to GitHub
 
-![workflow](https://i.imgur.com/wLQeld6.png)
+# And click on the button or use
+build_binder()
+# 🤞🚀
+```
 
-- For non Docker users, they can just `devools::install_deps` the DESCRIPTION file and be good to go.
-- For Docker users not interested in binder, the Dockerfile will allow then to launch a container and run the code. The Binder elements will not stand in the way.
-- For binder users, the combination of these two files makes for a fast and advanced setup to be up and running in minutes.
+## Suggestions and review
 
-I'm not sure this logic is entirely correct so feedback and corrections most welcome. 
+The ETA for the first release of this package is early July. Comments, suggestions for improving the workflow or any other comments welcome in the issues.
