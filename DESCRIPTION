@@ -21,6 +21,7 @@ Imports:
     glue,
     httr,
     jsonlite,
+    lubridate,
     requirements,
     usethis
 Remotes: o2r-project/containerit, hadley/requirements
