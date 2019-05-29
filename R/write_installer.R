@@ -1,9 +1,9 @@
 
 #' Write a install.R
 #'
+#'Functions writes a list of packages to install one per line
 #' @param path Path to project
 #' @importFrom usethis write_over
-#' 
 #' @export
 #' 
 write_install <- function(path = ".") {

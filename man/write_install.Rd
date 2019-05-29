@@ -10,5 +10,5 @@ write_install(path = ".")
 \item{path}{Path to project}
 }
 \description{
-Write a install.R
+Functions writes a list of packages to install one per line
 }
