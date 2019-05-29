@@ -3,3 +3,4 @@
 ^\.Rproj\.user$
 .rprofile
 .Rhistory
+^\.travis\.yml$
