@@ -5,8 +5,8 @@
 #'
 #' @param base Rocker base
 #' @param path path to binder repo
+#' @param method Not sure [TODO]
 #' @importFrom glue glue
-#' @importFrom containerit dockerfile
 #' @export
 #'
 write_dockerfile <-

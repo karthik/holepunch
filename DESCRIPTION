@@ -22,9 +22,7 @@ Imports:
     jsonlite,
     requirements,
     usethis
-Remotes: 
-    o2r-project/containerit,
-    hadley/requirements
+Remotes: o2r-project/containerit, hadley/requirements
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1

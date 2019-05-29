@@ -11,6 +11,8 @@ write_dockerfile(base = "rocker/binder:latest", path = ".",
 \item{base}{Rocker base}
 
 \item{path}{path to binder repo}
+
+\item{method}{Not sure [TODO]}
 }
 \description{
 Write a minimal Dockerfile for a binder
