@@ -20,6 +20,8 @@ remotes::install_github("karthik/holepunch")
 In a project containing a collection of R scripts, run the following code to make it Binder ready.
 
 ```r
+# Note that this particular approach will be super slow.
+# -----
 library(holepunch)
 write_install()
 # Writes install.r will all dependencies discovered in the folder
