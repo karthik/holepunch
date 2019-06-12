@@ -56,10 +56,12 @@ build_binder()
 # 🤞🚀
 ```
 
-## Sugges Testing this package
+## Testing this package
 
 An easy way to test this package is to visit the [binder-test](https://github.com/karthik/binder-test) repo and follow the instructions. 
 
-#tions and review
+
+
+## Suggestions and review
 
 The ETA for the first release of this package is early July. Comments, suggestions for improving the workflow or any other comments welcome in the issues.
