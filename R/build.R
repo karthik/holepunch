@@ -13,6 +13,7 @@ build_binder <- function(path = ".") {
   binder_runtime
   res <- httr::GET(binder_runtime)
   parse_streamer(url = binder_runtime)
+  message("This may take a while but you can kill this process and the build will still continue")
   return(binder_runtime)
 }
 
