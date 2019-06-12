@@ -4,3 +4,4 @@
 .rprofile
 .Rhistory
 ^\.travis\.yml$
+docs/

@@ -1,7 +1,7 @@
 Package: holepunch
 Title: Sets up configuration files to make your R project a
     binder that works with a binderhub
-Version: 0.0.3.9000
+Version: 0.0.4.9000
 Authors@R: 
     person(given = "Karthik",
            family = "Ram",

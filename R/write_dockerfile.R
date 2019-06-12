@@ -5,7 +5,7 @@
 #'
 #' @param base Rocker base
 #' @param path path to binder repo
-#' @param method Not sure [TODO]
+#' @param method If left blank, it will install using the DESCRIPTION file. Otherwise it will use the install.R file.
 #' @importFrom glue glue
 #' @export
 #'
@@ -22,7 +22,6 @@ write_dockerfile <-
       silent = TRUE,
       cmd = containerit::Cmd("R"))
     )
-   
     suppressWarnings(containerit::write(z, file = "Dockerfile"))
     line1 = "USER root"
     line2 = "COPY . ${HOME}"
@@ -38,6 +37,8 @@ write_dockerfile <-
     line6 <- "R -e \"source('install.R')\""
     write_install(path)
   }
+    
+    
     df <- readLines("Dockerfile")
     df <- df[1:2]
     writeLines(df, con = "Dockerfile")
@@ -47,5 +48,6 @@ write_dockerfile <-
     write(line4, file = "Dockerfile", append = TRUE)
     write(line5, file = "Dockerfile", append = TRUE)
     write(line6, file = "Dockerfile", append = TRUE)
-    
+    fs::dir_create(".binder")
+    fs::file_move("Dockerfile", ".binder/Dockerfile")
   }

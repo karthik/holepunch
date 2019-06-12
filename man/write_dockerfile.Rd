@@ -12,7 +12,7 @@ write_dockerfile(base = "rocker/binder:latest", path = ".",
 
 \item{path}{path to binder repo}
 
-\item{method}{Not sure [TODO]}
+\item{method}{If left blank, it will install using the DESCRIPTION file. Otherwise it will use the install.R file.}
 }
 \description{
 Write a minimal Dockerfile for a binder
