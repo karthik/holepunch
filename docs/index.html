@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">holepunch</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.3.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5.9000</span>
       </span>
     </div>
 
@@ -73,48 +73,55 @@
 <a href="#hole-punch" class="anchor"></a>Hole punch</h1></div>
 
 <p><strong>Motivation:</strong> Binder is an open source project that can take <del>any</del> most GitHub repos of notebooks (R or Jupyter) and turn them into a free, live instance that not only has all dependencies ready to go but also provides Jupyter or Rstudio server to run the code on. The instances are small and should not be used to demonstrate resource intensive computation. However they are ideal for reproducing papers/figures/examples and make a great addition to any public analysis project that is being hosted on GitHub.</p>
-<p>⚠ This package is currently a WIP for turning a R project (package or compendium) more binder friendly</p>
+<p><a href="https://twitter.com/mybinderteam/status/1139136841792315392">As of June 2019</a>, Binder enabled GitHub repositories archived on Zenodo can be launched directly from Zenodo!</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"karthik/holepunch"</span>)</a>
 <a class="sourceLine" id="cb1-2" title="2"><span class="co"># Please report any installation problems in the issues</span></a></code></pre></div>
 </div>
+<div id="setting-up-your-project-as-a-compendium" class="section level2">
+<h2 class="hasAnchor">
+<a href="#setting-up-your-project-as-a-compendium" class="anchor"></a>Setting up your project as a compendium</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(holepunch)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co"># 🚫🚨No need for install.r or runtime.txt 🚨 🚫</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw"><a href="reference/write_compendium_description.html">write_compendium_description</a></span>()</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co"># to write a description, with dependencies listed </span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw"><a href="reference/write_dockerfile.html">write_dockerfile</a></span>() </a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="co"># To write a dockerfile (more on how to adapt this)</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="co"># generate_badge()</span></a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="co"># At this time push the code to GitHub</span></a>
+<a class="sourceLine" id="cb2-10" title="10"></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="co"># And click on the button or use</span></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="kw"><a href="reference/build_binder.html">build_binder</a></span>()</a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="co"># 🤞🚀</span></a></code></pre></div>
+</div>
 <div id="simple-binder-setup" class="section level2">
 <h2 class="hasAnchor">
 <a href="#simple-binder-setup" class="anchor"></a>Simple Binder setup</h2>
 <p>In a project containing a collection of R scripts, run the following code to make it Binder ready.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(holepunch)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="reference/write_install.html">write_install</a></span>()</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="co"># Writes install.r will all dependencies discovered in the folder</span></a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="kw"><a href="reference/write_runtime.html">write_runtime</a></span>()</a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="co"># Writes a file with the current R date (proxy for version).</span></a>
-<a class="sourceLine" id="cb2-6" title="6"><span class="co"># Can be changed to any date (more explanation to come)</span></a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="kw"><a href="reference/generate_badge.html">generate_badge</a></span>()</a>
-<a class="sourceLine" id="cb2-8" title="8"></a>
-<a class="sourceLine" id="cb2-9" title="9"><span class="co"># At this time, commit the files to Github</span></a>
-<a class="sourceLine" id="cb2-10" title="10"></a>
-<a class="sourceLine" id="cb2-11" title="11"><span class="co"># Then click the badge on your README or run</span></a>
-<a class="sourceLine" id="cb2-12" title="12"></a>
-<a class="sourceLine" id="cb2-13" title="13"><span class="kw"><a href="reference/build_binder.html">build_binder</a></span>() <span class="co"># to kick off the build process</span></a>
-<a class="sourceLine" id="cb2-14" title="14"><span class="co"># 🤞🚀</span></a></code></pre></div>
-</div>
-<div id="for-more-complex-projects-and-compendia" class="section level2">
-<h2 class="hasAnchor">
-<a href="#for-more-complex-projects-and-compendia" class="anchor"></a>For more complex projects and compendia</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(holepunch)</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="co"># 🚫🚨No need for install.r or runtime.txt 🚨 🚫</span></a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="kw"><a href="reference/write_compendium_description.html">write_compendium_description</a></span>()</a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="co"># to write a description, with dependencies listed </span></a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="kw"><a href="reference/write_dockerfile.html">write_dockerfile</a></span>() </a>
-<a class="sourceLine" id="cb3-6" title="6"><span class="co"># To write a dockerfile (more on how to adapt this)</span></a>
-<a class="sourceLine" id="cb3-7" title="7"><span class="co"># generate_badge()</span></a>
-<a class="sourceLine" id="cb3-8" title="8"></a>
-<a class="sourceLine" id="cb3-9" title="9"><span class="co"># At this time push the code to GitHub</span></a>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># Note that this particular approach will be super slow.</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co"># -----</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(holepunch)</a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="kw"><a href="reference/write_install.html">write_install</a></span>()</a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="co"># Writes install.r will all dependencies discovered in the folder</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="kw"><a href="reference/write_runtime.html">write_runtime</a></span>()</a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="co"># Writes a file with the current R date (proxy for version).</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co"># Can be changed to any date (more explanation to come)</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="kw"><a href="reference/generate_badge.html">generate_badge</a></span>()</a>
 <a class="sourceLine" id="cb3-10" title="10"></a>
-<a class="sourceLine" id="cb3-11" title="11"><span class="co"># And click on the button or use</span></a>
-<a class="sourceLine" id="cb3-12" title="12"><span class="kw"><a href="reference/build_binder.html">build_binder</a></span>()</a>
-<a class="sourceLine" id="cb3-13" title="13"><span class="co"># 🤞🚀</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-11" title="11"><span class="co"># At this time, commit the files to Github</span></a>
+<a class="sourceLine" id="cb3-12" title="12"></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="co"># Then click the badge on your README or run</span></a>
+<a class="sourceLine" id="cb3-14" title="14"></a>
+<a class="sourceLine" id="cb3-15" title="15"><span class="kw"><a href="reference/build_binder.html">build_binder</a></span>() <span class="co"># to kick off the build process</span></a>
+<a class="sourceLine" id="cb3-16" title="16"><span class="co"># 🤞🚀</span></a></code></pre></div>
+</div>
+<div id="testing-this-package" class="section level2">
+<h2 class="hasAnchor">
+<a href="#testing-this-package" class="anchor"></a>Testing this package</h2>
+<p>An easy way to test this package is to visit the <a href="https://github.com/karthik/binder-test">binder-test</a> repo and follow the instructions.</p>
 </div>
 <div id="suggestions-and-review" class="section level2">
 <h2 class="hasAnchor">
