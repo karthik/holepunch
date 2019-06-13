@@ -11,7 +11,8 @@
 #' @examples
 write_runtime <- function(dt = ymd(today())) {
   txt <- paste0("r-", dt)
-  fileConn <- file("runtime.txt")
+  fs::dir_create(".binder")
+  fileConn <- file(".binder/runtime.txt")
   writeLines(txt, fileConn)
   close(fileConn)
 }
