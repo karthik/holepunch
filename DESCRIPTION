@@ -1,19 +1,19 @@
 Package: holepunch
 Title: Sets up configuration files to make your R project a
-    binder that works with a binderhub
-Version: 0.0.5.9000
+    binder that works with a 'binderhub'
+Version: 0.0.6.9000
 Authors@R: 
     person(given = "Karthik",
            family = "Ram",
            role = c("aut", "cre"),
-           email = "karthik.ram@gmail.com")
+           email = "karthik.ram@gmail.com",
+           comment = c(ORCID = "0000-0002-0233-1757"))
 Description: This package provides a set of helper tools to
-    set up binder for a project or package.
+    set up Binder for a project or package.
 License: MIT + file LICENSE
 URL: https://github.com/karthik/holepunch
 BugReports: https://github.com/karthik/holepunch/issues
 Imports: 
-    containerit,
     curl,
     desc,
     fs,
@@ -24,7 +24,7 @@ Imports:
     lubridate,
     requirements,
     usethis
-Remotes: o2r-project/containerit, hadley/requirements
+Remotes: hadley/requirements
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
