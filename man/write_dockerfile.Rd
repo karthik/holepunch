@@ -4,15 +4,17 @@
 \alias{write_dockerfile}
 \title{Write a minimal Dockerfile for a binder}
 \usage{
-write_dockerfile(base = "rocker/binder:latest", path = ".",
-  method = "desc")
+write_dockerfile(base = NULL, path = ".", maintainer = "karthik",
+  r_version = "latest")
 }
 \arguments{
 \item{base}{Rocker base}
 
 \item{path}{path to binder repo}
 
-\item{method}{If left blank, it will install using the DESCRIPTION file. Otherwise it will use the install.R file.}
+\item{maintainer}{Maintainer of the Dockerfile}
+
+\item{r_version}{Version of R you wish to use. Will default to latest for now.}
 }
 \description{
 Write a minimal Dockerfile for a binder
