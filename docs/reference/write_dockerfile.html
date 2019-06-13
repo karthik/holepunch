@@ -65,7 +65,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">holepunch</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.6.9000</span>
       </span>
     </div>
 
@@ -113,7 +113,7 @@
     </div>
 
     <pre class="usage"><span class='fu'>write_dockerfile</span>(<span class='kw'>base</span> <span class='kw'>=</span> <span class='st'>"rocker/binder:latest"</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"desc"</span>)</pre>
+  <span class='kw'>maintainer</span> <span class='kw'>=</span> <span class='st'>"karthik"</span>, <span class='kw'>r_version</span> <span class='kw'>=</span> <span class='st'>"latest"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -127,8 +127,12 @@
       <td><p>path to binder repo</p></td>
     </tr>
     <tr>
-      <th>method</th>
-      <td><p>If left blank, it will install using the DESCRIPTION file. Otherwise it will use the install.R file.</p></td>
+      <th>maintainer</th>
+      <td><p>Maintainer of the Dockerfile</p></td>
+    </tr>
+    <tr>
+      <th>r_version</th>
+      <td><p>Version of R you wish to use. Will default to latest for now.</p></td>
     </tr>
     </table>
     
