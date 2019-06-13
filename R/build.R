@@ -1,11 +1,15 @@
 
 #' Builds binder
 #'
+#' This function kicks off the image build on binder. Although it is not
+#' entirely necessary to run this step, doing so will ensure that there is a
+#' built image on binder ready to launch. Otherwise the first time (or if your
+#' binder is infrequently used), the build can take a long time.
 #' @param path path to local git controlled folder
 #'
 #' @importFrom httr GET content
 #' @export
-#'
+#' 
 build_binder <- function(path = ".") {
   user <- gh_tree_remote(path)$username
   repo <- gh_tree_remote(path)$repo
