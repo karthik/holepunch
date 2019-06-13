@@ -4,7 +4,7 @@
 \alias{write_runtime}
 \title{Write runtime.txt}
 \usage{
-write_runtime(dt = ymd(today()))
+write_runtime(dt = lubridate::ymd(lubridate::today()))
 }
 \arguments{
 \item{dt}{Date you need R to lock down to}

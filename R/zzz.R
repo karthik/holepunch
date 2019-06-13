@@ -5,8 +5,6 @@
 #' Returns the latest date for when a file was touched in a project
 #' @param path 
 #'
-#' @return
-#' @internal
 last_modification_date <- function(path = ".") {
   dir_list <- fs::dir_info(path)
   sorted_dir_list <- dir_list[order(dir_list$modification_time, decreasing  = TRUE), ]

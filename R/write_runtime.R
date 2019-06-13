@@ -8,8 +8,7 @@
 #'
 #' @export
 #'
-#' @examples
-write_runtime <- function(dt = ymd(today())) {
+write_runtime <- function(dt = lubridate::ymd(lubridate::today())) {
   txt <- paste0("r-", dt)
   fs::dir_create(".binder")
   fileConn <- file(".binder/runtime.txt")
