@@ -12,3 +12,13 @@ last_modification_date <- function(path = ".") {
   as.Date(last_mod)
 }
  
+#' @noRd
+#' @export
+r_version_lookup <- function(date) {
+  if(!is.null(date)) {
+    df <- r_version_table
+    df
+  } else {
+    NULL
+  }
+}

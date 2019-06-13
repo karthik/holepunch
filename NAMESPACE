@@ -3,6 +3,7 @@
 export(build_binder)
 export(generate_badge)
 export(get_dependencies)
+export(r_version_lookup)
 export(write_compendium_description)
 export(write_dockerfile)
 export(write_install)
