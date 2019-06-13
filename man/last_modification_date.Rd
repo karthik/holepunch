@@ -7,7 +7,7 @@
 last_modification_date(path = ".")
 }
 \arguments{
-\item{path}{}
+\item{path}{Path to project folder}
 }
 \description{
 Returns the latest date for when a file was touched in a project

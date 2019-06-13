@@ -3,7 +3,7 @@
 #' Last Modified late
 #'
 #' Returns the latest date for when a file was touched in a project
-#' @param path 
+#' @param path Path to project folder
 #'
 last_modification_date <- function(path = ".") {
   dir_list <- fs::dir_info(path)
