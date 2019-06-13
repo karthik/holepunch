@@ -8,13 +8,32 @@
 
  [As of June 2019](https://twitter.com/mybinderteam/status/1139136841792315392), Binder enabled GitHub repositories archived on Zenodo can be launched directly from Zenodo! 
  
- ⚠ This package is currently a WIP for turning a R project (package or compendium) more binder friendly
 
 ## Installation
 
 ```r
 remotes::install_github("karthik/holepunch")
 # Please report any installation problems in the issues
+```
+
+
+## Setting up your project as a compendium
+
+
+```r
+library(holepunch)
+# 🚫🚨No need for install.r or runtime.txt 🚨 🚫
+write_compendium_description()
+# to write a description, with dependencies listed 
+write_dockerfile() 
+# To write a dockerfile (more on how to adapt this)
+# generate_badge()
+
+# At this time push the code to GitHub
+
+# And click on the button or use
+build_binder()
+# 🤞🚀
 ```
 
 ## Simple Binder setup
@@ -41,24 +60,6 @@ build_binder() # to kick off the build process
 ```
 
 
-## For more complex projects and compendia
-
-
-```r
-library(holepunch)
-# 🚫🚨No need for install.r or runtime.txt 🚨 🚫
-write_compendium_description()
-# to write a description, with dependencies listed 
-write_dockerfile() 
-# To write a dockerfile (more on how to adapt this)
-# generate_badge()
-
-# At this time push the code to GitHub
-
-# And click on the button or use
-build_binder()
-# 🤞🚀
-```
 
 ## Testing this package
 
