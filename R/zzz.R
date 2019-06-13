@@ -13,3 +13,4 @@ last_modification_date <- function(path = ".") {
   last_mod <- sorted_dir_list[1, ]$modification_time
   as.Date(last_mod)
 }
+ 
