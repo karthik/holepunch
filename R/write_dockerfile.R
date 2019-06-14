@@ -1,7 +1,3 @@
-
-
-
-
 #' Write a minimal Dockerfile for a binder
 #'
 #' @param base Rocker base
