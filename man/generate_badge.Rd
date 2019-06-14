@@ -4,10 +4,14 @@
 \alias{generate_badge}
 \title{Generates a Binder badge to add to your README}
 \usage{
-generate_badge(path = ".")
+generate_badge(path = ".", hub = "mybinder.org", urlpath = "rstudio")
 }
 \arguments{
 \item{path}{Assumes local folder unless you say otherwise}
+
+\item{hub}{The binder hub you wish to use. The default is mybinder but you can also try Pangeo}
+
+\item{urlpath}{For R users we recommend the default Rstudio. If you wish to use vanilla Jupyter, leave this blank.}
 }
 \description{
 Generates a Binder badge to add to your README

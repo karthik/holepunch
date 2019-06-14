@@ -36,7 +36,10 @@ write_dockerfile <-
     cliapp::cli_alert("Setting R version to {version}")
     R_VERSION = version
     # Set the date for R packages
+   
     DATE = ifelse(is.null(r_date), last_modification_date("."), r_date)
+    # TODO: Not sure why I need to do this because otherwise I get a numeric
+    DATE = as.Date(DATE, origin = "1970-01-01")
     MAINTAINER = maintainer
     
     # Set the binder base here. Users can override this by passing a base argument
