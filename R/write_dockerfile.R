@@ -8,35 +8,42 @@
 #'
 #' @importFrom glue glue
 #' @export
-#' 
+#'
 write_dockerfile <-
   function(base = NULL,
            path = ".",
            maintainer = "karthik",
            r_date = NULL)
   {
+    if (!fs::file_exists("DESCRIPTION")) {
+      stop(
+        "Your compendium does not have a DESCRIPTION file.  Without one, this Dockerfile approach will not be able to install dependencies. Run write_compendium_description() before running this function",
+        call. = FALSE
+      )
+    }
+    
     # Grab GitHub username and repo name to populate the path to the DESCRIPTION file in the Dockerfile
     user <- gh::gh_tree_remote(path)$username
     repo <- gh::gh_tree_remote(path)$repo
     
     # If the user does not specify a date, use the date of the last touched file on the project
-    if(is.null(r_date)) {
-      version = r_version_lookup(last_modification_date()) 
+    if (is.null(r_date)) {
+      version = r_version_lookup(last_modification_date())
     } else {
-      version = r_version_lookup(r_date) 
+      version = r_version_lookup(r_date)
     }
     
     cliapp::cli_alert("Setting R version to {version}")
-    R_VERSION = version 
+    R_VERSION = version
     # Set the date for R packages
     DATE = ifelse(is.null(r_date), last_modification_date("."), r_date)
     MAINTAINER = maintainer
     
     # Set the binder base here. Users can override this by passing a base argument
-    if(is.null(base)) {
+    if (is.null(base)) {
       base = glue("rocker/binder:{R_VERSION}")
-    } 
-
+    }
+    
     # Now we glue the Dockerfile together
     
     glue::glue(

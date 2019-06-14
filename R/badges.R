@@ -19,6 +19,7 @@ generate_badge <-  function(path  = ".") {
            "/",
            repo,
            "/master?urlpath=rstudio")
+      # TODO: mybinder is hard coded. Must fix.
     img <- "http://mybinder.org/badge.svg"
     use_badge("Launch Rstudio binder", url, img)
   }

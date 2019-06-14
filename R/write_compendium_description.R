@@ -24,15 +24,22 @@ write_compendium_description <-
         Depends = paste0(Depends, collapse = ", ")
       )
     # Using an internal function here
-    build_desc <- usethis:::build_description
+    # A silly hack from Yihui to stop the internal function use warning.
+    # Not sure this is a good thing to do, but for now YOLO.
+    # %:::% is in zzz.R
+    
+    tidy_desc <- 'usethis' %:::% 'tidy_desc' 
+    build_desc <- 'usethis' %:::% 'build_description' 
+    
+
     desc <- build_desc(fields)
     desc <- desc::description$new(text = desc)
-    # Another internal
-    tidy_desc <- usethis:::tidy_desc
+
     tidy_desc(desc)
     lines <-
       desc$str(by_field = TRUE,
                normalize = FALSE,
                mode = "file")
-    usethis::write_over(usethis::proj_path("DESCRIPTION"), lines)
+    usethis::write_over(here::here("DESCRIPTION"), lines)
+    cliapp::cli_alert_info("Please update the description fields, particularly the title, description and author")
   }

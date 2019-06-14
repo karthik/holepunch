@@ -10,6 +10,12 @@
 #' @importFrom cliapp cli_alert_warning
 #' @export
 build_binder <- function(path = ".") {
+  
+  # TODO ------
+  # I need to check if there are uncommitted files in the repo 
+  # and prompt the user to commit + push before launching the build.
+  # What is an elegant way to do this without piling on more dependencies?
+  # ----  
   cliapp::cli_alert_warning("This may take a while but you can kill this process and the build will still continue")
   user <- gh_tree_remote(path)$username
   repo <- gh_tree_remote(path)$repo
