@@ -26,7 +26,7 @@ write_dockerfile <-
       version = r_version_lookup(r_date) 
     }
     
-    cliapp::cli_alert("Setting R version to {r_date}")
+    cliapp::cli_alert("Setting R version to {version}")
     R_VERSION = version 
     # Set the date for R packages
     DATE = ifelse(is.null(r_date), last_modification_date("."), r_date)
