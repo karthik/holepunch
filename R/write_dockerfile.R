@@ -15,32 +15,33 @@ write_dockerfile <-
            maintainer = "karthik",
            r_date = NULL)
   {
+    # Grab GitHub username and repo name to populate the path to the DESCRIPTION file in the Dockerfile
     user <- gh::gh_tree_remote(path)$username
     repo <- gh::gh_tree_remote(path)$repo
     
-    # TODO
-    # -------------
-    # IF base is null and r_version = latest, then make FROM
-    # rocker/binder:latest If base is set, use that base and latest date a file
-    # was touched If base is NULL and r_version = a date, use R version for that
-    # date (from look up table) and same date for packages
-    
-    # -------------
-    
+    # If the user does not specify a date, use the date of the last touched file on the project
     if(is.null(r_date)) {
-      r_date = "latest"
+      version = r_version_lookup(last_modification_date()) 
     } else {
-      r_date = r_version_lookup(r_date)
+      version = r_version_lookup(r_date) 
     }
     
     cliapp::cli_alert("Setting R version to {r_date}")
-    R_VERSION = r_date 
-    DATE = last_modification_date(".")
+    R_VERSION = version 
+    # Set the date for R packages
+    DATE = ifelse(is.null(r_date), last_modification_date("."), r_date)
     MAINTAINER = maintainer
+    
+    # Set the binder base here. Users can override this by passing a base argument
+    if(is.null(base)) {
+      base = glue("rocker/binder:{R_VERSION}")
+    } 
+
+    # Now we glue the Dockerfile together
     
     glue::glue(
       "
-FROM rocker/binder:[R_VERSION]
+FROM [base]
 LABEL maintainer='[MAINTAINER]'
 USER root
 COPY . ${HOME}
