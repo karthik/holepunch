@@ -1,15 +1,13 @@
-
-
-
-
 #' Write runtime.txt
 #'
-#' @param dt Date you need R to lock down to
+#' @param r_date Date you need R to lock down to. By default it picks the most
+#'   recent date a file was touched in this project but you can override this by
+#'   specifying this explicitly.
 #' @importFrom lubridate ymd today
 #'
 #' @export
-#'
-write_runtime <- function(dt = lubridate::ymd(lubridate::today())) {
+#' 
+write_runtime <- function(r_date = lubridate::ymd(lubridate::today())) {
   
   if (fs::file_exists(".binder/Dockerfile")) {
     cliapp::cli_alert_warning(
@@ -17,7 +15,7 @@ write_runtime <- function(dt = lubridate::ymd(lubridate::today())) {
     )
   }
   
-  txt <- paste0("r-", dt)
+  txt <- paste0("r-", r_date)
   fs::dir_create(".binder")
   fileConn <- file(".binder/runtime.txt")
   writeLines(txt, fileConn)

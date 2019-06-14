@@ -52,7 +52,7 @@ write_install()
 # Writes install.r will all dependencies discovered in the folder
 write_runtime()
 # Writes a file with the current R date (proxy for version).
-# Can be changed to any date (more explanation to come)
+# Can be changed to any date by passing a date to r_date
 generate_badge()
 
 # At this time, commit the files to Github

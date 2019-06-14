@@ -72,7 +72,7 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#hole-punch" class="anchor"></a>Hole punch</h1></div>
 
-<p><strong>Motivation:</strong> Binder is an open source project that can take <del>any</del> most GitHub repos of notebooks (R or Jupyter) and turn them into a free, live instance that not only has all dependencies ready to go but also provides Jupyter or Rstudio server to run the code on. The instances are small and should not be used to demonstrate resource intensive computation. However they are ideal for reproducing papers/figures/examples and make a great addition to any public analysis project that is being hosted on GitHub.</p>
+<p><strong>Motivation:</strong> <a href="https://mybinder.org/">Binder</a> is an open source project that can take <del>any</del> most GitHub repos of notebooks (R or Jupyter) and turn them into a free, live instance that not only has all dependencies ready to go but also provides Jupyter or Rstudio server to run the code on. The instances are small and should not be used to demonstrate resource intensive computation. However they are ideal for reproducing papers/figures/examples and make a great addition to any public analysis project that is being hosted on GitHub.</p>
 <p><a href="https://twitter.com/mybinderteam/status/1139136841792315392">As of June 2019</a>, Binder enabled GitHub repositories archived on Zenodo can be launched directly from Zenodo!</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -97,12 +97,12 @@
 <a class="sourceLine" id="cb2-12" title="12"></a>
 <a class="sourceLine" id="cb2-13" title="13"><span class="co"># At this time 🙌 push the code to GitHub 🙌</span></a>
 <a class="sourceLine" id="cb2-14" title="14"></a>
-<a class="sourceLine" id="cb2-15" title="15"><span class="co"># And click on the button or use</span></a>
+<a class="sourceLine" id="cb2-15" title="15"><span class="co"># And click on the button OR use to get the build ready ahead of time.</span></a>
 <a class="sourceLine" id="cb2-16" title="16"><span class="kw"><a href="reference/build_binder.html">build_binder</a></span>()</a>
 <a class="sourceLine" id="cb2-17" title="17"><span class="co"># 🤞🚀</span></a></code></pre></div>
-<div id="alternate-setup-methods" class="section level4">
+<div id="alternate-setup-method" class="section level4">
 <h4 class="hasAnchor">
-<a href="#alternate-setup-methods" class="anchor"></a>Alternate setup methods</h4>
+<a href="#alternate-setup-method" class="anchor"></a>Alternate setup method</h4>
 <p>If for some reason you really don’t want to set up your project as a compendium, then set it up by creating <code>runtime.txt</code> and <code>install.R</code>. This build will take a very long time.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># Note that this particular approach will be super slow.</span></a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="co"># -----</span></a>
@@ -111,7 +111,7 @@
 <a class="sourceLine" id="cb3-5" title="5"><span class="co"># Writes install.r will all dependencies discovered in the folder</span></a>
 <a class="sourceLine" id="cb3-6" title="6"><span class="kw"><a href="reference/write_runtime.html">write_runtime</a></span>()</a>
 <a class="sourceLine" id="cb3-7" title="7"><span class="co"># Writes a file with the current R date (proxy for version).</span></a>
-<a class="sourceLine" id="cb3-8" title="8"><span class="co"># Can be changed to any date (more explanation to come)</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co"># Can be changed to any date by passing a date to r_date</span></a>
 <a class="sourceLine" id="cb3-9" title="9"><span class="kw"><a href="reference/generate_badge.html">generate_badge</a></span>()</a>
 <a class="sourceLine" id="cb3-10" title="10"></a>
 <a class="sourceLine" id="cb3-11" title="11"><span class="co"># At this time, commit the files to Github</span></a>
