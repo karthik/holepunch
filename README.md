@@ -1,9 +1,9 @@
 
 # Hole punch
 
-[![Travis build status](https://travis-ci.org/karthik/holepunch.svg?branch=master)](https://travis-ci.org/karthik/holepunch) [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)   <!-- badges: start -->
+[![Travis build status](https://travis-ci.org/karthik/holepunch.svg?branch=master)](https://travis-ci.org/karthik/holepunch) [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)  
   [![Codecov test coverage](https://codecov.io/gh/karthik/holepunch/branch/master/graph/badge.svg)](https://codecov.io/gh/karthik/holepunch?branch=master)
-  <!-- badges: end -->
+
  
  
  **Motivation:** [Binder](https://mybinder.org/) is an open source project that can take ~~any~~ most GitHub repos of notebooks (R or Jupyter) and turn them into a free, live instance that not only has all dependencies ready to go but also provides Jupyter or Rstudio server to run the code on. The instances are small and should not be used to demonstrate resource intensive computation. However they are ideal for reproducing papers/figures/examples and make a great addition to any public analysis project that is being hosted on GitHub.
@@ -14,7 +14,7 @@
 
 ## Why this is awesome
 
-- You can launch a free instance of Rstudio server with all of your dependencies and version of R installed and ready to go!
+- You can launch a free instance of Rstudio server from any of your projects on GitHub. The instance will have all of your dependencies and version of R installed and ready to go!
 - Easily allow anyone (up to 100 simultaneous users) to replicate or modify your analysis
 - Free
 
@@ -43,7 +43,7 @@ write_compendium_description()
 
 write_dockerfile(maintainer = "your_name") 
 # To write a dockerfile. It will automatically pick the date of the last modified file, match it to 
-# that version of R and add it here. You can override this by passing r_date to some date.
+# that version of R and add it here. You can override this by passing r_date to some arbitrary date (but one for which a R version exists).
 
 generate_badge()
 # This generates a badge for your readme.
@@ -61,7 +61,6 @@ If for some reason you really don't want to set up your project as a compendium,
 
 ```r
 # Note that this particular approach will be super slow.
-# -----
 library(holepunch)
 write_install()
 # Writes install.r will all dependencies discovered in the folder
