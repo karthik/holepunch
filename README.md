@@ -17,28 +17,32 @@ remotes::install_github("karthik/holepunch")
 ```
 
 
-## Setting up your project as a compendium
+## Recommended setup up your project as a compendium
 
 
 ```r
 library(holepunch)
-# 🚫🚨No need for install.r or runtime.txt 🚨 🚫
 write_compendium_description()
 # to write a description, with dependencies listed 
-write_dockerfile() 
-# To write a dockerfile (more on how to adapt this)
-# generate_badge()
+# It's good practice to now go fill in the placeholder text.
 
-# At this time push the code to GitHub
+write_dockerfile(maintainer = "your_name") 
+# To write a dockerfile. It will automatically pick the date of the last modified file, match it to 
+# that version of R and add it here. You can override this by passing r_date to some date.
+
+generate_badge()
+# This generates a badge for your readme.
+
+# At this time 🙌 push the code to GitHub 🙌
 
 # And click on the button or use
 build_binder()
 # 🤞🚀
 ```
 
-## Simple Binder setup
+#### Alternate setup methods
 
-In a project containing a collection of R scripts, run the following code to make it Binder ready.
+If for some reason you really don't want to set up your project as a compendium, then set it up by creating `runtime.txt` and `install.R`. This build will take a very long time.
 
 ```r
 # Note that this particular approach will be super slow.
@@ -70,3 +74,9 @@ An easy way to test this package is to visit the [binder-test](https://github.co
 ## Suggestions and review
 
 The ETA for the first release of this package is early July. Comments, suggestions for improving the workflow or any other comments welcome in the issues.
+
+## Code of conduct
+
+Please note that the 'holepunch' project is released with a
+[Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.

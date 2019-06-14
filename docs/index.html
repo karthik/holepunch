@@ -80,27 +80,30 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"karthik/holepunch"</span>)</a>
 <a class="sourceLine" id="cb1-2" title="2"><span class="co"># Please report any installation problems in the issues</span></a></code></pre></div>
 </div>
-<div id="setting-up-your-project-as-a-compendium" class="section level2">
+<div id="recommended-setup-up-your-project-as-a-compendium" class="section level2">
 <h2 class="hasAnchor">
-<a href="#setting-up-your-project-as-a-compendium" class="anchor"></a>Setting up your project as a compendium</h2>
+<a href="#recommended-setup-up-your-project-as-a-compendium" class="anchor"></a>Recommended setup up your project as a compendium</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(holepunch)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="co"># 🚫🚨No need for install.r or runtime.txt 🚨 🚫</span></a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="kw"><a href="reference/write_compendium_description.html">write_compendium_description</a></span>()</a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="co"># to write a description, with dependencies listed </span></a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="kw"><a href="reference/write_dockerfile.html">write_dockerfile</a></span>() </a>
-<a class="sourceLine" id="cb2-6" title="6"><span class="co"># To write a dockerfile (more on how to adapt this)</span></a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="co"># generate_badge()</span></a>
-<a class="sourceLine" id="cb2-8" title="8"></a>
-<a class="sourceLine" id="cb2-9" title="9"><span class="co"># At this time push the code to GitHub</span></a>
-<a class="sourceLine" id="cb2-10" title="10"></a>
-<a class="sourceLine" id="cb2-11" title="11"><span class="co"># And click on the button or use</span></a>
-<a class="sourceLine" id="cb2-12" title="12"><span class="kw"><a href="reference/build_binder.html">build_binder</a></span>()</a>
-<a class="sourceLine" id="cb2-13" title="13"><span class="co"># 🤞🚀</span></a></code></pre></div>
-</div>
-<div id="simple-binder-setup" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simple-binder-setup" class="anchor"></a>Simple Binder setup</h2>
-<p>In a project containing a collection of R scripts, run the following code to make it Binder ready.</p>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="reference/write_compendium_description.html">write_compendium_description</a></span>()</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co"># to write a description, with dependencies listed </span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co"># It's good practice to now go fill in the placeholder text.</span></a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="kw"><a href="reference/write_dockerfile.html">write_dockerfile</a></span>(<span class="dt">maintainer =</span> <span class="st">"your_name"</span>) </a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="co"># To write a dockerfile. It will automatically pick the date of the last modified file, match it to </span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="co"># that version of R and add it here. You can override this by passing r_date to some date.</span></a>
+<a class="sourceLine" id="cb2-9" title="9"></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="kw"><a href="reference/generate_badge.html">generate_badge</a></span>()</a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="co"># This generates a badge for your readme.</span></a>
+<a class="sourceLine" id="cb2-12" title="12"></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="co"># At this time 🙌 push the code to GitHub 🙌</span></a>
+<a class="sourceLine" id="cb2-14" title="14"></a>
+<a class="sourceLine" id="cb2-15" title="15"><span class="co"># And click on the button or use</span></a>
+<a class="sourceLine" id="cb2-16" title="16"><span class="kw"><a href="reference/build_binder.html">build_binder</a></span>()</a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="co"># 🤞🚀</span></a></code></pre></div>
+<div id="alternate-setup-methods" class="section level4">
+<h4 class="hasAnchor">
+<a href="#alternate-setup-methods" class="anchor"></a>Alternate setup methods</h4>
+<p>If for some reason you really don’t want to set up your project as a compendium, then set it up by creating <code>runtime.txt</code> and <code>install.R</code>. This build will take a very long time.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># Note that this particular approach will be super slow.</span></a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="co"># -----</span></a>
 <a class="sourceLine" id="cb3-3" title="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(holepunch)</a>
@@ -118,6 +121,7 @@
 <a class="sourceLine" id="cb3-15" title="15"><span class="kw"><a href="reference/build_binder.html">build_binder</a></span>() <span class="co"># to kick off the build process</span></a>
 <a class="sourceLine" id="cb3-16" title="16"><span class="co"># 🤞🚀</span></a></code></pre></div>
 </div>
+</div>
 <div id="testing-this-package" class="section level2">
 <h2 class="hasAnchor">
 <a href="#testing-this-package" class="anchor"></a>Testing this package</h2>
@@ -127,6 +131,11 @@
 <h2 class="hasAnchor">
 <a href="#suggestions-and-review" class="anchor"></a>Suggestions and review</h2>
 <p>The ETA for the first release of this package is early July. Comments, suggestions for improving the workflow or any other comments welcome in the issues.</p>
+</div>
+<div id="code-of-conduct" class="section level2">
+<h2 class="hasAnchor">
+<a href="#code-of-conduct" class="anchor"></a>Code of conduct</h2>
+<p>Please note that the ‘holepunch’ project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
   </div>
@@ -146,6 +155,13 @@
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+</ul>
+</div>
+<div class="community">
+<h2>Community</h2>
+<ul class="list-unstyled">
+<li><a href="CONTRIBUTING.html">Contributing guide</a></li>
+<li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
 <div class="developers">

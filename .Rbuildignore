@@ -5,3 +5,5 @@
 .Rhistory
 ^\.travis\.yml$
 docs/
+^\.github$
+^CODE_OF_CONDUCT\.md$
