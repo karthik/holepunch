@@ -65,7 +65,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">holepunch</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.6.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.8.9000</span>
       </span>
     </div>
 
@@ -113,7 +113,7 @@
     </div>
 
     <pre class="usage"><span class='fu'>write_dockerfile</span>(<span class='kw'>base</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>maintainer</span> <span class='kw'>=</span> <span class='st'>"karthik"</span>,
-  <span class='kw'>r_version</span> <span class='kw'>=</span> <span class='st'>"latest"</span>)</pre>
+  <span class='kw'>r_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -131,8 +131,9 @@
       <td><p>Maintainer of the Dockerfile</p></td>
     </tr>
     <tr>
-      <th>r_version</th>
-      <td><p>Version of R you wish to use. Will default to latest for now.</p></td>
+      <th>r_date</th>
+      <td><p>The date for which you'd like to lock down this project.
+Projects that match current release date go to "latest"</p></td>
     </tr>
     </table>
     

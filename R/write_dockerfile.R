@@ -2,17 +2,18 @@
 #'
 #' @param base Rocker base
 #' @param maintainer Maintainer of the Dockerfile
-#' @param r_version  Version of R you wish to use. Will default to latest for now.
+#' @param r_date  The date for which you'd like to lock down this project.
+#'   Projects that match current release date go to "latest"
 #' @param path path to binder repo
 #'
 #' @importFrom glue glue
 #' @export
-#'
+#' 
 write_dockerfile <-
   function(base = NULL,
            path = ".",
            maintainer = "karthik",
-           r_version = "latest")
+           r_date = NULL)
   {
     user <- gh::gh_tree_remote(path)$username
     repo <- gh::gh_tree_remote(path)$repo
@@ -26,7 +27,14 @@ write_dockerfile <-
     
     # -------------
     
-    R_VERSION = r_version # TODO: This needs to be a function that returns R-version for a given date
+    if(is.null(r_date)) {
+      r_date = "latest"
+    } else {
+      r_date = r_version_lookup(r_date)
+    }
+    
+    cliapp::cli_alert("Setting R version to {r_date}")
+    R_VERSION = r_date 
     DATE = last_modification_date(".")
     MAINTAINER = maintainer
     
@@ -51,4 +59,5 @@ RUN wget https://github.com/[user]/[repo]/raw/master/DESCRIPTION && R -e \"optio
     
     fs::dir_create(".binder")
     fs::file_move("Dockerfile", ".binder/Dockerfile")
+    cliapp::cli_alert_success("Dockerfile written to .binder/Dockerfile")
   }

@@ -5,7 +5,7 @@
 \title{Write a minimal Dockerfile for a binder}
 \usage{
 write_dockerfile(base = NULL, path = ".", maintainer = "karthik",
-  r_version = "latest")
+  r_date = NULL)
 }
 \arguments{
 \item{base}{Rocker base}
@@ -14,7 +14,8 @@ write_dockerfile(base = NULL, path = ".", maintainer = "karthik",
 
 \item{maintainer}{Maintainer of the Dockerfile}
 
-\item{r_version}{Version of R you wish to use. Will default to latest for now.}
+\item{r_date}{The date for which you'd like to lock down this project.
+Projects that match current release date go to "latest"}
 }
 \description{
 Write a minimal Dockerfile for a binder
