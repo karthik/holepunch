@@ -71,7 +71,7 @@
 <div id="hole-punch" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#hole-punch" class="anchor"></a>Hole punch</h1></div>
-<p><a href="https://travis-ci.org/karthik/holepunch"><img src="https://travis-ci.org/karthik/holepunch.svg?branch=master" alt="Travis build status"></a> <a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a><br><a href="https://codecov.io/gh/karthik/holepunch?branch=master"><img src="https://codecov.io/gh/karthik/holepunch/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></p>
+
 <p><strong>Motivation:</strong> <a href="https://mybinder.org/">Binder</a> is an open source project that can take <del>any</del> most GitHub repos of notebooks (R or Jupyter) and turn them into a free, live instance that not only has all dependencies ready to go but also provides Jupyter or Rstudio server to run the code on. The instances are small and should not be used to demonstrate resource intensive computation. However they are ideal for reproducing papers/figures/examples and make a great addition to any public analysis project that is being hosted on GitHub.</p>
 <p><a href="https://twitter.com/mybinderteam/status/1139136841792315392">As of June 2019</a>, Binder enabled GitHub repositories archived on Zenodo can be launched directly from Zenodo!</p>
 <p><img src="https://i.imgur.com/oqWl512.png" alt="binder-bam"></p>
@@ -102,6 +102,9 @@
 <div id="recommended-setup-up-your-project-as-a-compendium" class="section level2">
 <h2 class="hasAnchor">
 <a href="#recommended-setup-up-your-project-as-a-compendium" class="anchor"></a>Recommended setup up your project as a compendium</h2>
+<p>If you are unfamiliar with the idea of research compendia, I highly recommend reading this paper by Marwick et al:</p>
+<p><em>Marwick B, Boettiger C, Mullen L. 2018. <a href="https://peerj.com/preprints/3192/">Packaging data analytical work reproducibly using R (and friends)</a> PeerJ Preprints 6:e3192v2 <a href="https://doi.org/10.7287/peerj.preprints.3192v2" class="uri">https://doi.org/10.7287/peerj.preprints.3192v2</a></em></p>
+<p>and also looking through my <a href="http://inundata.org/talks/rstd19/#/">presentation at RStudio::conf 2019</a> where I talk about this in detail.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(holepunch)</a>
 <a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="reference/write_compendium_description.html">write_compendium_description</a></span>()</a>
 <a class="sourceLine" id="cb2-3" title="3"><span class="co"># to write a description, with dependencies listed </span></a>
@@ -189,7 +192,15 @@
 </ul>
 </div>
 
-  </div>
+  <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://travis-ci.org/karthik/holepunch"><img src="https://travis-ci.org/karthik/holepunch.svg?branch=master" alt="Travis build status"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
+<li><a href="https://codecov.io/gh/karthik/holepunch?branch=master"><img src="https://codecov.io/gh/karthik/holepunch/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+</ul>
+</div>
+</div>
 </div>
 
       <footer><div class="copyright">

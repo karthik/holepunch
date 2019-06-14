@@ -1,8 +1,7 @@
 
 # Hole punch
 
-[![Travis build status](https://travis-ci.org/karthik/holepunch.svg?branch=master)](https://travis-ci.org/karthik/holepunch) [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)  
-  [![Codecov test coverage](https://codecov.io/gh/karthik/holepunch/branch/master/graph/badge.svg)](https://codecov.io/gh/karthik/holepunch?branch=master)
+[![Travis build status](https://travis-ci.org/karthik/holepunch.svg?branch=master)](https://travis-ci.org/karthik/holepunch) [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)   [![Codecov test coverage](https://codecov.io/gh/karthik/holepunch/branch/master/graph/badge.svg)](https://codecov.io/gh/karthik/holepunch?branch=master)
 
  
  
@@ -33,6 +32,12 @@ remotes::install_github("karthik/holepunch")
 
 
 ## Recommended setup up your project as a compendium
+
+If you are unfamiliar with the idea of research compendia, I highly recommend reading this paper by Marwick et al:
+
+*Marwick B, Boettiger C, Mullen L. 2018. [Packaging data analytical work reproducibly using R (and friends)](https://peerj.com/preprints/3192/) PeerJ Preprints 6:e3192v2 https://doi.org/10.7287/peerj.preprints.3192v2*
+
+and also looking through my [presentation at RStudio::conf 2019](http://inundata.org/talks/rstd19/#/) where I talk about this in detail.
 
 
 ```r
