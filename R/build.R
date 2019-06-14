@@ -5,11 +5,12 @@
 #' built image on binder ready to launch. Otherwise the first time (or if your
 #' binder is infrequently used), the build can take a long time.
 #' @param path path to local git controlled folder
+#' @param hub The binder hub you wish to use. The default is mybinder but you can also try Pangeo
 #'
 #' @importFrom httr GET content
 #' @importFrom cliapp cli_alert_warning
 #' @export
-build_binder <- function(path = ".") {
+build_binder <- function(path = ".", hub = "mybinder.org") {
   
   # TODO ------
   # I need to check if there are uncommitted files in the repo 
@@ -19,8 +20,9 @@ build_binder <- function(path = ".") {
   cliapp::cli_alert_warning("This may take a while but you can kill this process and the build will still continue")
   user <- gh_tree_remote(path)$username
   repo <- gh_tree_remote(path)$repo
-  binder_runtime <- paste0("https://mybinder.org/build/gh/", user, "/", repo, "/master")
-  binder_runtime
+  # binder_runtime <- paste0("https://mybinder.org/build/gh/", user, "/", repo, "/master")
+  binder_runtime <- glue::glue("https://{hub}/build/gh/{user}/{repo}/master")
+  cliapp::cli_alert_info(glue::glue("Building binder at {binder_runtime}"))
   res <- httr::GET(binder_runtime)
   parse_streamer(url = binder_runtime)
   return(binder_runtime)

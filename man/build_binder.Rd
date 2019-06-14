@@ -4,10 +4,12 @@
 \alias{build_binder}
 \title{Builds binder}
 \usage{
-build_binder(path = ".")
+build_binder(path = ".", hub = "mybinder.org")
 }
 \arguments{
 \item{path}{path to local git controlled folder}
+
+\item{hub}{The binder hub you wish to use. The default is mybinder but you can also try Pangeo}
 }
 \description{
 This function kicks off the image build on binder. Although it is not
