@@ -13,12 +13,12 @@ last_modification_date <- function(path = ".") {
 }
  
 #' @noRd
-#' @export
 r_version_lookup <- function(date) {
   if(!is.null(date)) {
-    df <- r_version_table
+    df <- holepunch:::r_version_table
     df
   } else {
     NULL
   }
 }
+

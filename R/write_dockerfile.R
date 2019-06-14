@@ -32,7 +32,8 @@ write_dockerfile <-
     
     R_VERSION = r_version # TODO: This needs to be a function that returns R-version for a given date
     DATE = last_modification_date(".")
-    MAINTAINER = "maintainer"
+    MAINTAINER = maintainer
+    
     glue::glue(
       "
 FROM rocker/binder:[R_VERSION]
@@ -41,7 +42,7 @@ USER root
 COPY . ${HOME}
 RUN chown -R ${NB_USER} ${HOME}
 USER ${NB_USER}
-RUN wget https://github.com/[user]/[repo]/raw/master/DESCRIPTION && R -e 'options(repos = list(CRAN = 'http://mran.revolutionanalytics.com/snapshot/[DATE]/')); devtools::install_deps()'
+RUN wget https://github.com/[user]/[repo]/raw/master/DESCRIPTION && R -e \"options(repos = list(CRAN = 'http://mran.revolutionanalytics.com/snapshot/[DATE]/')); devtools::install_deps()\"
 ",
       .open = "[",
       .close = "]"

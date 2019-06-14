@@ -11,13 +11,13 @@
 #' @export
 #' 
 build_binder <- function(path = ".") {
+  message("This may take a while but you can kill this process and the build will still continue")
   user <- gh_tree_remote(path)$username
   repo <- gh_tree_remote(path)$repo
   binder_runtime <- paste0("https://mybinder.org/build/gh/", user, "/", repo, "/master")
   binder_runtime
   res <- httr::GET(binder_runtime)
   parse_streamer(url = binder_runtime)
-  message("This may take a while but you can kill this process and the build will still continue")
   return(binder_runtime)
 }
 

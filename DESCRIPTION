@@ -1,7 +1,7 @@
 Package: holepunch
 Title: Sets up configuration files to make your R project a
     binder that works with a 'binderhub'
-Version: 0.0.7.9000
+Version: 0.0.8.9000
 Authors@R: 
     person(given = "Karthik",
            family = "Ram",
@@ -13,6 +13,8 @@ Description: This package provides a set of helper tools to
 License: MIT + file LICENSE
 URL: https://github.com/karthik/holepunch
 BugReports: https://github.com/karthik/holepunch/issues
+Depends:
+  R(>= 2.10)
 Imports: 
     curl,
     desc,
