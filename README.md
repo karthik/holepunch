@@ -31,7 +31,7 @@ remotes::install_github("karthik/holepunch")
 ```
 
 
-## Recommended setup up your project as a compendium
+## Setting up your project as a compendium (recommended)
 
 If you are unfamiliar with the idea of research compendia, I highly recommend reading this paper by Marwick et al:
 
