@@ -57,7 +57,7 @@ generate_badge()
 
 # At this time 🙌 push the code to GitHub 🙌
 
-# And click on the butadgeR use to get the build ready ahead of time.
+# And click on the badge or use the function below to get the build ready ahead of time.
 build_binder()
 # 🤞🚀
 ```
