@@ -5,7 +5,7 @@
 #' built image on binder ready to launch. Otherwise the first time (or if your
 #' binder is infrequently used), the build can take a long time.
 #' @param path path to local git controlled folder
-#' @param hub The binder hub you wish to use. The default is mybinder but you can also try Pangeo
+#' @template hub
 #'
 #' @importFrom httr GET content
 #' @importFrom cliapp cli_alert_warning

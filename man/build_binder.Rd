@@ -9,7 +9,7 @@ build_binder(path = ".", hub = "mybinder.org")
 \arguments{
 \item{path}{path to local git controlled folder}
 
-\item{hub}{The binder hub you wish to use. The default is mybinder but you can also try Pangeo}
+\item{hub}{The binder hub you wish to use. The default is mybinder but you can also try \href{https://binder.pangeo.io/}{Pangeo}}
 }
 \description{
 This function kicks off the image build on binder. Although it is not
