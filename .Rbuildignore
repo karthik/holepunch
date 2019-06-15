@@ -10,3 +10,4 @@ docs/
 ^codecov\.yml$
 build.sh
 man-roxygen/
+holepunch.png
