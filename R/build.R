@@ -11,17 +11,17 @@
 #' @importFrom cliapp cli_alert_warning
 #' @export
 build_binder <- function(path = ".", hub = "mybinder.org") {
-  
   # TODO ------
-  # I need to check if there are uncommitted files in the repo 
+  # I need to check if there are uncommitted files in the repo
   # and prompt the user to commit + push before launching the build.
   # What is an elegant way to do this without piling on more dependencies?
-  # ----  
+  # ----
   cliapp::cli_alert_warning("This may take a while but you can kill this process and the build will still continue")
   user <- gh_tree_remote(path)$username
   repo <- gh_tree_remote(path)$repo
   # binder_runtime <- paste0("https://mybinder.org/build/gh/", user, "/", repo, "/master")
-  binder_runtime <- glue::glue("https://{hub}/build/gh/{user}/{repo}/master")
+  binder_runtime <-
+    glue::glue("https://{hub}/build/gh/{user}/{repo}/master")
   cliapp::cli_alert_info(glue::glue("Building binder at {binder_runtime}"))
   res <- httr::GET(binder_runtime)
   parse_streamer(url = binder_runtime)
@@ -32,19 +32,20 @@ build_binder <- function(path = ".", hub = "mybinder.org") {
 #' @importFrom jsonlite fromJSON
 #' @importFrom curl curl
 #' @keywords internal
-parse_streamer <- function(url, cb = print){
+parse_streamer <- function(url, cb = print) {
   # Many thanks to Jeroem Ooms for this parser!
   con <- curl::curl(url = url)
   open(con)
   on.exit(close(con))
-  repeat{
+  repeat {
     txt <- readLines(con, 1)
-    if(!length(txt)){
+    if (!length(txt)) {
       print("All done!")
       cb(NULL)
-      break;
+      break
+      
     }
-    if(grepl("^data:", txt)){
+    if (grepl("^data:", txt)) {
       json <- sub("^data:", "", txt)
       data <- jsonlite::fromJSON(json)
       cb(data)

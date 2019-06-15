@@ -1,13 +1,13 @@
 
+
 #' Write a install.R
 #'
 #'Functions writes a list of packages to install one per line
 #' @param path Path to project
 #' @importFrom usethis write_over
 #' @export
-#' 
+#'
 write_install <- function(path = ".") {
-  
   if (fs::file_exists(".binder/Dockerfile")) {
     cliapp::cli_alert_warning(
       "A Dockerfile exists in .binder/. This means that all other settings (runtime.txt and install.R will be ignored. Consider deleting the Dockerfile if you wish to take the runtime approach"
@@ -15,7 +15,9 @@ write_install <- function(path = ".") {
   }
   
   packages <- get_dependencies(path)
-  res <- lapply(packages, function(x) glue::glue("install.packages('", x, "')"))
+  res <-
+    lapply(packages, function(x)
+      glue::glue("install.packages('", x, "')"))
   fs::dir_create(".binder")
   usethis::write_over(usethis::proj_path(".binder/install.R"), unlist(res))
 }

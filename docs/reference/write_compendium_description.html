@@ -141,9 +141,22 @@ possible for someone to run your code easily.</p>
     </tr>
     <tr>
       <th>path</th>
-      <td><p>path to project (in case it is elsewhere)</p></td>
+      <td><p>path to project (in case it is not in the current working directory)</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>To automatically populate author information, you may set usethis options in your `.rprofile`` like so.
+options(
+  usethis.full_name = "Karthik Ram",
+  usethis.description = list(
+  `Authors@R` = 'person("Karthik", "Ram", email = "karthik.ram@gmail.com", role = c("aut", "cre"),
+  comment = c(ORCID = "0000-0002-0233-1757"))',
+  License = "MIT + file LICENSE",
+  Version = "0.0.0.9000"
+  )
+)</p>
     
 
   </div>
@@ -151,7 +164,9 @@ possible for someone to run your code easily.</p>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>

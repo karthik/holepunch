@@ -17,10 +17,22 @@ write_compendium_description(Type = "Compendium",
 
 \item{Version}{Version of your compendium}
 
-\item{path}{path to project (in case it is elsewhere)}
+\item{path}{path to project (in case it is not in the current working directory)}
 }
 \description{
 The idea behind a compendium is to have a minimal description file that makes
 it easy for anyone to 'install' your analysis dependencies. This makes it
 possible for someone to run your code easily.
+}
+\details{
+To automatically populate author information, you may set usethis options in your `.rprofile`` like so.
+options(
+  usethis.full_name = "Karthik Ram",
+  usethis.description = list(
+  `Authors@R` = 'person("Karthik", "Ram", email = "karthik.ram@gmail.com", role = c("aut", "cre"),
+  comment = c(ORCID = "0000-0002-0233-1757"))',
+  License = "MIT + file LICENSE",
+  Version = "0.0.0.9000"
+  )
+)
 }

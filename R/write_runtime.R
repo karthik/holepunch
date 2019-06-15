@@ -6,21 +6,18 @@
 #' @importFrom lubridate ymd today
 #'
 #' @export
-#' 
-write_runtime <- function(r_date = lubridate::ymd(lubridate::today())) {
-  
-  if (fs::file_exists(".binder/Dockerfile")) {
-    cliapp::cli_alert_warning(
-      "A Dockerfile exists in .binder/. This means that all other settings (runtime.txt and install.R will be ignored. Consider deleting the Dockerfile if you wish to take the runtime approach"
-    )
+#'
+write_runtime <-
+  function(r_date = lubridate::ymd(lubridate::today())) {
+    if (fs::file_exists(".binder/Dockerfile")) {
+      cliapp::cli_alert_warning(
+        "A Dockerfile exists in .binder/. This means that all other settings (runtime.txt and install.R will be ignored. Consider deleting the Dockerfile if you wish to take the runtime approach"
+      )
+    }
+    
+    txt <- paste0("r-", r_date)
+    fs::dir_create(".binder")
+    fileConn <- file(".binder/runtime.txt")
+    writeLines(txt, fileConn)
+    close(fileConn)
   }
-  
-  txt <- paste0("r-", r_date)
-  fs::dir_create(".binder")
-  fileConn <- file(".binder/runtime.txt")
-  writeLines(txt, fileConn)
-  close(fileConn)
-}
-
-
-

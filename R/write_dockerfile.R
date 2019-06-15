@@ -36,7 +36,7 @@ write_dockerfile <-
     cliapp::cli_alert("Setting R version to {version}")
     R_VERSION = version
     # Set the date for R packages
-   
+    
     DATE = ifelse(is.null(r_date), last_modification_date("."), r_date)
     # TODO: Not sure why I need to do this because otherwise I get a numeric
     DATE = as.Date(DATE, origin = "1970-01-01")
@@ -70,5 +70,5 @@ RUN wget https://github.com/[user]/[repo]/raw/master/DESCRIPTION && R -e \"optio
     
     fs::dir_create(".binder")
     fs::file_move("Dockerfile", ".binder/Dockerfile")
-    cliapp::cli_alert_success("Dockerfile written to .binder/Dockerfile")
+    cliapp::cli_alert_success("Dockerfile generated at .binder/Dockerfile")
   }
