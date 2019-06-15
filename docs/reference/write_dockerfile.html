@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Write a minimal Dockerfile for a binder — write_dockerfile • holepunch</title>
+<title>Write a minimal Dockerfile for a Binder — write_dockerfile • holepunch</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Write a minimal Dockerfile for a binder — write_dockerfile" />
+<meta property="og:title" content="Write a minimal Dockerfile for a Binder — write_dockerfile" />
 
-<meta property="og:description" content="Write a minimal Dockerfile for a binder" />
+<meta property="og:description" content="Write a minimal Dockerfile for a Binder" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -101,14 +101,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Write a minimal Dockerfile for a binder</h1>
+    <h1>Write a minimal Dockerfile for a Binder</h1>
     <small class="dont-index">Source: <a href='https://github.com/karthik/holepunch/blob/master/R/write_dockerfile.R'><code>R/write_dockerfile.R</code></a></small>
     <div class="hidden name"><code>write_dockerfile.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Write a minimal Dockerfile for a binder</p>
+    <p>Write a minimal Dockerfile for a Binder</p>
     
     </div>
 
@@ -120,11 +120,16 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>base</th>
-      <td><p>Rocker base</p></td>
+      <td><p>Your Docker base. I recommend that you use a binder base from the
+<a href='https://www.rocker-project.org/images/'>rocker project</a>. This daily
+image will contain all the Jupyter hub elements + Rstudio Server + the
+tidyverse (which cuts down on installation time). The only thing then left
+to do is to install any additional packages listed in your DESCRIPTION
+file, which will be done during the build_binder step.</p></td>
     </tr>
     <tr>
       <th>path</th>
-      <td><p>path to binder repo</p></td>
+      <td><p>path to binder repo. Defaults to current location.</p></td>
     </tr>
     <tr>
       <th>maintainer</th>
@@ -133,7 +138,9 @@
     <tr>
       <th>r_date</th>
       <td><p>The date for which you'd like to lock down this project.
-Projects that match current release date go to "latest"</p></td>
+Projects that match current release date go to "latest". This will be
+automatically determined from your code, so the recommendation is not to
+override this unless you have a specific reason to do so.</p></td>
     </tr>
     </table>
     

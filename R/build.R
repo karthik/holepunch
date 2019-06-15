@@ -60,5 +60,5 @@ parse_streamer <-
     badge_url <- gsub("https://mybinder.org/build/gh/", "", url)
     full_badge_url <-
       glue::glue("https://{hub}/v2/gh/{badge_url}/?urlpath={urlpath}")
-    browseURL(full_badge_url)
+    utils::browseURL(full_badge_url)
   }

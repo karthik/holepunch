@@ -3,7 +3,7 @@
 
 #' Generates a Binder badge to add to your README
 #'
-#' @param hub The binder hub you wish to use. The default is mybinder but you can also try Pangeo
+#' @param hub The binder hub you wish to use. The default is mybinder but you can also try \href{https://binder.pangeo.io/}{Pangeo}
 #' @param urlpath For R users we recommend the default Rstudio. If you wish to use vanilla Jupyter, leave this blank.
 #' @param path Assumes local folder unless you say otherwise
 #'

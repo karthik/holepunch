@@ -2,21 +2,28 @@
 % Please edit documentation in R/write_dockerfile.R
 \name{write_dockerfile}
 \alias{write_dockerfile}
-\title{Write a minimal Dockerfile for a binder}
+\title{Write a minimal Dockerfile for a Binder}
 \usage{
 write_dockerfile(base = NULL, path = ".", maintainer = "karthik",
   r_date = NULL)
 }
 \arguments{
-\item{base}{Rocker base}
+\item{base}{Your Docker base. I recommend that you use a binder base from the
+\href{https://www.rocker-project.org/images/}{rocker project}. This daily
+image will contain all the Jupyter hub elements + Rstudio Server + the
+tidyverse (which cuts down on installation time). The only thing then left
+to do is to install any additional packages listed in your DESCRIPTION
+file, which will be done during the build_binder step.}
 
-\item{path}{path to binder repo}
+\item{path}{path to binder repo. Defaults to current location.}
 
 \item{maintainer}{Maintainer of the Dockerfile}
 
 \item{r_date}{The date for which you'd like to lock down this project.
-Projects that match current release date go to "latest"}
+Projects that match current release date go to "latest". This will be
+automatically determined from your code, so the recommendation is not to
+override this unless you have a specific reason to do so.}
 }
 \description{
-Write a minimal Dockerfile for a binder
+Write a minimal Dockerfile for a Binder
 }

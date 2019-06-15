@@ -1,14 +1,21 @@
-#' Write a minimal Dockerfile for a binder
+#' Write a minimal Dockerfile for a Binder
 #'
-#' @param base Rocker base
+#' @param base Your Docker base. I recommend that you use a binder base from the
+#'   \href{https://www.rocker-project.org/images/}{rocker project}. This daily
+#'   image will contain all the Jupyter hub elements + Rstudio Server + the
+#'   tidyverse (which cuts down on installation time). The only thing then left
+#'   to do is to install any additional packages listed in your DESCRIPTION
+#'   file, which will be done during the build_binder step.
 #' @param maintainer Maintainer of the Dockerfile
 #' @param r_date  The date for which you'd like to lock down this project.
-#'   Projects that match current release date go to "latest"
-#' @param path path to binder repo
+#'   Projects that match current release date go to "latest". This will be
+#'   automatically determined from your code, so the recommendation is not to
+#'   override this unless you have a specific reason to do so.
+#' @param path path to binder repo. Defaults to current location.
 #'
 #' @importFrom glue glue
 #' @export
-#'
+#' 
 write_dockerfile <-
   function(base = NULL,
            path = ".",
