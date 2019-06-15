@@ -24,7 +24,9 @@ build_binder <- function(path = ".", hub = "mybinder.org") {
     glue::glue("https://{hub}/build/gh/{user}/{repo}/master")
   cliapp::cli_alert_info(glue::glue("Building binder at {binder_runtime}"))
   res <- httr::GET(binder_runtime)
-  parse_streamer(url = binder_runtime)
+  parse_streamer(
+    url = binder_runtime
+  )
   return(binder_runtime)
 }
 
@@ -32,23 +34,31 @@ build_binder <- function(path = ".", hub = "mybinder.org") {
 #' @importFrom jsonlite fromJSON
 #' @importFrom curl curl
 #' @keywords internal
-parse_streamer <- function(url, cb = print) {
-  # Many thanks to Jeroem Ooms for this parser!
-  con <- curl::curl(url = url)
-  open(con)
-  on.exit(close(con))
-  repeat {
-    txt <- readLines(con, 1)
-    if (!length(txt)) {
-      print("All done!")
-      cb(NULL)
-      break
-      
+parse_streamer <-
+  function(url,
+           cb = print,
+           hub = "mybinder.org",
+           urlpath = "rstudio") {
+    # Many thanks to Jeroem Ooms for this parser!
+    con <- curl::curl(url = url)
+    open(con)
+    on.exit(close(con))
+    repeat {
+      txt <- readLines(con, 1)
+      if (!length(txt)) {
+        print("All done!")
+        cb(NULL)
+        break
+        
+      }
+      if (grepl("^data:", txt)) {
+        json <- sub("^data:", "", txt)
+        data <- jsonlite::fromJSON(json)
+        cb(data)
+      }
     }
-    if (grepl("^data:", txt)) {
-      json <- sub("^data:", "", txt)
-      data <- jsonlite::fromJSON(json)
-      cb(data)
-    }
+    badge_url <- gsub("https://mybinder.org/build/gh/", "", url)
+    full_badge_url <-
+      glue::glue("https://{hub}/v2/gh/{badge_url}/?urlpath={urlpath}")
+    browseURL(full_badge_url)
   }
-}
