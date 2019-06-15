@@ -106,22 +106,23 @@
 <p><em>Marwick B, Boettiger C, Mullen L. 2018. <a href="https://peerj.com/preprints/3192/">Packaging data analytical work reproducibly using R (and friends)</a> PeerJ Preprints 6:e3192v2 <a href="https://doi.org/10.7287/peerj.preprints.3192v2" class="uri">https://doi.org/10.7287/peerj.preprints.3192v2</a></em></p>
 <p>and also looking through my <a href="http://inundata.org/talks/rstd19/#/">presentation at RStudio::conf 2019</a> where I talk about this in detail.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(holepunch)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="reference/write_compendium_description.html">write_compendium_description</a></span>()</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="co"># to write a description, with dependencies listed </span></a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="co"># It's good practice to now go fill in the placeholder text.</span></a>
-<a class="sourceLine" id="cb2-5" title="5"></a>
-<a class="sourceLine" id="cb2-6" title="6"><span class="kw"><a href="reference/write_dockerfile.html">write_dockerfile</a></span>(<span class="dt">maintainer =</span> <span class="st">"your_name"</span>) </a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="co"># To write a dockerfile. It will automatically pick the date of the last modified file, match it to </span></a>
-<a class="sourceLine" id="cb2-8" title="8"><span class="co"># that version of R and add it here. You can override this by passing r_date to some arbitrary date (but one for which a R version exists).</span></a>
-<a class="sourceLine" id="cb2-9" title="9"></a>
-<a class="sourceLine" id="cb2-10" title="10"><span class="kw"><a href="reference/generate_badge.html">generate_badge</a></span>()</a>
-<a class="sourceLine" id="cb2-11" title="11"><span class="co"># This generates a badge for your readme.</span></a>
-<a class="sourceLine" id="cb2-12" title="12"></a>
-<a class="sourceLine" id="cb2-13" title="13"><span class="co"># At this time 🙌 push the code to GitHub 🙌</span></a>
-<a class="sourceLine" id="cb2-14" title="14"></a>
-<a class="sourceLine" id="cb2-15" title="15"><span class="co"># And click on the button OR use to get the build ready ahead of time.</span></a>
-<a class="sourceLine" id="cb2-16" title="16"><span class="kw"><a href="reference/build_binder.html">build_binder</a></span>()</a>
-<a class="sourceLine" id="cb2-17" title="17"><span class="co"># 🤞🚀</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="reference/write_compendium_description.html">write_compendium_description</a></span>(<span class="dt">Package =</span> <span class="st">"Your compendium name"</span>, </a>
+<a class="sourceLine" id="cb2-3" title="3">                             <span class="dt">Description =</span> <span class="st">"Your compendium description"</span>)</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co"># to write a description, with dependencies listed </span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="co"># It's good practice to now go fill in the placeholder text.</span></a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="kw"><a href="reference/write_dockerfile.html">write_dockerfile</a></span>(<span class="dt">maintainer =</span> <span class="st">"your_name"</span>) </a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="co"># To write a dockerfile. It will automatically pick the date of the last modified file, match it to </span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="co"># that version of R and add it here. You can override this by passing r_date to some arbitrary date (but one for which a R version exists).</span></a>
+<a class="sourceLine" id="cb2-10" title="10"></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="kw"><a href="reference/generate_badge.html">generate_badge</a></span>()</a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="co"># This generates a badge for your readme.</span></a>
+<a class="sourceLine" id="cb2-13" title="13"></a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="co"># At this time 🙌 push the code to GitHub 🙌</span></a>
+<a class="sourceLine" id="cb2-15" title="15"></a>
+<a class="sourceLine" id="cb2-16" title="16"><span class="co"># And click on the button OR use to get the build ready ahead of time.</span></a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="kw"><a href="reference/build_binder.html">build_binder</a></span>()</a>
+<a class="sourceLine" id="cb2-18" title="18"><span class="co"># 🤞🚀</span></a></code></pre></div>
 <div id="alternate-setup-method" class="section level4">
 <h4 class="hasAnchor">
 <a href="#alternate-setup-method" class="anchor"></a>Alternate setup method</h4>

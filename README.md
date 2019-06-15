@@ -42,7 +42,8 @@ and also looking through my [presentation at RStudio::conf 2019](http://inundata
 
 ```r
 library(holepunch)
-write_compendium_description()
+write_compendium_description(Package = "Your compendium name", 
+                             Description = "Your compendium description")
 # to write a description, with dependencies listed 
 # It's good practice to now go fill in the placeholder text.
 
