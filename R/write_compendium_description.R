@@ -32,10 +32,10 @@ write_compendium_description <-
     Depends = get_dependencies(path)
     fields <-
       list(
-        Type = type,
-        Package = package,
-        Version = version,
-        Description = description,
+        Type = Type,
+        Package = Package,
+        Version = Version,
+        Description = Description,
         Depends = paste0(Depends, collapse = ", ")
       )
     # TO-FIX
