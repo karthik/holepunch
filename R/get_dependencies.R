@@ -1,4 +1,4 @@
-#' Pulls out R dependencies from a folder. 
+#' Pulls out R dependencies from a folder.
 #'
 #' @param path Path to search
 #' @importFrom fs dir_ls

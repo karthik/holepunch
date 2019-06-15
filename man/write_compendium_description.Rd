@@ -25,8 +25,8 @@ it easy for anyone to 'install' your analysis dependencies. This makes it
 possible for someone to run your code easily.
 }
 \details{
-To automatically populate author information, you may set usethis options in your `.rprofile`` like so.
-options(
+To automatically populate author information, you may set usethis options in your `.rprofile` like so.
+\code{options(
   usethis.full_name = "Karthik Ram",
   usethis.description = list(
   `Authors@R` = 'person("Karthik", "Ram", email = "karthik.ram@gmail.com", role = c("aut", "cre"),
@@ -34,5 +34,5 @@ options(
   License = "MIT + file LICENSE",
   Version = "0.0.0.9000"
   )
-)
+)}
 }
