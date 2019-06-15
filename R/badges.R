@@ -18,9 +18,9 @@ generate_badge <-  function(path  = ".", hub = "mybinder.org", urlpath = "rstudi
     repo <- gh_tree_remote(path)$repo
     url <-
       glue("https://{hub}/v2/gh/",
-           user,
+           {user},
            "/",
-           repo,
+           {repo},
            "/master?urlpath={urlpath}")
       # TODO: mybinder is hard coded. Must fix.
     img <- glue("http://{hub}/badge.svg")

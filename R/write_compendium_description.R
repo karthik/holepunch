@@ -4,7 +4,8 @@
 #' it easy for anyone to 'install' your analysis dependencies. This makes it
 #' possible for someone to run your code easily.
 #' @param Type Default here is compendium
-#' @param Package  Name of your project
+#' @param Package  Name of your compendium
+#' @param Description  Description of your compendium
 #' @param Version  Version of your compendium
 #' @param path path to project (in case it is elsewhere)
 #' @importFrom desc description
@@ -13,6 +14,7 @@
 write_compendium_description <-
   function(Type = "Compendium",
            Package = "Compendium title",
+           Description = "Compendium Description",
            Version = "0.0.1",
            path = ".") {
     Depends = get_dependencies(path)
@@ -21,6 +23,7 @@ write_compendium_description <-
         Type = Type,
         Package = Package,
         Version = Version,
+        Description = Description,
         Depends = paste0(Depends, collapse = ", ")
       )
     # Using an internal function here

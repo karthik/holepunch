@@ -5,12 +5,15 @@
 \title{Creates a description file for a compendium}
 \usage{
 write_compendium_description(Type = "Compendium",
-  Package = "Compendium title", Version = "0.0.1", path = ".")
+  Package = "Compendium title", Description = "Compendium Description",
+  Version = "0.0.1", path = ".")
 }
 \arguments{
 \item{Type}{Default here is compendium}
 
-\item{Package}{Name of your project}
+\item{Package}{Name of your compendium}
+
+\item{Description}{Description of your compendium}
 
 \item{Version}{Version of your compendium}
 
