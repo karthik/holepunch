@@ -4,18 +4,18 @@
 \alias{write_compendium_description}
 \title{Creates a description file for a compendium}
 \usage{
-write_compendium_description(type = "Compendium",
-  package = "Compendium title", description = "Compendium description",
-  version = "0.0.1", path = ".")
+write_compendium_description(Type = "Compendium",
+  Package = "Compendium title", Description = "Compendium description",
+  Version = "0.0.1", path = ".")
 }
 \arguments{
-\item{type}{Default here is compendium}
+\item{Type}{Default here is compendium}
 
-\item{package}{Name of your compendium}
+\item{Package}{Name of your compendium}
 
-\item{description}{Description of your compendium}
+\item{Description}{Description of your compendium}
 
-\item{version}{Version of your compendium}
+\item{Version}{Version of your compendium}
 
 \item{path}{path to project (in case it is not in the current working directory)}
 }

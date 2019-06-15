@@ -15,27 +15,27 @@
 #'   )
 #' )}
 #'
-#' @param type Default here is compendium
-#' @param package  Name of your compendium
-#' @param description  Description of your compendium
-#' @param version  Version of your compendium
+#' @param Type Default here is compendium
+#' @param Package  Name of your compendium
+#' @param Description  Description of your compendium
+#' @param Version  Version of your compendium
 #' @param path path to project (in case it is not in the current working directory)
 #' @importFrom desc description
 #'
 #' @export
 write_compendium_description <-
-  function(type = "Compendium",
-           package = "Compendium title",
-           description = "Compendium description",
-           version = "0.0.1",
+  function(Type = "Compendium",
+           Package = "Compendium title",
+           Description = "Compendium description",
+           Version = "0.0.1",
            path = ".") {
     Depends = get_dependencies(path)
     fields <-
       list(
-        type = type,
-        package = package,
-        version = version,
-        description = description,
+        Type = type,
+        Package = package,
+        Version = version,
+        Description = description,
         Depends = paste0(Depends, collapse = ", ")
       )
     # TO-FIX
