@@ -9,13 +9,13 @@
  
 ![binder-bam](https://i.imgur.com/oqWl512.png)
 
-## Why this is awesome
+### Why this is awesome
 
 - You can launch a free instance of Rstudio server from any of your projects on GitHub. The instance will have all of your dependencies and version of R installed and ready to go!
 - Easily allow anyone (up to 100 simultaneous users) to replicate or modify your analysis
 - Free
 
-## Limitations
+### Limitations
 
 - The server has limited ram and you cannot load large datasets or run big computations
 - Binder is meant for interactive and ephemeral interactive coding so an instance will die after 10 minutes of inactivity.

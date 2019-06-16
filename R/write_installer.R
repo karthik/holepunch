@@ -18,6 +18,6 @@ write_install <- function(path = ".") {
   res <-
     lapply(packages, function(x)
       glue::glue("install.packages('", x, "')"))
-  fs::dir_create(".binder")
-  usethis::write_over(usethis::proj_path(".binder/install.R"), unlist(res))
+  fs::dir_create(glue("{path}/.binder"))
+  usethis::write_over(glue("{path}/.binder/install.R"), unlist(res))
 }

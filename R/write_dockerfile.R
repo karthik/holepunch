@@ -70,12 +70,10 @@ RUN wget https://github.com/[user]/[repo]/raw/master/DESCRIPTION && R -e \"optio
       .close = "]"
     ) -> docker_contents
     
-    
-    fileConn <- file("Dockerfile")
+    fs::dir_create(glue("{path}/.binder"))
+    fileConn <- file(glue("{path}/.binder/Dockerfile"))
     writeLines(docker_contents, fileConn)
     close(fileConn)
-    
-    fs::dir_create(".binder")
-    fs::file_move("Dockerfile", ".binder/Dockerfile")
-    cliapp::cli_alert_success("Dockerfile generated at .binder/Dockerfile")
+
+    cliapp::cli_alert_success(glue("Dockerfile generated at {path}/.binder/Dockerfile"))
   }
