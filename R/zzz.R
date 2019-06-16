@@ -43,3 +43,8 @@ r_version_lookup <- function(date = NULL) {
 `%:::%` = function(pkg, fun)
   get(fun, envir = asNamespace(pkg),
       inherits = FALSE)
+
+#' @noRd
+sanitize_path <- function(path) {
+    sub("/+$", "", path)
+}
