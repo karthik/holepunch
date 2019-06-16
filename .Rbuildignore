@@ -11,3 +11,4 @@ docs/
 build.sh
 man-roxygen/
 holepunch.png
+^appveyor\.yml$
