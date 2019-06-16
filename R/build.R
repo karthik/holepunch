@@ -16,6 +16,8 @@ build_binder <- function(path = ".", hub = "mybinder.org") {
   # and prompt the user to commit + push before launching the build.
   # What is an elegant way to do this without piling on more dependencies?
   # ----
+  
+  path <- sanitize_path(path)
   cliapp::cli_alert_warning("This may take a while but you can kill this process and the build will still continue")
   user <- gh_tree_remote(path)$username
   repo <- gh_tree_remote(path)$repo

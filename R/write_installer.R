@@ -13,7 +13,7 @@ write_install <- function(path = ".") {
       "A Dockerfile exists in .binder/. This means that all other settings (runtime.txt and install.R will be ignored. Consider deleting the Dockerfile if you wish to take the runtime approach"
     )
   }
-  
+  path <- sanitize_path(path) # To kill trailing slashes
   packages <- get_dependencies(path)
   res <-
     lapply(packages, function(x)

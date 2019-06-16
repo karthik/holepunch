@@ -11,9 +11,12 @@
 write_runtime <-
   function(path = ".",
            r_date = lubridate::ymd(lubridate::today())) {
-    if (fs::file_exists(".binder/Dockerfile")) {
+    path <- sanitize_path(path) # To kill trailing slashes
+    if (fs::file_exists(glue("{path}/.binder/Dockerfile"))) {
       cliapp::cli_alert_warning(
-        "A Dockerfile exists in .binder/. This means that all other settings (runtime.txt and install.R will be ignored. Consider deleting the Dockerfile if you wish to take the runtime approach"
+        glue(
+          "A Dockerfile exists in {path}/.binder/. This means that all other settings (runtime.txt and install.R will be ignored. Consider deleting the Dockerfile if you wish to take the runtime approach"
+        )
       )
     }
     

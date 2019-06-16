@@ -56,6 +56,8 @@ write_compendium_description <-
       desc$str(by_field = TRUE,
                normalize = FALSE,
                mode = "file")
-    usethis::write_over(here::here("DESCRIPTION"), lines)
+    path <- sanitize_path(path) # To kill trailing slashes
+    
+    usethis::write_over(glue("{path}/DESCRIPTION"), lines)
     cliapp::cli_alert_info("Please update the description fields, particularly the title, description and author")
   }

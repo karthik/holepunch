@@ -69,7 +69,7 @@ RUN wget https://github.com/[user]/[repo]/raw/master/DESCRIPTION && R -e \"optio
       .open = "[",
       .close = "]"
     ) -> docker_contents
-    
+    path <- sanitize_path(path) # To kill trailing slashes
     fs::dir_create(glue("{path}/.binder"))
     fileConn <- file(glue("{path}/.binder/Dockerfile"))
     writeLines(docker_contents, fileConn)
