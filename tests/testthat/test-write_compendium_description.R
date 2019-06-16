@@ -1,0 +1,18 @@
+test_that("Write Compendium Description", {
+  library(glue)
+  x <- tempdir(check = TRUE)
+  message(glue("Path for tempdir is {x}"))
+  fs::dir_create(glue("{x}/.binder"))
+  z <- glue::glue("
+            library(curl)
+            library(fs)
+            library(here)
+            fs::dir_exists('.')
+            ")
+  fileConn <- file(glue("{x}/z.R"))
+  writeLines(z, fileConn)
+  close(fileConn)
+  write_compendium_description(path = x)
+  expect_true(fs::file_exists(glue("{x}/DESCRIPTION")))
+  fs::dir_delete(x)
+})
