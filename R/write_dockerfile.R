@@ -20,7 +20,7 @@
 #'
 #' @importFrom glue glue
 #' @export
-#' 
+#'
 write_dockerfile <-
   function(base = NULL,
            path = ".",
@@ -30,6 +30,13 @@ write_dockerfile <-
     if (!fs::file_exists("DESCRIPTION")) {
       stop(
         "Your compendium does not have a DESCRIPTION file.  Without one, this Dockerfile approach will not be able to install dependencies. Run write_compendium_description() before running this function",
+        call. = FALSE
+      )
+    }
+    
+    if (!has_a_git_remote()) {
+      stop(
+        "Cannot write a Dockerfile without a Git remote. Connect this to a git remote before generating a Dockerfile",
         call. = FALSE
       )
     }
@@ -52,7 +59,8 @@ write_dockerfile <-
     DATE = ifelse(is.null(r_date), last_modification_date("."), r_date)
     # TODO: Not sure why I need to do this because otherwise I get a numeric
     DATE = as.Date(DATE, origin = "1970-01-01")
-    if(is.null(maintainer)) maintainer = "Unknown"
+    if (is.null(maintainer))
+      maintainer = "Unknown"
     MAINTAINER = maintainer
     
     # Set the binder base here. Users can override this by passing a base argument
@@ -80,6 +88,6 @@ RUN wget https://github.com/[user]/[repo]/raw/master/DESCRIPTION && R -e \"optio
     fileConn <- file(glue("{path}/.binder/Dockerfile"))
     writeLines(docker_contents, fileConn)
     close(fileConn)
-
+    
     cliapp::cli_alert_success(glue("Dockerfile generated at {path}/.binder/Dockerfile"))
   }
