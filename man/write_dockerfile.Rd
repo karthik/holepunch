@@ -4,8 +4,8 @@
 \alias{write_dockerfile}
 \title{Write a minimal Dockerfile for a Binder}
 \usage{
-write_dockerfile(base = NULL, path = ".", maintainer = "karthik",
-  r_date = NULL)
+write_dockerfile(base = NULL, path = ".",
+  maintainer = getOption("usethis.full_name"), r_date = NULL)
 }
 \arguments{
 \item{base}{Your Docker base. I recommend that you use a binder base from the
@@ -17,7 +17,12 @@ file, which will be done during the build_binder step.}
 
 \item{path}{path to binder repo. Defaults to current location.}
 
-\item{maintainer}{Maintainer of the Dockerfile}
+\item{maintainer}{Maintainer of the Dockerfile. By default the function reads
+`usethis.full_name` set in Options. The same information is used to set the
+author on your DESCRIPTION file.  For more information on setting up
+default values for Description files, reasd the
+\href{https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences}{Rstudio usethis
+documentation}.}
 
 \item{r_date}{The date for which you'd like to lock down this project.
 Projects that match current release date go to "latest". This will be

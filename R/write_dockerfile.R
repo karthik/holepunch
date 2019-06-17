@@ -6,7 +6,12 @@
 #'   tidyverse (which cuts down on installation time). The only thing then left
 #'   to do is to install any additional packages listed in your DESCRIPTION
 #'   file, which will be done during the build_binder step.
-#' @param maintainer Maintainer of the Dockerfile
+#' @param maintainer Maintainer of the Dockerfile. By default the function reads
+#'   `usethis.full_name` set in Options. The same information is used to set the
+#'   author on your DESCRIPTION file.  For more information on setting up
+#'   default values for Description files, reasd the
+#'   \href{https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences}{Rstudio usethis
+#'   documentation}.
 #' @param r_date  The date for which you'd like to lock down this project.
 #'   Projects that match current release date go to "latest". This will be
 #'   automatically determined from your code, so the recommendation is not to
@@ -19,7 +24,7 @@
 write_dockerfile <-
   function(base = NULL,
            path = ".",
-           maintainer = "karthik",
+           maintainer = getOption("usethis.full_name"),
            r_date = NULL)
   {
     if (!fs::file_exists("DESCRIPTION")) {
@@ -47,6 +52,7 @@ write_dockerfile <-
     DATE = ifelse(is.null(r_date), last_modification_date("."), r_date)
     # TODO: Not sure why I need to do this because otherwise I get a numeric
     DATE = as.Date(DATE, origin = "1970-01-01")
+    if(is.null(maintainer)) maintainer = "Unknown"
     MAINTAINER = maintainer
     
     # Set the binder base here. Users can override this by passing a base argument
