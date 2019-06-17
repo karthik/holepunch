@@ -65,7 +65,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">holepunch</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.10.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.10.9000</span>
       </span>
     </div>
 
@@ -112,8 +112,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>write_dockerfile</span>(<span class='kw'>base</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>maintainer</span> <span class='kw'>=</span> <span class='st'>"karthik"</span>,
-  <span class='kw'>r_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>write_dockerfile</span>(<span class='kw'>base</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
+  <span class='kw'>maintainer</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"usethis.full_name"</span>), <span class='kw'>r_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,7 +133,12 @@ file, which will be done during the build_binder step.</p></td>
     </tr>
     <tr>
       <th>maintainer</th>
-      <td><p>Maintainer of the Dockerfile</p></td>
+      <td><p>Maintainer of the Dockerfile. By default the function reads
+`usethis.full_name` set in Options. The same information is used to set the
+author on your DESCRIPTION file.  For more information on setting up
+default values for Description files, reasd the
+<a href='https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences'>Rstudio usethis
+documentation</a>.</p></td>
     </tr>
     <tr>
       <th>r_date</th>

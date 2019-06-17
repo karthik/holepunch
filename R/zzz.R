@@ -48,3 +48,12 @@ r_version_lookup <- function(date = NULL) {
 sanitize_path <- function(path) {
     sub("/+$", "", path)
 }
+
+#' @noRd
+has_a_git_remote <- function() {
+  
+  is_a_git_repo <- TRUE
+  base::tryCatch( { result <- usethis::git_remotes(); }
+            , error = function(e) {is_a_git_repo <<- FALSE})
+  print(is_a_git_repo)
+}
