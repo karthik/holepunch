@@ -1,6 +1,5 @@
 Package: holepunch
-Title: Sets up configuration files to make your R project a
-    binder that works with a 'binderhub'
+Title: Configure your R project for 'Binder'
 Version: 0.1.10.9000
 Authors@R: 
     person(given = "Karthik",
@@ -22,7 +21,7 @@ Imports:
     fs,
     gh,
     glue,
-    git2r,
+    git2r (>= 0.23),
     here,
     httr,
     jsonlite,

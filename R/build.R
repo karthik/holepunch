@@ -11,11 +11,10 @@
 #' @importFrom cliapp cli_alert_warning
 #' @export
 build_binder <- function(path = ".", hub = "mybinder.org") {
-  # TODO ------
-  # I need to check if there are uncommitted files in the repo
-  # and prompt the user to commit + push before launching the build.
-  # What is an elegant way to do this without piling on more dependencies?
-  # ----
+ 
+  if(!is_clean(path)) {
+    stop("Please commmit and push files to GitHub before building binder. Otherwise Binder cannot see these new files/changes", call. = FALSE)
+  }
   
   path <- sanitize_path(path)
   cliapp::cli_alert_warning("This may take a while but you can kill this process and the build will still continue")
