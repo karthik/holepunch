@@ -57,3 +57,10 @@ has_a_git_remote <- function() {
             , error = function(e) {is_a_git_repo <<- FALSE})
   print(is_a_git_repo)
 }
+
+
+#' @noRd
+is_clean <- function(repo)
+{
+  sum(vapply(git2r::status(repo), length, numeric(1))) == 0
+}

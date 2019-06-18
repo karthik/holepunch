@@ -22,6 +22,7 @@ Imports:
     fs,
     gh,
     glue,
+    git2r,
     here,
     httr,
     jsonlite,
