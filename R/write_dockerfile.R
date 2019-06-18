@@ -15,7 +15,7 @@
 #' @param r_date  The date for which you'd like to lock down this project.
 #'   Projects that match current release date go to "latest". This will be
 #'   automatically determined from your code, so the recommendation is not to
-#'   override this unless you have a specific reason to do so.
+#'   override this unless you have a specific reason to do so. Date must be in ISO 8601 format.
 #' @param path path to binder repo. Defaults to current location.
 #'
 #' @importFrom glue glue
