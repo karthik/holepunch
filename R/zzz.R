@@ -40,9 +40,11 @@ r_version_lookup <- function(date = NULL) {
 }
 
 #' @noRd
+# nocov start
 `%:::%` = function(pkg, fun)
   get(fun, envir = asNamespace(pkg),
       inherits = FALSE)
+# nocov end
 
 #' @noRd
 sanitize_path <- function(path) {
@@ -50,6 +52,7 @@ sanitize_path <- function(path) {
 }
 
 #' @noRd
+# nocov start
 has_a_git_remote <- function() {
   
   is_a_git_repo <- TRUE
@@ -57,10 +60,12 @@ has_a_git_remote <- function() {
             , error = function(e) {is_a_git_repo <<- FALSE})
   print(is_a_git_repo)
 }
+# nocov end
 
-
+# nocov start
 #' @noRd
 is_clean <- function(repo)
 {
   sum(vapply(git2r::status(repo), length, numeric(1))) == 0
 }
+# nocov end
