@@ -19,6 +19,7 @@ Imports:
     cliapp,
     desc,
     fs,
+    future,
     gh,
     glue,
     git2r (>= 0.23),
@@ -26,6 +27,7 @@ Imports:
     httr,
     jsonlite,
     lubridate,
+    promises,
     requirements,
     usethis
 Remotes: hadley/requirements

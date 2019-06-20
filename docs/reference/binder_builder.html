@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Write runtime.txt — write_runtime • holepunch</title>
+<title>Builds binder — binder_builder • holepunch</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,12 @@
 
 
 
-<meta property="og:title" content="Write runtime.txt — write_runtime" />
+<meta property="og:title" content="Builds binder — binder_builder" />
 
-<meta property="og:description" content="Write runtime.txt" />
+<meta property="og:description" content="This function kicks off the image build on binder. Although it is not
+entirely necessary to run this step, doing so will ensure that there is a
+built image on binder ready to launch. Otherwise the first time (or if your
+binder is infrequently used), the build can take a long time." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -101,31 +104,36 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Write runtime.txt</h1>
-    <small class="dont-index">Source: <a href='https://github.com/karthik/holepunch/blob/master/R/write_runtime.R'><code>R/write_runtime.R</code></a></small>
-    <div class="hidden name"><code>write_runtime.Rd</code></div>
+    <h1>Builds binder</h1>
+    <small class="dont-index">Source: <a href='https://github.com/karthik/holepunch/blob/master/R/build.R'><code>R/build.R</code></a></small>
+    <div class="hidden name"><code>binder_builder.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Write runtime.txt</p>
+    <p>This function kicks off the image build on binder. Although it is not
+entirely necessary to run this step, doing so will ensure that there is a
+built image on binder ready to launch. Otherwise the first time (or if your
+binder is infrequently used), the build can take a long time.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>write_runtime</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>r_date</span> <span class='kw'>=</span> <span class='kw pkg'>lubridate</span><span class='kw ns'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/ymd.html'>ymd</a></span>(<span class='kw pkg'>lubridate</span><span class='kw ns'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/today.html'>today</a></span>()))</pre>
+    <pre class="usage"><span class='fu'>binder_builder</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>hub</span> <span class='kw'>=</span> <span class='st'>"mybinder.org"</span>, <span class='kw'>urlpath</span> <span class='kw'>=</span> <span class='st'>"rstudio"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>path</th>
-      <td><p>Path to project</p></td>
+      <td><p>path to local git controlled folder</p></td>
     </tr>
     <tr>
-      <th>r_date</th>
-      <td><p>Date you need R to lock down to. By default it picks the most
-recent date a file was touched in this project but you can override this by
-specifying this explicitly. Date must be in ISO 8601 format.</p></td>
+      <th>hub</th>
+      <td><p>The binder hub you wish to use. The default is mybinder but you can also try <a href='https://binder.pangeo.io/'>Pangeo</a></p></td>
+    </tr>
+    <tr>
+      <th>urlpath</th>
+      <td><p>RStudio</p></td>
     </tr>
     </table>
     
