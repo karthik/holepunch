@@ -6,7 +6,7 @@
 #' binder is infrequently used), the build can take a long time.
 #' @param path path to local git controlled folder
 #' @template hub
-#' @param urlpath RStudio
+#' @template urlpath
 #'
 #' @importFrom httr GET content
 #' @importFrom cliapp cli_alert_warning
@@ -38,7 +38,7 @@ binder_builder <- function(path = ".", hub = "mybinder.org", urlpath = "rstudio"
 #' binder is infrequently used), the build can take a long time.
 #' @param path path to local git controlled folder
 #' @template hub
-#' @param urlpath RStudio
+#' @template urlpath
 #' @export
 build_binder <- function(path = ".", hub = "mybinder.org", urlpath = "rstudio") {
   

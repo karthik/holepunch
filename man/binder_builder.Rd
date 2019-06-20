@@ -11,7 +11,7 @@ binder_builder(path = ".", hub = "mybinder.org", urlpath = "rstudio")
 
 \item{hub}{The binder hub you wish to use. The default is mybinder but you can also try \href{https://binder.pangeo.io/}{Pangeo}}
 
-\item{urlpath}{RStudio}
+\item{urlpath}{Defaults to rstudio for a Rstudio server.}
 }
 \description{
 This function kicks off the image build on binder. Although it is not
