@@ -4,7 +4,7 @@
 #' Generates a Binder badge to add to your README
 #'
 #' @template hub
-#' @param urlpath For R users we recommend the default Rstudio. If you wish to use vanilla Jupyter, leave this blank.
+#' @template urlpath
 #' @param path Assumes local folder unless you say otherwise
 #'
 #' @export

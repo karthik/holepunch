@@ -1,6 +1,6 @@
 Package: holepunch
 Title: Configure your R project for 'Binder'
-Version: 0.1.10.9000
+Version: 0.1.11.9000
 Authors@R: 
     person(given = "Karthik",
            family = "Ram",

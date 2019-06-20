@@ -11,7 +11,7 @@ generate_badge(path = ".", hub = "mybinder.org", urlpath = "rstudio")
 
 \item{hub}{The binder hub you wish to use. The default is mybinder but you can also try \href{https://binder.pangeo.io/}{Pangeo}}
 
-\item{urlpath}{For R users we recommend the default Rstudio. If you wish to use vanilla Jupyter, leave this blank.}
+\item{urlpath}{Defaults to rstudio for a Rstudio server.}
 }
 \description{
 Generates a Binder badge to add to your README
