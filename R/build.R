@@ -36,6 +36,7 @@ binder_builder <-
 #'
 #' This function builds binder in the background and once an image is ready,
 #' will open the Binder URL
+#' @param path path to local git controlled folder
 #' @template hub
 #' @template urlpath
 #' @export
