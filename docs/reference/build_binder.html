@@ -34,10 +34,8 @@
 
 <meta property="og:title" content="Builds binder — build_binder" />
 
-<meta property="og:description" content="This function kicks off the image build on binder. Although it is not
-entirely necessary to run this step, doing so will ensure that there is a
-built image on binder ready to launch. Otherwise the first time (or if your
-binder is infrequently used), the build can take a long time." />
+<meta property="og:description" content="This function builds binder in the background and once an image is ready,
+will open the Binder URL" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -111,10 +109,8 @@ binder is infrequently used), the build can take a long time." />
 
     <div class="ref-description">
     
-    <p>This function kicks off the image build on binder. Although it is not
-entirely necessary to run this step, doing so will ensure that there is a
-built image on binder ready to launch. Otherwise the first time (or if your
-binder is infrequently used), the build can take a long time.</p>
+    <p>This function builds binder in the background and once an image is ready,
+will open the Binder URL</p>
     
     </div>
 
@@ -123,10 +119,6 @@ binder is infrequently used), the build can take a long time.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>path</th>
-      <td><p>path to local git controlled folder</p></td>
-    </tr>
     <tr>
       <th>hub</th>
       <td><p>The binder hub you wish to use. The default is mybinder but you can also try <a href='https://binder.pangeo.io/'>Pangeo</a></p></td>
