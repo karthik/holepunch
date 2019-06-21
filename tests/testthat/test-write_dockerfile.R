@@ -48,6 +48,6 @@ test_that("Writing Dockerfile works", {
   expect_identical(reading_back_dockerfile[4], "COPY . ${HOME}")
   expect_identical(reading_back_dockerfile[5], "RUN chown -R ${NB_USER} ${HOME}")
   
-  fs::dir_delete(test_path)
+  unlink(test_path)
   setwd(old_path)
 })
