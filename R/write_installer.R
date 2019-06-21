@@ -9,7 +9,7 @@
 #'
 write_install <- function(path = ".") {
   if (fs::file_exists(".binder/Dockerfile")) {
-    cliapp::cli_alert_warning(
+    warning(
       "A Dockerfile exists in .binder/. This means that all other settings (runtime.txt and install.R will be ignored. Consider deleting the Dockerfile if you wish to take the runtime approach"
     )
   }
