@@ -2,7 +2,7 @@
 % Please edit documentation in R/build.R
 \name{build_binder}
 \alias{build_binder}
-\title{Builds binder}
+\title{Builds binder in the background (recommended over calling binder_builder directly)}
 \usage{
 build_binder(path = ".", hub = "mybinder.org", urlpath = "rstudio")
 }

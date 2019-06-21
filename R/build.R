@@ -10,7 +10,6 @@
 #'
 #' @importFrom httr GET content
 #' @importFrom cliapp cli_alert_warning
-#' @export
 binder_builder <-
   function(path = ".",
            hub = "mybinder.org",
@@ -32,7 +31,7 @@ binder_builder <-
   }
 
 
-#' Builds binder
+#' Builds binder in the background (recommended over calling binder_builder directly)
 #'
 #' This function builds binder in the background and once an image is ready,
 #' will open the Binder URL

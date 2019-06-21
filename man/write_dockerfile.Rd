@@ -24,10 +24,9 @@ default values for Description files, reasd the
 \href{https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences}{Rstudio usethis
 documentation}.}
 
-\item{r_date}{The date for which you'd like to lock down this project.
-Projects that match current release date go to "latest". This will be
-automatically determined from your code, so the recommendation is not to
-override this unless you have a specific reason to do so. Date must be in ISO 8601 format.}
+\item{r_date}{Date you need R to lock down to. By default it picks the most
+recent date a file was touched in this project but you can override this by
+specifying this explicitly. Date must be in ISO 8601 format.}
 }
 \description{
 Write a minimal Dockerfile for a Binder

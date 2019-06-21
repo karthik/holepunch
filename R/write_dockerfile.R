@@ -12,10 +12,7 @@
 #'   default values for Description files, reasd the
 #'   \href{https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences}{Rstudio usethis
 #'   documentation}.
-#' @param r_date  The date for which you'd like to lock down this project.
-#'   Projects that match current release date go to "latest". This will be
-#'   automatically determined from your code, so the recommendation is not to
-#'   override this unless you have a specific reason to do so. Date must be in ISO 8601 format.
+#' @template r_date  
 #' @param path path to binder repo. Defaults to current location.
 #'
 #' @importFrom glue glue
@@ -54,7 +51,11 @@ write_dockerfile <-
     
     cliapp::cli_alert("Setting R version to {version}")
     R_VERSION = version
-    # Set the date for R packages
+    # Set the date for R packages I have a TODO here: If the user is not on R
+    # latest, but has edited code today, then R_VERSION will be >
+    # users_R_version In this case the user might want to manually override to
+    # the older R version they are using and it might be worth generating a
+    # warning here. I came across this when chatting with Nick Tierney recently.
     
     DATE = ifelse(is.null(r_date), last_modification_date("."), r_date)
     # TODO: Not sure why I need to do this because otherwise I get a numeric
