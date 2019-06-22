@@ -3,4 +3,7 @@ pkgdown: 1.3.0.9100
 pkgdown_sha: 5a70d7edc6d7f09255c8e255c5ab044c7d25e72f
 articles:
   getting_started: getting_started.html
+urls:
+  reference: http://karthik.github.io/holepunch/reference
+  article: http://karthik.github.io/holepunch/articles
 

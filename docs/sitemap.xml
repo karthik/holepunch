@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://karthik.github.io/holepunch/index.html</loc>
+  </url>
+  <url>
+    <loc>http://karthik.github.io/holepunch/reference/binder_builder.html</loc>
+  </url>
+  <url>
+    <loc>http://karthik.github.io/holepunch/reference/build_binder.html</loc>
+  </url>
+  <url>
+    <loc>http://karthik.github.io/holepunch/reference/generate_badge.html</loc>
+  </url>
+  <url>
+    <loc>http://karthik.github.io/holepunch/reference/get_dependencies.html</loc>
+  </url>
+  <url>
+    <loc>http://karthik.github.io/holepunch/reference/last_modification_date.html</loc>
+  </url>
+  <url>
+    <loc>http://karthik.github.io/holepunch/reference/write_compendium_description.html</loc>
+  </url>
+  <url>
+    <loc>http://karthik.github.io/holepunch/reference/write_dockerfile.html</loc>
+  </url>
+  <url>
+    <loc>http://karthik.github.io/holepunch/reference/write_install.html</loc>
+  </url>
+  <url>
+    <loc>http://karthik.github.io/holepunch/reference/write_runtime.html</loc>
+  </url>
+  <url>
+    <loc>http://karthik.github.io/holepunch/articles/getting_started.html</loc>
+  </url>
+</urlset>

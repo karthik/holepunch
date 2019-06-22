@@ -2,6 +2,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 .rprofile
+_pkgdown.yaml
 .Rhistory
 ^\.travis\.yml$
 docs/
