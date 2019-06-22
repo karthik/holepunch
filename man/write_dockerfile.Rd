@@ -9,9 +9,9 @@ write_dockerfile(base = NULL, path = ".",
 }
 \arguments{
 \item{base}{Your Docker base. I recommend that you use a binder base from the
-\href{https://www.rocker-project.org/images/}{rocker project}. This daily
+\href{https://www.rocker-project.org/images/}{Rocker project}. This daily
 image will contain all the Jupyter hub elements + Rstudio Server + the
-tidyverse (which cuts down on installation time). The only thing then left
+Tidyverse (which cuts down on installation time). The only thing then left
 to do is to install any additional packages listed in your DESCRIPTION file,
 which will be done during the build_binder step.}
 
@@ -20,7 +20,7 @@ which will be done during the build_binder step.}
 \item{maintainer}{Maintainer of the Dockerfile. By default the function reads
 `usethis.full_name` set in Options. The same information is used to set the
 author on your DESCRIPTION file.  For more information on setting up default
-values for Description files, reasd the
+values for Description files, read the
 \href{https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences}{Rstudio
 usethis documentation}.}
 
