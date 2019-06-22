@@ -9,7 +9,7 @@ build_binder(path = ".", hub = "mybinder.org", urlpath = "rstudio")
 \arguments{
 \item{path}{path to local Git controlled folder}
 
-\item{hub}{The binder hub you wish to use. The default is mybinder but you can also try \href{https://binder.pangeo.io/}{Pangeo}}
+\item{hub}{mybinder.org (often used synonymously with Binder) is a single deployment of a BinderHub instance, managed by the creators of Binder. It serves as both a public service and a demonstration of the BinderHub technology but it is by no means the only BinderHub in existence. \href{https://binder.pangeo.io/}{Pangeo} (https://binder.pangeo.io/) is another instance of a BinderHub that is hosted by the geoscience community and is free to use for anyone. It is quite like that other BinderHubs will be available in the future. You can use the `hub` argument to set the BinderHub of your choice. If your organization wants to host one (with additional resources to serve your community), please read through the MyBinder documentation (https://mybinder.readthedocs.io ) \href{https://binder.pangeo.io/}{Pangeo}}
 
 \item{urlpath}{Defaults to rstudio for a Rstudio server.}
 }
