@@ -8,14 +8,14 @@ reference:
     desc: Setting up your R project as a research compendium
     contents:
       - '`write_compendium_description`'
-      - '`write_apt`'
-      - '`write_requirements`'
       - '`write_dockerfile`'
       - '`generate_badge`'
       - '`build_binder`'
   - title: Alternate approach to setting up Binder
     desc: Setting up for Binder without using the compendium approach
     contents:
+      - '`write_apt`'
+      - '`write_requirements`'      
       - '`write_runtime`'
       - '`write_install`'
       - '`generate_badge`'
