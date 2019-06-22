@@ -274,7 +274,7 @@
     }
   ],
   "readme": "https://github.com/karthik/holepunch/blob/master/README.md",
-  "fileSize": "14.515KB",
+  "fileSize": "14.514KB",
   "contIntegration": [
     "https://travis-ci.org/karthik/holepunch",
     "https://codecov.io/gh/karthik/holepunch?branch=master",
