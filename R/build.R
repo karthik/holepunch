@@ -1,6 +1,6 @@
 #' Builds binder
 #'
-#' This function kicks off the image build on binder. Although it is not
+#' This function kicks off the image build on Mybinder.org. Although it is not
 #' entirely necessary to run this step, doing so will ensure that there is a
 #' built image on binder ready to launch. Otherwise the first time (or if your
 #' binder is infrequently used), the build can take a long time.
@@ -34,8 +34,9 @@ binder_builder <-
 #' Builds binder in the background (recommended over calling binder_builder directly)
 #'
 #' This function builds binder in the background and once an image is ready,
-#' will open the Binder URL
-#' @param path path to local git controlled folder
+#' will open the Binder URL. You are feel to kill this process anytime and the build
+#' still continue on the server. 
+#' @param path path to local Git controlled folder
 #' @template hub
 #' @template urlpath
 #' @export

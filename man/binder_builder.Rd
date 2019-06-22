@@ -14,7 +14,7 @@ binder_builder(path = ".", hub = "mybinder.org", urlpath = "rstudio")
 \item{urlpath}{Defaults to rstudio for a Rstudio server.}
 }
 \description{
-This function kicks off the image build on binder. Although it is not
+This function kicks off the image build on Mybinder.org. Although it is not
 entirely necessary to run this step, doing so will ensure that there is a
 built image on binder ready to launch. Otherwise the first time (or if your
 binder is infrequently used), the build can take a long time.

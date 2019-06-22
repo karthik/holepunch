@@ -7,7 +7,7 @@
 build_binder(path = ".", hub = "mybinder.org", urlpath = "rstudio")
 }
 \arguments{
-\item{path}{path to local git controlled folder}
+\item{path}{path to local Git controlled folder}
 
 \item{hub}{The binder hub you wish to use. The default is mybinder but you can also try \href{https://binder.pangeo.io/}{Pangeo}}
 
@@ -15,5 +15,6 @@ build_binder(path = ".", hub = "mybinder.org", urlpath = "rstudio")
 }
 \description{
 This function builds binder in the background and once an image is ready,
-will open the Binder URL
+will open the Binder URL. You are feel to kill this process anytime and the build
+still continue on the server.
 }

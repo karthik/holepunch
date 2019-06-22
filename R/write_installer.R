@@ -2,7 +2,7 @@
 
 #' Write a install.R
 #'
-#'Functions writes a list of packages to install one per line
+#' This function writes a list of packages to install one per line in the form of `install.package('package_name')`
 #' @param path Path to project
 #' @importFrom usethis write_over
 #' @export

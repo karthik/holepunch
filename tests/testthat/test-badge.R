@@ -1,4 +1,4 @@
-test_that("Writing Dockerfile works", {
+test_that("Badge works", {
   # Start of the block that needs to be a helper function
   test_path <- paste0(tempdir(), "/testcompendium")
   dir.create(test_path, showWarnings = FALSE)
@@ -37,19 +37,6 @@ test_that("Writing Dockerfile works", {
     file = paste0(test_path, "/test.Rmd")
   )
   # End of the block that needs to be a helper function
-  
-  library(holepunch)
-  write_compendium_description(path = test_path)
-  write_dockerfile(path = test_path, maintainer = "Wes Anderson")
-  
-  reading_back_dockerfile <-
-    readLines(glue::glue("{test_path}/.binder/Dockerfile"))
-  
-  expect_identical(reading_back_dockerfile[2], "LABEL maintainer='Wes Anderson'")
-  expect_identical(reading_back_dockerfile[3], "USER root")
-  expect_identical(reading_back_dockerfile[4], "COPY . ${HOME}")
-  expect_identical(reading_back_dockerfile[5], "RUN chown -R ${NB_USER} ${HOME}")
-  
-  unlink(test_path)
-  setwd(old_path)
+  expect_true(generate_badge())
+  fs::dir_delete(test_path)
 })

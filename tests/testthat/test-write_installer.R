@@ -1,4 +1,5 @@
 test_that("Write installer works", {
+
   temp_path <- tempdir(check = TRUE)
   fs::dir_create(glue::glue("{temp_path}/.binder"))
   z <- glue::glue("

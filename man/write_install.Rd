@@ -10,5 +10,5 @@ write_install(path = ".")
 \item{path}{Path to project}
 }
 \description{
-Functions writes a list of packages to install one per line
+This function writes a list of packages to install one per line in the form of `install.package('package_name')`
 }
