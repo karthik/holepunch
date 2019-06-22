@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • hole punch</title>
+<title>write_apt — write_apt • hole punch</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,7 +32,11 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="write_apt — write_apt" />
+
+<meta property="og:description" content="Writes a list of Debian packages that should be installed before building
+the Docker image" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -49,7 +53,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -108,132 +112,56 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>write_apt</h1>
+    <small class="dont-index">Source: <a href='https://github.com/karthik/holepunch/blob/master/R/apt.R'><code>R/apt.R</code></a></small>
+    <div class="hidden name"><code>write_apt.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>Writes a list of Debian packages that should be installed before building
+the Docker image</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-key-functions" class="hasAnchor"><a href="#section-key-functions" class="anchor"></a>Key Functions</h2>
-          <p class="section-desc"><p>Setting up your R project as a research compendium</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="write_compendium_description.html">write_compendium_description()</a></code> </p>
-        </td>
-        <td><p>Creates a description file for a compendium</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="write_apt.html">write_apt()</a></code> </p>
-        </td>
-        <td><p>write_apt</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="write_requirements.html">write_requirements()</a></code> </p>
-        </td>
-        <td><p>write_requirements</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="write_dockerfile.html">write_dockerfile()</a></code> </p>
-        </td>
-        <td><p>Write a minimal Dockerfile for a Binder</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="generate_badge.html">generate_badge()</a></code> </p>
-        </td>
-        <td><p>Generates a Binder badge to add to your README</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="build_binder.html">build_binder()</a></code> </p>
-        </td>
-        <td><p>Builds binder in the background (recommended over calling `binder_builder` directly)</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-alternate-approach-to-setting-up-binder" class="hasAnchor"><a href="#section-alternate-approach-to-setting-up-binder" class="anchor"></a>Alternate approach to setting up Binder</h2>
-          <p class="section-desc"><p>Setting up for Binder without using the compendium approach</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="write_runtime.html">write_runtime()</a></code> </p>
-        </td>
-        <td><p>Write runtime.txt</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="write_install.html">write_install()</a></code> </p>
-        </td>
-        <td><p>Write a install.R</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="generate_badge.html">generate_badge()</a></code> </p>
-        </td>
-        <td><p>Generates a Binder badge to add to your README</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="build_binder.html">build_binder()</a></code> </p>
-        </td>
-        <td><p>Builds binder in the background (recommended over calling `binder_builder` directly)</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-notable-internals" class="hasAnchor"><a href="#section-notable-internals" class="anchor"></a>Notable Internals</h2>
-          <p class="section-desc"><p>Internal functions and helpers</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="get_dependencies.html">get_dependencies()</a></code> </p>
-        </td>
-        <td><p>Pulls out R dependencies from a folder.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="last_modification_date.html">last_modification_date()</a></code> </p>
-        </td>
-        <td><p>Last Modified late</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="binder_builder.html">binder_builder()</a></code> </p>
-        </td>
-        <td><p>Builds binder</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>write_apt</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>apt_input</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>path</th>
+      <td><p>Path to project</p></td>
+    </tr>
+    <tr>
+      <th>apt_input</th>
+      <td><p>A list of Debian packages that should be installed. The base
+image used is usually the latest released version of Ubuntu.</p></td>
+    </tr>
     </table>
-  </div>
+    
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>write_apt</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
+<span class='kw'>apt_input</span> <span class='kw'>=</span> <span class='st'>"
+texlive-latex-base
+texlive-latex-recommended
+texlive-science
+texlive-latex-extra
+texlive-fonts-recommended
+dvipng
+ghostscript"</span>)</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-key-functions">Key Functions</a></li>
-      <li><a href="#section-alternate-approach-to-setting-up-binder">Alternate approach to setting up Binder</a></li>
-      <li><a href="#section-notable-internals">Notable Internals</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+            
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 

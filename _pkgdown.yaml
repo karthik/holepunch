@@ -8,6 +8,8 @@ reference:
     desc: Setting up your R project as a research compendium
     contents:
       - '`write_compendium_description`'
+      - '`write_apt`'
+      - '`write_requirements`'
       - '`write_dockerfile`'
       - '`generate_badge`'
       - '`build_binder`'
