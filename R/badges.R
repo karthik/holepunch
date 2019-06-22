@@ -18,8 +18,6 @@ generate_badge <-
            hub = "mybinder.org",
            urlpath = "rstudio") {
     
-    # TODO: Not doing anything with the path var here. Do I still need it?
-    
     if (is.list(gh::gh_tree_remote(path))) {
       user <- gh_tree_remote(path)$username
       repo <- gh_tree_remote(path)$repo
