@@ -61,10 +61,9 @@ has_a_git_remote <- function() {
 }
 
 
-# nocov start
+
 #' @noRd
 is_clean <- function(repo)
 {
   sum(vapply(git2r::status(repo), length, numeric(1))) == 0
 }
-# nocov end

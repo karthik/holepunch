@@ -56,6 +56,24 @@ write_dockerfile <-
     # users_R_version In this case the user might want to manually override to
     # the older R version they are using and it might be worth generating a
     # warning here. I came across this when chatting with Nick Tierney recently.
+    # Implemented below:
+    
+    version.string <- R.Version()$version.string
+    users_R_version <- base::strsplit(version.string, ' ')[[1]][3]
+
+    if (!identical(R_VERSION, users_R_version)) {
+      warning(
+        glue(
+          "
+     The version of R matching the last modified file in this project is {R_VERSION} and is 
+     the one being used in your Dockerfile. However, you are running {users_R_version} locally.
+     Assuming your code runs without errors, it might be ok to leave the Dockerfile at 
+     {R_VERSION}. But if you wish to stick to your local version, you can re-run this 
+     function with a fixed date using r_date.
+          "
+        )
+      )
+    }
     
     DATE = ifelse(is.null(r_date), last_modification_date("."), r_date)
     # TODO: Not sure why I need to do this because otherwise I get a numeric

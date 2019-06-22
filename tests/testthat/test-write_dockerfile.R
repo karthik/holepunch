@@ -1,7 +1,6 @@
 test_that("Writing Dockerfile works", {
 source("common.R")
   
-  library(holepunch)
   write_compendium_description(path = test_path)
   write_dockerfile(path = test_path, maintainer = "Wes Anderson")
   
@@ -16,3 +15,4 @@ source("common.R")
   unlink(test_path)
   setwd(old_path)
 })
+

@@ -39,5 +39,5 @@ test_that("Badge works", {
   )
   # End of the block that needs to be a helper function
   expect_true(generate_badge())
-  fs::dir_delete(test_path)
+  unlink(test_path)
 })
