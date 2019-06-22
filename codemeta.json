@@ -274,11 +274,12 @@
     }
   ],
   "readme": "https://github.com/karthik/holepunch/blob/master/README.md",
-  "fileSize": "14.514KB",
+  "fileSize": "15.068KB",
   "contIntegration": [
     "https://travis-ci.org/karthik/holepunch",
     "https://codecov.io/gh/karthik/holepunch?branch=master",
     "https://ci.appveyor.com/project/karthik/holepunch"
   ],
-  "developmentStatus": "https://www.tidyverse.org/lifecycle/#maturing"
+  "developmentStatus": "https://www.tidyverse.org/lifecycle/#maturing",
+  "releaseNotes": "https://github.com/karthik/holepunch/blob/master/NEWS.md"
 }
