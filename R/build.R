@@ -12,12 +12,17 @@
 #' @importFrom cliapp cli_alert_warning
 binder_builder <-
   function(path = ".",
-             hub = "mybinder.org",
-             urlpath = "rstudio") {
+           hub = "mybinder.org",
+           urlpath = "rstudio") {
     path <- sanitize_path(path)
+    if (!has_a_git_remote()) {
+      stop(
+        "Cannot build without the project having a Git remote. Please connec this to a public repository on GitHub"
+      )
+    }
     user <- gh_tree_remote(path)$username
     repo <- gh_tree_remote(path)$repo
-
+    
     binder_runtime <-
       glue::glue("https://{hub}/build/gh/{user}/{repo}/master")
     res <- httr::GET(binder_runtime)
@@ -38,16 +43,16 @@ binder_builder <-
 #' @export
 build_binder <-
   function(path = ".",
-             hub = "mybinder.org",
-             urlpath = "rstudio") {
+           hub = "mybinder.org",
+           urlpath = "rstudio") {
     if (!is_clean(path)) {
       stop(
         "Please commmit and push files to GitHub before building binder. Otherwise Binder cannot see these new files/changes",
         call. = FALSE
       )
     }
-
-
+    
+    
     cliapp::cli_alert_info(
       glue::glue(
         "Your Binder is being built in the background. Once built, your browser will automatically launch. You can also click the binder badge at a later time too"
