@@ -33,7 +33,7 @@ binder_builder <-
   }
 
 
-#' Builds binder in the background (recommended over calling binder_builder directly)
+#' Builds binder in the background (recommended over calling `binder_builder` directly)
 #'
 #' This function builds binder in the background and once an image is ready,
 #' will open the Binder URL. You are feel to kill this process anytime and the build

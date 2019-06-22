@@ -3,3 +3,24 @@ url: http://karthik.github.io/holepunch
 template:
   params:
     bootswatch: flatly
+reference:
+  - title: Key Functions
+    desc: Setting up your R project as a research compendium
+    contents:
+      - '`write_compendium_description`'
+      - '`write_dockerfile`'
+      - '`generate_badge`'
+      - '`build_binder`'
+  - title: Alternate approach to setting up Binder
+    desc: Setting up for Binder without using the compendium approach
+    contents:
+      - '`write_runtime`'
+      - '`write_install`'
+      - '`generate_badge`'
+      - '`build_binder`'      
+  - title: Notable Internals
+    desc: Internal functions and helpers
+    contents:
+      - '`get_dependencies`'
+      - '`last_modification_date`'
+      - '`binder_builder`'

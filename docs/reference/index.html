@@ -62,7 +62,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hole punch</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.11.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.12.9000</span>
       </span>
     </div>
 
@@ -124,41 +124,11 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
+          <h2 id="section-key-functions" class="hasAnchor"><a href="#section-key-functions" class="anchor"></a>Key Functions</h2>
+          <p class="section-desc"><p>Setting up your R project as a research compendium</p></p>
         </th>
       </tr>
       <tr>
-        
-        <td>
-          <p><code><a href="binder_builder.html">binder_builder()</a></code> </p>
-        </td>
-        <td><p>Builds binder</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="build_binder.html">build_binder()</a></code> </p>
-        </td>
-        <td><p>Builds binder in the background (recommended over calling binder_builder directly)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="generate_badge.html">generate_badge()</a></code> </p>
-        </td>
-        <td><p>Generates a Binder badge to add to your README</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_dependencies.html">get_dependencies()</a></code> </p>
-        </td>
-        <td><p>Pulls out R dependencies from a folder.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="last_modification_date.html">last_modification_date()</a></code> </p>
-        </td>
-        <td><p>Last Modified late</p></td>
-      </tr><tr>
         
         <td>
           <p><code><a href="write_compendium_description.html">write_compendium_description()</a></code> </p>
@@ -173,15 +143,73 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="generate_badge.html">generate_badge()</a></code> </p>
+        </td>
+        <td><p>Generates a Binder badge to add to your README</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="build_binder.html">build_binder()</a></code> </p>
+        </td>
+        <td><p>Builds binder in the background (recommended over calling `binder_builder` directly)</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-alternate-approach-to-setting-up-binder" class="hasAnchor"><a href="#section-alternate-approach-to-setting-up-binder" class="anchor"></a>Alternate approach to setting up Binder</h2>
+          <p class="section-desc"><p>Setting up for Binder without using the compendium approach</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="write_runtime.html">write_runtime()</a></code> </p>
+        </td>
+        <td><p>Write runtime.txt</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="write_install.html">write_install()</a></code> </p>
         </td>
         <td><p>Write a install.R</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="write_runtime.html">write_runtime()</a></code> </p>
+          <p><code><a href="generate_badge.html">generate_badge()</a></code> </p>
         </td>
-        <td><p>Write runtime.txt</p></td>
+        <td><p>Generates a Binder badge to add to your README</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="build_binder.html">build_binder()</a></code> </p>
+        </td>
+        <td><p>Builds binder in the background (recommended over calling `binder_builder` directly)</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-notable-internals" class="hasAnchor"><a href="#section-notable-internals" class="anchor"></a>Notable Internals</h2>
+          <p class="section-desc"><p>Internal functions and helpers</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="get_dependencies.html">get_dependencies()</a></code> </p>
+        </td>
+        <td><p>Pulls out R dependencies from a folder.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="last_modification_date.html">last_modification_date()</a></code> </p>
+        </td>
+        <td><p>Last Modified late</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="binder_builder.html">binder_builder()</a></code> </p>
+        </td>
+        <td><p>Builds binder</p></td>
       </tr>
     </tbody>
     </table>
@@ -190,7 +218,9 @@
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#section-key-functions">Key Functions</a></li>
+      <li><a href="#section-alternate-approach-to-setting-up-binder">Alternate approach to setting up Binder</a></li>
+      <li><a href="#section-notable-internals">Notable Internals</a></li>
     </ul>
   </div>
 </div>
