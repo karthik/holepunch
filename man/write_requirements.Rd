@@ -12,8 +12,8 @@ write_requirements(path = ".", requirements = NULL)
 \item{requirements}{A list of Python packages that should be installed in your environment.}
 }
 \description{
-Writes a list of Debian packages that should be installed before building
-the Docker image
+Writes a list of Debian packages that should be installed. Caution: If you have a Dockerfile,
+this file will be ignored.
 }
 \examples{
 write_requirements(path = ".",

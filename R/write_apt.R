@@ -4,8 +4,8 @@
 
 #' Write a lsit of apt packages
 #'
-#' Writes a list of Debian packages that should be installed before building
-#' the Docker image
+#' Writes a list of Debian packages that should be installed.  Caution: If you have a Dockerfile,
+#' this file will be ignored.
 #'
 #'@param path Path to project
 #'@param apt_input A list of Debian packages that should be installed. The base

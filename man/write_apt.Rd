@@ -13,8 +13,8 @@ write_apt(path = ".", apt_input = NULL)
 image used is usually the latest released version of Ubuntu.}
 }
 \description{
-Writes a list of Debian packages that should be installed before building
-the Docker image
+Writes a list of Debian packages that should be installed.  Caution: If you have a Dockerfile,
+this file will be ignored.
 }
 \examples{
 write_apt(path = ".",
