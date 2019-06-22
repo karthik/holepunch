@@ -1,6 +1,6 @@
 Package: holepunch
 Title: Configure your R project for 'BinderHub'
-Version: 0.1.12.9000
+Version: 0.1.13.9000
 Authors@R: 
     person(given = "Karthik",
            family = "Ram",
