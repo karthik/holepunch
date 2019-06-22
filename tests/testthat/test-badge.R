@@ -31,6 +31,7 @@ test_that("Badge works", {
   )
   fileConn <- file(glue::glue("{test_path}/.git/config"))
   writeLines(config, fileConn)
+  close(fileConn)
   
   cat(
     "```{r}\nlibrary(dplyr)\nrequire(ggplot2)\nglue::glue_collapse(glue::glue('{1:10}'))\n```\n",

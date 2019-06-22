@@ -52,7 +52,6 @@ sanitize_path <- function(path) {
 }
 
 #' @noRd
-# nocov start
 has_a_git_remote <- function() {
   
   is_a_git_repo <- TRUE
@@ -60,7 +59,7 @@ has_a_git_remote <- function() {
             , error = function(e) {is_a_git_repo <<- FALSE})
   print(is_a_git_repo)
 }
-# nocov end
+
 
 # nocov start
 #' @noRd

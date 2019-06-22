@@ -15,16 +15,12 @@ binder_builder <-
            hub = "mybinder.org",
            urlpath = "rstudio") {
     path <- sanitize_path(path)
-    # cliapp::cli_alert_warning("This may take a while but you can kill this process and the build will still continue")
     user <- gh_tree_remote(path)$username
     repo <- gh_tree_remote(path)$repo
-    # binder_runtime <- paste0("https://mybinder.org/build/gh/", user, "/", repo, "/master")
+    
     binder_runtime <-
       glue::glue("https://{hub}/build/gh/{user}/{repo}/master")
     res <- httr::GET(binder_runtime)
-    # parse_streamer(
-    #   url = binder_runtime
-    # )
     url <-
       glue("https://{hub}/v2/gh/{user}/{repo}/master?urlpath={urlpath}")
     return(url)
