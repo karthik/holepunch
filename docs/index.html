@@ -90,7 +90,7 @@
 <div id="motivation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#motivation" class="anchor"></a>Motivation</h2>
-<p><a href="https://mybinder.org/">Binder</a> is an open source project that can take <del>any</del> most GitHub repos of notebooks (R or Jupyter) and turn them into a free, live instance that not only has all dependencies ready to go but also provides Jupyter or Rstudio server to run the code on. The instances are small and should not be used to demonstrate resource intensive computation. However they are ideal for reproducing papers/figures/examples and make a great addition to any public analysis project that is being hosted on GitHub.</p>
+<p><a href="https://mybinder.org/">Binder</a> is an open source project that can take <del>any</del> most GitHub repos of notebooks (R or Jupyter) and turn them into a free, live instance that not only has all dependencies ready to go but also provides <a href="https://jupyter.org/">Jupyter</a> or <a href="https://www.rstudio.com/products/rstudio/download-server/">Rstudio server</a> to run the code on. The instances are small and should not be used to demonstrate resource intensive computation. However they are ideal for reproducing papers/figures/examples and make a great addition to any public analysis project that is being hosted on GitHub.</p>
 <p><img src="https://i.imgur.com/oqWl512.png" alt="binder-bam"></p>
 <div id="why-this-is-awesome" class="section level3">
 <h3 class="hasAnchor">
@@ -105,7 +105,7 @@
 <h3 class="hasAnchor">
 <a href="#limitations" class="anchor"></a>Limitations</h3>
 <ul>
-<li>The server has limited ram and you cannot load large datasets or run big computations</li>
+<li>The server has limited memory so you cannot load large datasets or run big computations</li>
 <li>Binder is meant for interactive and ephemeral interactive coding so an instance will die after 10 minutes of inactivity.</li>
 <li>An instance cannot be kept alive for more than 12 hours</li>
 </ul>
@@ -126,52 +126,51 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(holepunch)</a>
 <a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="reference/write_compendium_description.html">write_compendium_description</a></span>(<span class="dt">package =</span> <span class="st">"Your compendium name"</span>, </a>
 <a class="sourceLine" id="cb2-3" title="3">                             <span class="dt">description =</span> <span class="st">"Your compendium description"</span>)</a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="co"># to write a description, with dependencies listed </span></a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="co"># It's good practice to now go fill in the placeholder text.</span></a>
-<a class="sourceLine" id="cb2-6" title="6"></a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="kw"><a href="reference/write_dockerfile.html">write_dockerfile</a></span>(<span class="dt">maintainer =</span> <span class="st">"your_name"</span>) </a>
-<a class="sourceLine" id="cb2-8" title="8"><span class="co"># To write a dockerfile. It will automatically pick the date of the last modified file, match it to </span></a>
-<a class="sourceLine" id="cb2-9" title="9"><span class="co"># that version of R and add it here. You can override this by passing r_date to some arbitrary date</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co"># to write a description, with dependencies. Be sure to fill in placeholder text</span></a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="kw"><a href="reference/write_dockerfile.html">write_dockerfile</a></span>(<span class="dt">maintainer =</span> <span class="st">"your_name"</span>) </a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="co"># To write a Dockerfile. It will automatically pick the date of the last </span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="co"># modified file, match it to that version of R and add it here. You can </span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="co"># override this by passing r_date to some arbitrary date</span></a>
 <a class="sourceLine" id="cb2-10" title="10"><span class="co"># (but one for which a R version exists).</span></a>
 <a class="sourceLine" id="cb2-11" title="11"></a>
-<a class="sourceLine" id="cb2-12" title="12"><span class="kw"><a href="reference/generate_badge.html">generate_badge</a></span>()</a>
-<a class="sourceLine" id="cb2-13" title="13"><span class="co"># This generates a badge for your readme.</span></a>
-<a class="sourceLine" id="cb2-14" title="14"></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="kw"><a href="reference/generate_badge.html">generate_badge</a></span>() <span class="co"># This generates a badge for your readme.</span></a>
+<a class="sourceLine" id="cb2-13" title="13"></a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="co"># ----------------------------------------------</span></a>
 <a class="sourceLine" id="cb2-15" title="15"><span class="co"># At this time 🙌 push the code to GitHub 🙌</span></a>
-<a class="sourceLine" id="cb2-16" title="16"></a>
-<a class="sourceLine" id="cb2-17" title="17"><span class="co"># And click on the badge or use the function below to get the build ready ahead of time.</span></a>
-<a class="sourceLine" id="cb2-18" title="18"><span class="kw"><a href="reference/build_binder.html">build_binder</a></span>()</a>
-<a class="sourceLine" id="cb2-19" title="19"><span class="co"># 🤞🚀</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-16" title="16"><span class="co"># ----------------------------------------------</span></a>
+<a class="sourceLine" id="cb2-17" title="17"></a>
+<a class="sourceLine" id="cb2-18" title="18"><span class="co"># And click on the badge or use the function below to get the build </span></a>
+<a class="sourceLine" id="cb2-19" title="19"><span class="co"># ready ahead of time.</span></a>
+<a class="sourceLine" id="cb2-20" title="20"><span class="kw"><a href="reference/build_binder.html">build_binder</a></span>()</a>
+<a class="sourceLine" id="cb2-21" title="21"><span class="co"># 🤞🚀</span></a></code></pre></div>
 <div id="alternate-setup-method" class="section level4">
 <h4 class="hasAnchor">
 <a href="#alternate-setup-method" class="anchor"></a>Alternate setup method</h4>
 <p>If for some reason you really don’t want to set up your project as a compendium, then set it up by creating <code>runtime.txt</code> and <code>install.R</code>. This build will take a very long time.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># Note that this particular approach will be super slow.</span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(holepunch)</a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="kw"><a href="reference/write_install.html">write_install</a></span>()</a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="co"># Writes install.r will all dependencies discovered in the folder</span></a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="kw"><a href="reference/write_runtime.html">write_runtime</a></span>()</a>
-<a class="sourceLine" id="cb3-6" title="6"><span class="co"># Writes a file with the current R date (proxy for version).</span></a>
-<a class="sourceLine" id="cb3-7" title="7"><span class="co"># Can be changed to any date by passing a date to r_date</span></a>
-<a class="sourceLine" id="cb3-8" title="8"><span class="kw"><a href="reference/generate_badge.html">generate_badge</a></span>()</a>
-<a class="sourceLine" id="cb3-9" title="9"></a>
-<a class="sourceLine" id="cb3-10" title="10"><span class="co"># At this time, commit the files to Github</span></a>
-<a class="sourceLine" id="cb3-11" title="11"></a>
-<a class="sourceLine" id="cb3-12" title="12"><span class="co"># Then click the badge on your README or run</span></a>
-<a class="sourceLine" id="cb3-13" title="13"></a>
-<a class="sourceLine" id="cb3-14" title="14"><span class="kw"><a href="reference/build_binder.html">build_binder</a></span>() <span class="co"># to kick off the build process</span></a>
-<a class="sourceLine" id="cb3-15" title="15"><span class="co"># 🤞🚀</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co"># And take just as long everytime you edit your codes</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(holepunch)</a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="kw"><a href="reference/write_install.html">write_install</a></span>() <span class="co"># Writes install.R with all your dependencies</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw"><a href="reference/write_runtime.html">write_runtime</a></span>() <span class="co"># Writes the date your code was last modified. Can be overridden.</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="kw"><a href="reference/generate_badge.html">generate_badge</a></span>() <span class="co"># Generates a badge you can add to your README. Clicking badge will launch the Binder.</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="co"># ----------------------------------------------</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co"># At this time 🙌 push the code to GitHub 🙌</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="co"># ----------------------------------------------</span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="co"># Then click the badge on your README or run</span></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="kw"><a href="reference/build_binder.html">build_binder</a></span>() <span class="co"># to kick off the build process</span></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="co"># 🤞🚀</span></a></code></pre></div>
 </div>
 </div>
 <div id="testing-this-package" class="section level2">
 <h2 class="hasAnchor">
 <a href="#testing-this-package" class="anchor"></a>Testing this package</h2>
-<p>An easy way to test this package is to visit the <a href="https://github.com/karthik/binder-test">binder-test</a> repo and follow the instructions.</p>
+<p>An easy way to test this package <em>without writing any code</em> is to visit the <a href="https://github.com/karthik/binder-test">binder-test</a> repo and follow the instructions.</p>
 </div>
 <div id="suggestions-and-review" class="section level2">
 <h2 class="hasAnchor">
 <a href="#suggestions-and-review" class="anchor"></a>Suggestions and review</h2>
-<p>The ETA for the first release of this package is early July. Comments, suggestions for improving the workflow or any other comments welcome in the issues.</p>
+<p>The ETA for the first release of this package is early July. Comments, suggestions for improving the workflow or any other comments welcome in the <a href="https://github.com/karthik/holepunch/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc">issues</a>.</p>
 </div>
 <div id="code-of-conduct" class="section level2">
 <h2 class="hasAnchor">
