@@ -22,13 +22,14 @@ binder_builder <-
     }
     user <- gh_tree_remote(path)$username
     repo <- gh_tree_remote(path)$repo
-    
+    # nocov start
     binder_runtime <-
       glue::glue("https://{hub}/build/gh/{user}/{repo}/master")
     res <- httr::GET(binder_runtime)
     url <-
       glue("https://{hub}/v2/gh/{user}/{repo}/master?urlpath={urlpath}")
     return(url)
+    # nocov end
   }
 
 
