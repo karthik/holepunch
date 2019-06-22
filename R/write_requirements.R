@@ -3,7 +3,7 @@
 
 
 
-#' write_requirements
+#' write a list of Python requirements
 #'
 #' Writes a list of Debian packages that should be installed before building
 #' the Docker image

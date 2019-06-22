@@ -2,7 +2,7 @@
 
 
 
-#' write_apt
+#' Write a lsit of apt packages
 #'
 #' Writes a list of Debian packages that should be installed before building
 #' the Docker image

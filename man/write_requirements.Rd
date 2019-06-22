@@ -2,7 +2,7 @@
 % Please edit documentation in R/write_requirements.R
 \name{write_requirements}
 \alias{write_requirements}
-\title{write_requirements}
+\title{write a list of Python requirements}
 \usage{
 write_requirements(path = ".", requirements = NULL)
 }
