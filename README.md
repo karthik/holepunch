@@ -4,7 +4,7 @@
 [![Travis build status](https://travis-ci.org/karthik/holepunch.svg?branch=master)](https://travis-ci.org/karthik/holepunch) [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)  [![Codecov test coverage](https://codecov.io/gh/karthik/holepunch/branch/master/graph/badge.svg)](https://codecov.io/gh/karthik/holepunch?branch=master) [![Build status](https://ci.appveyor.com/api/projects/status/iowqitu84h9dquro?svg=true)](https://ci.appveyor.com/project/karthik/holepunch) ![CRAN status](http://www.r-pkg.org/badges/version/holepunch)
 
 ## What this package does
-holepunch will read the contents of your R project on GitHub, create a DESCRIPTION file with all dependencies, write a Dockerfile, add a badge to your README, and build a Docker image. Once these 4 steps are complete, any reader can click the badge and within minutes, be dropped into a free, live, RStudio server. Here they can run your scripts and notebooks and see how everything works.
+holepunch will read the contents of your R project on GitHub, create a [DESCRIPTION file](http://r-pkgs.had.co.nz/description.html) with all dependencies, write a Dockerfile, add a badge to your README, and build a Docker image. Once these 4 steps are complete, any reader can click the badge and within minutes, be dropped into a free, live, RStudio server. Here they can run your scripts and notebooks and see how everything works.
  
 ## Motivation 
 [Binder](https://mybinder.org/) is an open source project that can take ~~any~~ most GitHub repos of notebooks (R or Jupyter) and turn them into a free, live instance that not only has all dependencies ready to go but also provides [Jupyter](https://jupyter.org/) or [Rstudio server](https://www.rstudio.com/products/rstudio/download-server/) to run the code on. The instances are small and should not be used to demonstrate resource intensive computation. However they are ideal for reproducing papers/figures/examples and make a great addition to any public analysis project that is being hosted on GitHub.
@@ -70,7 +70,7 @@ If for some reason you really don't want to set up your project as a compendium,
 
 ```r
 # Note that this particular approach will be super slow.
-# And take just as long everytime you edit your codes
+# And take just as long everytime you edit your code
 library(holepunch)
 write_install() # Writes install.R with all your dependencies
 write_runtime() # Writes the date your code was last modified. Can be overridden.

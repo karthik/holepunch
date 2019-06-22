@@ -2,11 +2,13 @@
 
 #' Write a install.R
 #'
-#' This function writes a list of packages to install one per line in the form of `install.package('package_name')`
+#' This function writes a list of packages to install one per line in the form
+#' of `install.package('package_name')`. The file is written to a hidden folder
+#' called `.binder/`.
 #' @param path Path to project
 #' @importFrom usethis write_over
 #' @export
-#'
+#' 
 write_install <- function(path = ".") {
   if (fs::file_exists(".binder/Dockerfile")) {
     warning(

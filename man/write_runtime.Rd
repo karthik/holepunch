@@ -14,5 +14,7 @@ recent date a file was touched in this project but you can override this by
 specifying this explicitly. Date must be in ISO 8601 format.}
 }
 \description{
-Write runtime.txt
+This function writes the language (in this case R) and a date from which
+packages will be downloaded from \href{https://mran.microsoft.com/}{MRAN}. The file is written to a hidden folder
+called `.binder/`.
 }

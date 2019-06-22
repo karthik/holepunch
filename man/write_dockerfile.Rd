@@ -12,22 +12,24 @@ write_dockerfile(base = NULL, path = ".",
 \href{https://www.rocker-project.org/images/}{rocker project}. This daily
 image will contain all the Jupyter hub elements + Rstudio Server + the
 tidyverse (which cuts down on installation time). The only thing then left
-to do is to install any additional packages listed in your DESCRIPTION
-file, which will be done during the build_binder step.}
+to do is to install any additional packages listed in your DESCRIPTION file,
+which will be done during the build_binder step.}
 
 \item{path}{path to binder repo. Defaults to current location.}
 
 \item{maintainer}{Maintainer of the Dockerfile. By default the function reads
 `usethis.full_name` set in Options. The same information is used to set the
-author on your DESCRIPTION file.  For more information on setting up
-default values for Description files, reasd the
-\href{https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences}{Rstudio usethis
-documentation}.}
+author on your DESCRIPTION file.  For more information on setting up default
+values for Description files, reasd the
+\href{https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences}{Rstudio
+usethis documentation}.}
 
 \item{r_date}{Date you need R to lock down to. By default it picks the most
 recent date a file was touched in this project but you can override this by
 specifying this explicitly. Date must be in ISO 8601 format.}
 }
 \description{
-Write a minimal Dockerfile for a Binder
+The file is written to a hidden folder called `.binder/`. This will not
+interfere with other Dockerfiles that you may have in your root to help with
+other services like CI.
 }

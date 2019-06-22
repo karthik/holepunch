@@ -10,5 +10,7 @@ write_install(path = ".")
 \item{path}{Path to project}
 }
 \description{
-This function writes a list of packages to install one per line in the form of `install.package('package_name')`
+This function writes a list of packages to install one per line in the form
+of `install.package('package_name')`. The file is written to a hidden folder
+called `.binder/`.
 }

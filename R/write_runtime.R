@@ -1,10 +1,14 @@
-#' Write runtime.txt
+#'Write runtime.txt
 #'
-#' @param path Path to project
-#' @template r_date
-#' @importFrom lubridate ymd today
+#'This function writes the language (in this case R) and a date from which
+#'packages will be downloaded from \href{https://mran.microsoft.com/}{MRAN}. The file is written to a hidden folder
+#'called `.binder/`.
 #'
-#' @export
+#'@param path Path to project
+#'@template r_date
+#'@importFrom lubridate ymd today
+#'
+#'@export
 #'
 write_runtime <-
   function(path = ".",

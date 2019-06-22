@@ -85,7 +85,7 @@
 <div id="what-this-package-does" class="section level2">
 <h2 class="hasAnchor">
 <a href="#what-this-package-does" class="anchor"></a>What this package does</h2>
-<p>holepunch will read the contents of your R project on GitHub, create a DESCRIPTION file with all dependencies, write a Dockerfile, add a badge to your README, and build a Docker image. Once these 4 steps are complete, any reader can click the badge and within minutes, be dropped into a free, live, RStudio server. Here they can run your scripts and notebooks and see how everything works.</p>
+<p>holepunch will read the contents of your R project on GitHub, create a <a href="http://r-pkgs.had.co.nz/description.html">DESCRIPTION file</a> with all dependencies, write a Dockerfile, add a badge to your README, and build a Docker image. Once these 4 steps are complete, any reader can click the badge and within minutes, be dropped into a free, live, RStudio server. Here they can run your scripts and notebooks and see how everything works.</p>
 </div>
 <div id="motivation" class="section level2">
 <h2 class="hasAnchor">
@@ -149,7 +149,7 @@
 <a href="#alternate-setup-method" class="anchor"></a>Alternate setup method</h4>
 <p>If for some reason you really don’t want to set up your project as a compendium, then set it up by creating <code>runtime.txt</code> and <code>install.R</code>. This build will take a very long time.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># Note that this particular approach will be super slow.</span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="co"># And take just as long everytime you edit your codes</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co"># And take just as long everytime you edit your code</span></a>
 <a class="sourceLine" id="cb3-3" title="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(holepunch)</a>
 <a class="sourceLine" id="cb3-4" title="4"><span class="kw"><a href="reference/write_install.html">write_install</a></span>() <span class="co"># Writes install.R with all your dependencies</span></a>
 <a class="sourceLine" id="cb3-5" title="5"><span class="kw"><a href="reference/write_runtime.html">write_runtime</a></span>() <span class="co"># Writes the date your code was last modified. Can be overridden.</span></a>
