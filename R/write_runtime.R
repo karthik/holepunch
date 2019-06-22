@@ -13,7 +13,9 @@ write_runtime <-
     if (fs::file_exists(glue("{path}/.binder/Dockerfile"))) {
       warning(
         glue(
-          "A Dockerfile exists in {path}/.binder/. This means that all other settings (runtime.txt and install.R will be ignored. Consider deleting the Dockerfile if you wish to take the runtime approach"
+          "A Dockerfile exists in {path}/.binder/. This means that all other 
+          settings (runtime.txt and install.R) will be ignored. Consider 
+          deleting the Dockerfile if you wish to take the runtime approach"
         )
       )
     }
