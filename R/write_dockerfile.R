@@ -12,7 +12,7 @@
 #'   default values for Description files, reasd the
 #'   \href{https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences}{Rstudio usethis
 #'   documentation}.
-#' @template r_date  
+#' @template r_date
 #' @param path path to binder repo. Defaults to current location.
 #'
 #' @importFrom glue glue
@@ -20,46 +20,45 @@
 #'
 write_dockerfile <-
   function(base = NULL,
-           path = ".",
-           maintainer = getOption("usethis.full_name"),
-           r_date = NULL)
-  {
+             path = ".",
+             maintainer = getOption("usethis.full_name"),
+             r_date = NULL) {
     if (!fs::file_exists("DESCRIPTION")) {
       stop(
         "Your compendium does not have a DESCRIPTION file.  Without one, this Dockerfile approach will not be able to install dependencies. Run write_compendium_description() before running this function",
         call. = FALSE
       )
     }
-    
+
     if (!has_a_git_remote()) {
       stop(
         "Cannot write a Dockerfile without a Git remote. Connect this to a git remote before generating a Dockerfile",
         call. = FALSE
       )
     }
-    
+
     # Grab GitHub username and repo name to populate the path to the DESCRIPTION file in the Dockerfile
     user <- gh::gh_tree_remote(path)$username
     repo <- gh::gh_tree_remote(path)$repo
-    
+
     # If the user does not specify a date, use the date of the last touched file on the project
     if (is.null(r_date)) {
-      version = r_version_lookup(last_modification_date())
+      version <- r_version_lookup(last_modification_date())
     } else {
-      version = r_version_lookup(r_date)
+      version <- r_version_lookup(r_date)
     }
-    
+
     cliapp::cli_alert("Setting R version to {version}")
-    R_VERSION = version
+    R_VERSION <- version
     # Set the date for R packages I have a TODO here: If the user is not on R
     # latest, but has edited code today, then R_VERSION will be >
     # users_R_version In this case the user might want to manually override to
     # the older R version they are using and it might be worth generating a
     # warning here. I came across this when chatting with Nick Tierney recently.
     # Implemented below:
-    
+
     version.string <- R.Version()$version.string
-    users_R_version <- base::strsplit(version.string, ' ')[[1]][3]
+    users_R_version <- base::strsplit(version.string, " ")[[1]][3]
 
     if (!identical(R_VERSION, users_R_version)) {
       warning(
@@ -74,21 +73,22 @@ write_dockerfile <-
         )
       )
     }
-    
-    DATE = ifelse(is.null(r_date), last_modification_date("."), r_date)
+
+    DATE <- ifelse(is.null(r_date), last_modification_date("."), r_date)
     # TODO: Not sure why I need to do this because otherwise I get a numeric
-    DATE = as.Date(DATE, origin = "1970-01-01")
-    if (is.null(maintainer))
-      maintainer = "Unknown"
-    MAINTAINER = maintainer
-    
+    DATE <- as.Date(DATE, origin = "1970-01-01")
+    if (is.null(maintainer)) {
+      maintainer <- "Unknown"
+    }
+    MAINTAINER <- maintainer
+
     # Set the binder base here. Users can override this by passing a base argument
     if (is.null(base)) {
-      base = glue("rocker/binder:{R_VERSION}")
+      base <- glue("rocker/binder:{R_VERSION}")
     }
-    
+
     # Now we glue the Dockerfile together
-    
+
     glue::glue(
       "
 FROM [base]
@@ -107,6 +107,6 @@ RUN wget https://github.com/[user]/[repo]/raw/master/DESCRIPTION && R -e \"optio
     fileConn <- file(glue("{path}/.binder/Dockerfile"))
     writeLines(docker_contents, fileConn)
     close(fileConn)
-    
+
     cliapp::cli_alert_success(glue("Dockerfile generated at {path}/.binder/Dockerfile"))
   }

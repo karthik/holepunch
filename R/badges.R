@@ -14,10 +14,9 @@
 #' @examples
 #' # generate_badge("/path/to/repo")
 generate_badge <-
-  function(path  = ".",
-           hub = "mybinder.org",
-           urlpath = "rstudio") {
-    
+  function(path = ".",
+             hub = "mybinder.org",
+             urlpath = "rstudio") {
     if (is.list(gh::gh_tree_remote(path))) {
       user <- gh_tree_remote(path)$username
       repo <- gh_tree_remote(path)$repo
@@ -26,6 +25,6 @@ generate_badge <-
       img <- glue("http://{hub}/badge.svg")
       use_badge("Launch Rstudio Binder", url, img)
     }
-    
+
     invisible(TRUE)
   }

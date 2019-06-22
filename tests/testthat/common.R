@@ -1,14 +1,14 @@
 
 test_path <- paste0(tempdir(), "/testcompendium")
 dir.create(test_path, showWarnings = FALSE)
-old_path = getwd()
+old_path <- getwd()
 # Note: suppressing warnings here because if I don't I see this:
 # warning: `recursive` is deprecated, please use `recurse` instead
 suppressWarnings(usethis::create_project(path = test_path, open = FALSE))
 setwd(test_path)
 git2r::init(test_path)
 
-# This is a horrifying way to write a config manually, 
+# This is a horrifying way to write a config manually,
 # BUT
 # . ¯\_(ツ)_/¯
 # I don't know a better way for now. :crying_blood:

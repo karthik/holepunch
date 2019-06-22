@@ -3,6 +3,6 @@ test_that("Last Modification Date Works", {
 })
 
 test_that("Path sanitization works", {
-	path = "foo/bar/"
-	expect_equal(sanitize_path(path), "foo/bar")
-	})
+  path <- "foo/bar/"
+  expect_equal(sanitize_path(path), "foo/bar")
+})

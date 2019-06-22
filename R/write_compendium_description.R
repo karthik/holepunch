@@ -25,11 +25,11 @@
 #' @export
 write_compendium_description <-
   function(type = "Compendium",
-           package = "Compendium title",
-           description = "Compendium description",
-           version = "0.0.1",
-           path = ".") {
-    Depends = get_dependencies(path)
+             package = "Compendium title",
+             description = "Compendium description",
+             version = "0.0.1",
+             path = ".") {
+    Depends <- get_dependencies(path)
     fields <-
       list(
         Type = type,
@@ -43,21 +43,23 @@ write_compendium_description <-
     # A silly hack from Yihui to stop the internal function use warning.
     # Not sure this is a good thing to do, but for now YOLO.
     # %:::% is in zzz.R
-    
-    tidy_desc <- 'usethis' %:::% 'tidy_desc'
-    build_desc <- 'usethis' %:::% 'build_description'
-    
-    
+
+    tidy_desc <- "usethis" %:::% "tidy_desc"
+    build_desc <- "usethis" %:::% "build_description"
+
+
     desc <- build_desc(fields)
     desc <- desc::description$new(text = desc)
-    
+
     tidy_desc(desc)
     lines <-
-      desc$str(by_field = TRUE,
-               normalize = FALSE,
-               mode = "file")
+      desc$str(
+        by_field = TRUE,
+        normalize = FALSE,
+        mode = "file"
+      )
     path <- sanitize_path(path) # To kill trailing slashes
-    
+
     usethis::write_over(glue("{path}/DESCRIPTION"), lines)
     cliapp::cli_alert_info("Please update the description fields, particularly the title, description and author")
   }

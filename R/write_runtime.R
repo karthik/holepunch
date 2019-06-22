@@ -1,14 +1,14 @@
 #' Write runtime.txt
 #'
 #' @param path Path to project
-#' @template r_date 
+#' @template r_date
 #' @importFrom lubridate ymd today
 #'
 #' @export
 #'
 write_runtime <-
   function(path = ".",
-           r_date = lubridate::ymd(lubridate::today())) {
+             r_date = lubridate::ymd(lubridate::today())) {
     path <- sanitize_path(path) # To kill trailing slashes
     if (fs::file_exists(glue("{path}/.binder/Dockerfile"))) {
       warning(
@@ -17,7 +17,7 @@ write_runtime <-
         )
       )
     }
-    
+
     txt <- paste0("r-", r_date)
     fs::dir_create(glue("{path}/.binder"))
     fileConn <- file(glue("{path}/.binder/runtime.txt"))

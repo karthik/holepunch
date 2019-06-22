@@ -1,5 +1,4 @@
 test_that("Write runtime works", {
-  
   temp_directory <- tempdir()
   write_runtime(path = temp_directory)
   expect_true(fs::file_exists(glue::glue("{temp_directory}/.binder/runtime.txt")))
