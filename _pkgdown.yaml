@@ -26,3 +26,23 @@ reference:
       - '`get_dependencies`'
       - '`last_modification_date`'
       - '`binder_builder`'
+navbar:
+  left:
+    - icon: fa-home
+      href: index.html
+  right:
+    - text: "Articles"
+      icon: fas fa-book
+      menu:
+      -  text: Getting Started
+         href: articles/getting_started.html
+    - icon: fa-newspaper-o
+      text: "news"
+      href: news/index.html
+    - icon: fa-file-code-o
+      text: "functions"
+      href: reference/index.html
+    - icon: fa-github fa-lg
+      text: "github"
+      href: https://github.com/karthik/holepunch/
+
