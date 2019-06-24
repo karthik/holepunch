@@ -1,7 +1,7 @@
 
 # Hole punch 
 
-[![Travis build status](https://travis-ci.org/karthik/holepunch.svg?branch=master)](https://travis-ci.org/karthik/holepunch) [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)  [![Codecov test coverage](https://codecov.io/gh/karthik/holepunch/branch/master/graph/badge.svg)](https://codecov.io/gh/karthik/holepunch?branch=master) [![Build status](https://ci.appveyor.com/api/projects/status/iowqitu84h9dquro?svg=true)](https://ci.appveyor.com/project/karthik/holepunch) ![CRAN status](http://www.r-pkg.org/badges/version/holepunch)
+[![Travis build status](https://travis-ci.org/karthik/holepunch.svg?branch=master)](https://travis-ci.org/karthik/holepunch) [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)  [![Coverage Status](https://coveralls.io/repos/github/karthik/holepunch/badge.svg)](https://coveralls.io/github/karthik/holepunch) (https://codecov.io/gh/karthik/holepunch?branch=master) [![Build status](https://ci.appveyor.com/api/projects/status/iowqitu84h9dquro?svg=true)](https://ci.appveyor.com/project/karthik/holepunch) ![CRAN status](http://www.r-pkg.org/badges/version/holepunch)
 
 ## What this package does
 holepunch will read the contents of your R project on GitHub, create a [DESCRIPTION file](http://r-pkgs.had.co.nz/description.html) with all dependencies, write a Dockerfile, add a badge to your README, and build a Docker image. Once these 4 steps are complete, any reader can click the badge and within minutes, be dropped into a free, live, RStudio server. Here they can run your scripts and notebooks and see how everything works.
