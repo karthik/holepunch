@@ -5,8 +5,8 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "holepunch",
-  "description": "This package provides a set of helper tools to\n    set up Binder for a project or package.",
-  "name": "holepunch: Configure Your R Project For 'binderhub'",
+  "description": "Provides a set of helper tools to\n    set up Binder for a project or package.",
+  "name": "holepunch: Configure Your R Project for 'binderhub'",
   "codeRepository": "https://github.com/karthik/holepunch",
   "issueTracker": "https://github.com/karthik/holepunch/issues",
   "license": "https://spdx.org/licenses/MIT",
@@ -233,12 +233,8 @@
     {
       "@type": "SoftwareApplication",
       "identifier": "renv",
-      "name": "renv"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "requirements",
-      "name": "requirements"
+      "name": "renv",
+      "sameAs": "https://github.com/rstudio/renv"
     },
     {
       "@type": "SoftwareApplication",
@@ -253,13 +249,13 @@
       "sameAs": "https://CRAN.R-project.org/package=usethis"
     }
   ],
+  "releaseNotes": "https://github.com/karthik/holepunch/blob/master/NEWS.md",
   "readme": "https://github.com/karthik/holepunch/blob/master/README.md",
-  "fileSize": "14.781KB",
+  "fileSize": "14.872KB",
   "contIntegration": [
     "https://travis-ci.org/karthik/holepunch",
-    "https://codecov.io/gh/karthik/holepunch?branch=master",
+    "https://coveralls.io/r/karthik/holepunch?branch=master",
     "https://ci.appveyor.com/project/karthik/holepunch"
   ],
-  "developmentStatus": "https://www.tidyverse.org/lifecycle/#maturing",
-  "releaseNotes": "https://github.com/karthik/holepunch/blob/master/NEWS.md"
+  "developmentStatus": "https://www.tidyverse.org/lifecycle/#maturing"
 }

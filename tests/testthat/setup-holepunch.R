@@ -1,0 +1,1 @@
+unlink("tests/testthat/dir_code/.binder")

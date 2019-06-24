@@ -2,7 +2,7 @@
 #'
 #' @param path Path to search
 #' @importFrom fs dir_ls
-#' @importFrom requirements req_file
+#' @importFrom renv dependencies
 #'
 #' @export
 get_dependencies <- function(path = ".") {

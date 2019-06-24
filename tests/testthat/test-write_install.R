@@ -29,7 +29,7 @@ test_that("Write installer writes install.R to .binder", {
   holepunch::write_install(path = temp_path)
   file_path <- glue::glue("{temp_path}/.binder/install.R")
   expect_true(fs::file_exists(file_path))
-  unlink(temp_path)
+  unlink(test_path("dir_code/.binder"))
 })
 
 test_that("A warning is generated if Dockerfile exists", {
@@ -58,5 +58,5 @@ test_that("A warning is generated if Dockerfile exists", {
   # Now try to write a install.R
   expect_warning(write_runtime(path = temp_directory, r_date = "2019-03-02"))
   # Note: Should I use fs or just stick with unlink?
-  unlink(temp_directory)
+  unlink(test_path("dir_code/.binder"))
 })

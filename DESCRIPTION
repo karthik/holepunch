@@ -1,5 +1,5 @@
 Package: holepunch
-Title: Configure Your R Project For 'binderhub'
+Title: Configure Your R Project for 'binderhub'
 Version: 0.1.14.9000
 Authors@R: 
     person(given = "Karthik",
@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "karthik.ram@gmail.com",
            comment = c(ORCID = "0000-0002-0233-1757"))
-Description: This package provides a set of helper tools to
+Description: Provides a set of helper tools to
     set up Binder for a project or package.
 License: MIT + file LICENSE
 URL: https://github.com/karthik/holepunch
@@ -27,8 +27,8 @@ Imports:
     lubridate,
     promises,
     renv,
-    requirements,
     usethis
+Remotes: rstudio/renv
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
