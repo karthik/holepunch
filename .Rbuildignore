@@ -14,3 +14,4 @@ man-roxygen/
 holepunch.png
 ^appveyor\.yml$
 ^codemeta\.json$
+.coveralls.yml

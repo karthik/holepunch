@@ -1,5 +1,6 @@
 
 
+
 #' Write a install.R
 #'
 #' This function writes a list of packages to install one per line in the form
@@ -8,7 +9,7 @@
 #' @param path Path to project
 #' @importFrom usethis write_over
 #' @export
-#' 
+#'
 write_install <- function(path = ".") {
   if (fs::file_exists(".binder/Dockerfile")) {
     warning(
@@ -19,7 +20,7 @@ write_install <- function(path = ".") {
   packages <- get_dependencies(path)
   res <-
     lapply(packages, function(x)
-      glue::glue("install.packages('", x, "')"))
+      paste0("install.packages('", x, "')"))
   fs::dir_create(glue("{path}/.binder"))
   usethis::write_over(glue("{path}/.binder/install.R"), unlist(res))
 }

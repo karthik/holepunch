@@ -1,5 +1,5 @@
 test_that("Writing Dockerfile works", {
-  source("common.R")
+  source(test_path("common.R"))
 
   write_compendium_description(path = test_path)
   write_dockerfile(path = test_path, maintainer = "Wes Anderson")
@@ -15,3 +15,26 @@ test_that("Writing Dockerfile works", {
   unlink(test_path)
   setwd(old_path)
 })
+
+
+# test_that("Writing Dockerfile generates a error when there is no DESCRIPTION file", {
+#   
+#   source("common.R")
+#   expect_error(write_dockerfile(path = test_path))
+#   unlink(test_path)
+#   setwd(old_path)
+# })
+
+
+# test_that("Writing Dockerfile generates a error when git remote is missing", {
+#   source("common.R")
+#   print(glue::glue("Current working directory is {getwd()}"))
+#    unlink(glue::glue("{getwd()}/.git"))
+#    # Cannot find a Git remote
+#   expect_error(write_dockerfile(path = test_path, maintainer = "Wes Anderson"))
+# 
+#   unlink(test_path)
+#   setwd(old_path)
+# })
+
+

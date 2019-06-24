@@ -8,8 +8,6 @@
 get_dependencies <- function(path = ".") {
   # Check to see path is valid
   path <- sanitize_path(path)
-  files <- fs::dir_ls(path, recurse = TRUE)
-  packages <- lapply(files, requirements::req_file)
-  package_list <- unique(as.character(unname(unlist(packages))))
-  package_list
+  packages <- renv::dependencies(path)
+  packages$Package
 }

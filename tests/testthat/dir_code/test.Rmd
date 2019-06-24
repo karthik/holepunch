@@ -1,0 +1,5 @@
+```{r}
+library(dplyr)
+require(ggplot2)
+glue::glue_collapse(glue::glue('{1:10}'))
+```

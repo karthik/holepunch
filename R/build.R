@@ -59,10 +59,12 @@ build_binder <-
         "Your Binder is being built in the background. Once built, your browser will automatically launch. You can also click the binder badge at a later time too"
       )
     )
+    # nocov start
     `%...>%` <- promises::`%...>%`
     multisession <- "future" %:::% "multisession"
     future::plan(multisession, workers = 2)
     future::future({
       binder_builder(path, hub, urlpath)
     }) %...>% utils::browseURL
+    # nocov end
   }

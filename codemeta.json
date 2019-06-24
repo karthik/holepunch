@@ -6,11 +6,11 @@
   "@type": "SoftwareSourceCode",
   "identifier": "holepunch",
   "description": "This package provides a set of helper tools to\n    set up Binder for a project or package.",
-  "name": "holepunch: Configure your R project for 'BinderHub'",
+  "name": "holepunch: Configure Your R Project For 'binderhub'",
   "codeRepository": "https://github.com/karthik/holepunch",
   "issueTracker": "https://github.com/karthik/holepunch/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.1.13.9000",
+  "version": "0.1.14.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -196,18 +196,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "here",
-      "name": "here",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=here"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "httr",
       "name": "httr",
       "provider": {
@@ -217,18 +205,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=httr"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "jsonlite",
-      "name": "jsonlite",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     },
     {
       "@type": "SoftwareApplication",
@@ -256,9 +232,13 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "renv",
+      "name": "renv"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "requirements",
-      "name": "requirements",
-      "sameAs": "https://github.com/hadley/requirements"
+      "name": "requirements"
     },
     {
       "@type": "SoftwareApplication",
@@ -274,7 +254,7 @@
     }
   ],
   "readme": "https://github.com/karthik/holepunch/blob/master/README.md",
-  "fileSize": "14.688KB",
+  "fileSize": "14.781KB",
   "contIntegration": [
     "https://travis-ci.org/karthik/holepunch",
     "https://codecov.io/gh/karthik/holepunch?branch=master",
