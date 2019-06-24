@@ -103,10 +103,115 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(holepunch)</a></code></pre></div>
-<p>A work in progress</p>
+<div id="introduction" class="section level1">
+<h1 class="hasAnchor">
+<a href="#introduction" class="anchor"></a>Introduction</h1>
+<p>In 2004 Robert Gentleman and Duncan Temple Lang wrote a BioConductor working paper called <a href="https://biostats.bepress.com/bioconductor/paper2/">Statistical Analysis and Reproducible Research</a>. In this paper they argued that one should tightly integrate code, methods, algorithms and narrative as closely as possible to facilitate easy reproduction and extension. They described this ‘source document’ as a <strong>research compendium</strong>, which they describe as:</p>
+<blockquote>
+<p>We introduce the concept of a compendium as both a container for the different elements that make up the document and its computations (i.e. text, code, data, …), and as a means for distributing, managing and updating the collection.</p>
+</blockquote>
+<p>A compendium is more than the collection of documents, data, and code. It is an environment that can be repurposed to support other code and reuse of the work in areas other than the original author’s domain. Despite the usefulness of the concept, creating and maintaining a compendium at the time this report was written was simply too cumbersome. The effort was far too high to make setting up a compendium worthwhile for small to medium projects. Fast forward to modern day, improvements to the R ecosystem, the rapid evolution of the Jupyter ecosystem, and maturing of container technologies such Docker have made set up far easier for most projects. As Marwick et al elegantly describe in their paper titled <a href="https://peerj.com/preprints/3192/">Packaging data analytical work reproducibly using R (and friends)</a>, R’s package structure makes it extremely easy to setup, share, and allow compendia to be run as live notebooks on the cloud. This package aims to support some functionality to turn one’s repository of code and R Markdown files into a compendium. With the addition of a Dockerfile, the project is now ready to be launched on services like Binder, where the desired version of R, and all of the correct versions of the packages are installed and ready to go. Any user with access to a modern web browser can now interact with the code and notebooks and either reproduce the analysis, or explore the code for other use cases.</p>
+<p>In this vignette I walk through the process of turning a folder/repository into a compendium. The key steps are:</p>
+<ol style="list-style-type: decimal">
+<li>Write a DESCRIPTION file.</li>
+<li>Create a Dockerfile</li>
+<li>Add a badge to launch your binder</li>
+<li>Build a Docker Image from the Dockerfile</li>
+</ol>
+<div id="writing-a-description-file" class="section level2">
+<h2 class="hasAnchor">
+<a href="#writing-a-description-file" class="anchor"></a>Writing a DESCRIPTION file</h2>
+<p>As Hadley Wickham describes in his <a href="http://r-pkgs.had.co.nz/description.html">R Packages book</a>, the role of this file is to store important metadata about a R package. These include general details like a title, description, and author but also critical information such as dependencies (both R and R packages), license, and a version number among other details. The file follows a Debian Control Format (DCF) and is made up of a list of key value pairs. The beautiful thing about a DESCRIPTION file is that you can have one in your folder even if its not a R package!</p>
+<p>At its most minimal, the DESCRIPTION file for a compendium can look like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">Type<span class="op">:</span><span class="st"> </span>Compendium</a>
+<a class="sourceLine" id="cb2-2" title="2">Package<span class="op">:</span><span class="st"> </span>name_of_package</a>
+<a class="sourceLine" id="cb2-3" title="3">Version<span class="op">:</span><span class="st"> </span><span class="dv">0</span>.<span class="fl">1.0</span></a>
+<a class="sourceLine" id="cb2-4" title="4">Depends<span class="op">:</span><span class="st"> </span>dplyr, ggplot2, wesanderson</a></code></pre></div>
+<p>Once this file exists, a user can install all these dependencies using the <code>devtools</code> package. Like so:</p>
+<pre><code><a href="https://rdrr.io/pkg/devtools/man/install_deps.html">devtools::install_deps()</a></code></pre>
+<p>Holepunch makes it easy to write this file for any project. The syntax is:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="../reference/write_compendium_description.html">write_compendium_description</a></span>(<span class="dt">package =</span> <span class="st">"Your compendium name"</span>, </a>
+<a class="sourceLine" id="cb4-2" title="2">                             <span class="dt">description =</span> <span class="st">"Your compendium description"</span>)</a></code></pre></div>
+<p>Your project will now have this file with placeholders for author information, license and version. The package searches all of the code in your folder (including sub-folders) and writes a list of unique dependencies to this file as well. To save yourself time and effort here and for package development, you can pre-populate many of the description file fields with some code in your <code>rprofile</code></p>
+<pre><code><a href="https://rdrr.io/r/base/options.html">options(
+  usethis.full_name = "Jane Doe",
+  usethis.description = list(
+    `Authors@R` = 'person("Jane", "Doe", email = "jane@example.com", role = c("aut", "cre"), 
+    comment = c(ORCID = "YOUR-ORCID-ID"))',
+    License = "MIT + file LICENSE",
+    Version = "0.0.0.9000"
+  ),
+  usethis.protocol  = "ssh"
+)</a></code></pre>
+</div>
+<div id="writing-a-dockerfile" class="section level2">
+<h2 class="hasAnchor">
+<a href="#writing-a-dockerfile" class="anchor"></a>Writing a Dockerfile</h2>
+<p>Unless your project requires Debian or Python dependencies (more on this below), simply run <code><a href="../reference/write_dockerfile.html">write_dockerfile()</a></code> to have a Dockerfile created in your project.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw"><a href="../reference/write_dockerfile.html">write_dockerfile</a></span>(<span class="dt">maintainer =</span> <span class="st">"Karthik Ram"</span>)</a></code></pre></div>
+<p>Except for the DESCRIPTION file, all binder specific files are stored in a hidden folder called <code>.binder</code>. <code>write_dockerfile</code> also searches option to pre-populate the maintainer but one can pass a name to override this.</p>
+<p>By default, this function will use a Rocker Project base image that contains Binder elements, Rstudio Server, and the Tidyverse ecosystem. This is a good default as it covers a wide range of use cases and a user will only have to install a few additional packages to be fully setup. If you have a more complex Docker setup, you can build from Rocker Binder and install other software and then make that your base. To override the package’s base choice:</p>
+<pre><code><a href="../reference/write_dockerfile.html">write_dockerfile(base = "user/base", maintainer = "Karthik Ram")</a></code></pre>
+<p>The function will try to automatically guess the date your code was last modified and choose the version of R matching that date. Packages will also be installed from a MRAN snapshot matching the same date. This can be overridden with the <code>r_date</code> argument.</p>
+</div>
+<div id="generating-a-badge" class="section level2">
+<h2 class="hasAnchor">
+<a href="#generating-a-badge" class="anchor"></a>Generating a Badge</h2>
+<p>As long as your project has a Github username and root in the config files, it will generate a badge that you can copy into your README. If you don’t have this project on GitHub, you can create a new repo at <code>github.com/new</code> and follow instructions to connect your local copy to a remote copy. The <code>usethis</code> package also provides some additional functionality to connect local folders to Git remotes.<br>
+## Building the Binder image At this point a user should commit and push code to GitHub. If the repo is dirty, the function will throw an error.</p>
+<pre><code><a href="../reference/build_binder.html">build_binder()</a></code></pre>
+<p>Kicks off the build on binder hub in the background. This step builds the Docker image and makes it easy to launch quickly when a notebook is desired. This is not a necessary step, but doing so will cut down on launch time.</p>
+</div>
+<div id="order-of-operation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#order-of-operation" class="anchor"></a>Order of operation</h2>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Function Name</th>
+<th align="left">Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code><a href="../reference/write_compendium_description.html">write_compendium_description(package = "Your compendium name",                               description = "Your compendium description")</a></code></td>
+<td align="left">Sets up a description files with right metadata and package dependencies</td>
+</tr>
+<tr class="even">
+<td align="left"><code><a href="../reference/write_dockerfile.html">write_dockerfile(maintainer = "your_name")</a></code></td>
+<td align="left">Writes a Dockerfile with an appropriate R + Binder base. You can override this for more complex use cases</td>
+</tr>
+<tr class="odd">
+<td align="left"><code><a href="../reference/generate_badge.html">generate_badge()</a></code></td>
+<td align="left">Generates a badge that you can copy into your README. Clicking the badge will launch a Binder</td>
+</tr>
+<tr class="even">
+<td align="left"><code><a href="../reference/build_binder.html">build_binder()</a></code></td>
+<td align="left">This function builds a new Docker image on Binder Hub the first time. If your code doesn’t change, or too much time hasn’t passed since last use, it will rely on this cached image to quickly launch an instance of Binder. This same step is achieved when click the badge, but one may have to wait several minutes in that case. This operation runs in the background and a user can continue with other activities. Once completed, it will launch on the browser</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+        <div id="tocnav">
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+<li>
+<a href="#introduction">Introduction</a><ul class="nav nav-pills nav-stacked">
+<li><a href="#writing-a-description-file">Writing a DESCRIPTION file</a></li>
+      <li><a href="#writing-a-dockerfile">Writing a Dockerfile</a></li>
+      <li><a href="#generating-a-badge">Generating a Badge</a></li>
+      <li><a href="#order-of-operation">Order of operation</a></li>
+      </ul>
+</li>
+      </ul>
+</div>
       </div>
 
 </div>

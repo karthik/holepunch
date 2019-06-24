@@ -4,7 +4,6 @@ test_that("Write runtime works", {
   unlink(test_path("dir_code/.binder/Dockerfile"))
   write_runtime(path = tpath)
   expect_true(fs::file_exists(glue::glue("{tpath}/.binder/runtime.txt")))
-  # Note: Should I use fs or just stick with unlink?
   unlink(test_path("dir_code/.binder"))
 })
 
@@ -15,7 +14,6 @@ test_that("Write runtime gets right date", {
   write_runtime(path = tpath, r_date = "2019-03-02")
   runtime_file <- readLines(glue::glue("{tpath}/.binder/runtime.txt"))
   expect_identical("r-2019-03-02", runtime_file)
-  # Note: Should I use fs or just stick with unlink?
   unlink(test_path("dir_code/.binder"))
 })
 
@@ -29,6 +27,5 @@ test_that("A warning is generated if Dockerfile exists", {
   writeLines(docker_contents, fileConn)
   close(fileConn)
   expect_warning(write_runtime(path = tpath, r_date = "2019-03-02"))
-  # Note: Should I use fs or just stick with unlink?
   unlink(test_path("dir_code/.binder"))
 })

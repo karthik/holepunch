@@ -18,4 +18,100 @@ knitr::opts_chunk$set(
 library(holepunch)
 ```
 
-A work in progress
+# Introduction
+
+In 2004 Robert Gentleman and Duncan Temple Lang wrote a BioConductor  working paper called [Statistical Analysis and Reproducible Research](https://biostats.bepress.com/bioconductor/paper2/). In this paper they argued that one should tightly integrate code, methods,  algorithms and narrative as closely as possible to facilitate easy reproduction and extension. They described this 'source document' as a **research compendium**, which they describe as:
+
+> We introduce the concept of a compendium as both a container for the different elements that make up the document and its computations (i.e. text, code, data, ...), and as a means for distributing, managing and updating the collection.
+
+A compendium is more than the collection of documents, data, and code. It is an environment that can be repurposed to support other code and reuse of the work in areas other than the original author's domain. Despite the usefulness of the concept, creating and maintaining a compendium at the time this report was written was simply too cumbersome. The effort was far too high to make setting up a compendium worthwhile for small to medium projects. Fast forward to modern day, improvements to the R ecosystem, the rapid evolution of the Jupyter ecosystem, and maturing of container technologies such Docker have made set up far easier for most projects.  As Marwick et al elegantly describe in their paper titled [Packaging data analytical work reproducibly using R (and friends)](https://peerj.com/preprints/3192/), R's package structure makes it extremely easy to setup, share, and allow compendia to be run as live notebooks on the cloud. This package aims to support some functionality to turn one's repository of code and R Markdown files into a compendium. With the addition of a Dockerfile, the project is now ready to be launched on services like Binder, where the desired version of R, and all of the correct versions of the packages are installed and ready to go. Any user with access to a modern web browser can now interact with the code and notebooks and either reproduce the analysis, or explore the code for other use cases.
+
+In this vignette I walk through the process of turning a folder/repository into a compendium. The key steps are:
+
+1. Write a DESCRIPTION file. 
+2. Create a Dockerfile
+3. Add a badge to launch your binder
+4. Build a Docker Image from the Dockerfile
+
+## Writing a DESCRIPTION file
+
+As Hadley Wickham describes in his [R Packages book](http://r-pkgs.had.co.nz/description.html), the role of this file is to store important metadata about a R package.  These include general details like a title, description, and author but also critical information such as  dependencies (both R and R packages), license, and a version number among other details.  The file follows a Debian Control Format (DCF) and is made up of a list of key value pairs. The beautiful thing about a DESCRIPTION file is that you can have one in your folder even if its not a R package! 
+
+At its most minimal, the DESCRIPTION file for a compendium can look like this:
+
+```r
+Type: Compendium
+Package: name_of_package
+Version: 0.1.0
+Depends: dplyr, ggplot2, wesanderson
+```
+
+Once this file exists, a user can install all these dependencies using the `devtools` package. Like so:
+
+```
+devtools::install_deps()
+```
+
+Holepunch makes it easy to write this file for any project. The syntax is:
+
+```r
+write_compendium_description(package = "Your compendium name", 
+                             description = "Your compendium description")
+```
+
+Your project will now have this file with placeholders for author information, license and version. The package searches all of the code in your folder (including sub-folders) and writes a list of unique dependencies to this file as well. To save yourself time and effort here and for package development, you can pre-populate many of the description file fields with some code in your `rprofile`
+
+```
+options(
+  usethis.full_name = "Jane Doe",
+  usethis.description = list(
+    `Authors@R` = 'person("Jane", "Doe", email = "jane@example.com", role = c("aut", "cre"), 
+    comment = c(ORCID = "YOUR-ORCID-ID"))',
+    License = "MIT + file LICENSE",
+    Version = "0.0.0.9000"
+  ),
+  usethis.protocol  = "ssh"
+)
+```
+
+## Writing a Dockerfile
+
+Unless your project requires Debian or Python dependencies (more on this below), simply run `write_dockerfile()` to have a Dockerfile created in your project. 
+
+```r
+write_dockerfile(maintainer = "Karthik Ram")
+```
+
+Except for the DESCRIPTION file, all binder specific files are stored in a hidden folder called `.binder`. `write_dockerfile` also searches option to pre-populate the maintainer but one can pass a name to override this. 
+
+By default, this function will use a Rocker Project base image that contains Binder elements, Rstudio Server, and the Tidyverse ecosystem. This is a good default as it covers a wide range of use cases and a user will only have to install a few additional packages to be fully setup. If you have a more complex Docker setup, you can build from Rocker Binder and install other software and then make that your base. To override the package's base choice:
+
+```
+write_dockerfile(base = "user/base", maintainer = "Karthik Ram")
+```
+
+The function will try to automatically guess the date your code was last modified and choose the version of R matching that date. Packages will also be installed from a MRAN snapshot matching the same date. This can be overridden with the `r_date` argument.
+
+## Generating a Badge
+
+As long as your project has a Github username and root in the config files, it will generate a badge that you can copy into your README. If you don't have this project on GitHub, you can create a new repo at `github.com/new` and follow instructions to connect your local copy to a remote copy. The `usethis` package also provides some additional functionality to connect local folders to Git remotes.
+\
+## Building the Binder image
+At this point a user should commit and push code to GitHub. If the repo is dirty, the function will throw an error. 
+
+```
+build_binder()
+```
+
+Kicks off the build on binder hub in the background. This step builds the Docker image and makes it easy to launch quickly when a notebook is desired. This is not a necessary step, but doing so will cut down on launch time.
+                             
+
+## Order of operation
+
+| Function Name | Description |
+|:--|:--|
+| `write_compendium_description(package = "Your compendium name", 
+                             description = "Your compendium description")` | Sets up a description files with right metadata and package dependencies  |
+| `write_dockerfile(maintainer = "your_name") `  | Writes a Dockerfile with an appropriate R + Binder base. You can override this for more complex use cases |
+| `generate_badge()` | Generates a badge that you can copy into your README. Clicking the badge will launch a Binder |
+| `build_binder()` | This function builds a new Docker image on Binder Hub the first time. If your code doesn't change, or too much time hasn't passed since last use, it will rely on this cached image to quickly launch an instance of Binder. This same step is achieved when click the badge, but one may have to wait several minutes in that case. This operation runs in the background and a user can continue with other activities. Once completed, it will launch on the browser  |
