@@ -8,7 +8,7 @@ _pkgdown.yaml
 docs/
 ^\.github$
 ^CODE_OF_CONDUCT\.md$
-^codecov\.yml$
+^coveralls\.yml$
 build.sh
 man-roxygen/
 holepunch.png
