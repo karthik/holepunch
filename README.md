@@ -93,7 +93,7 @@ An easy way to test this package _without writing any code_ is to visit the [bin
 
 ## Suggestions and review
 
-The ETA for the first release of this package is early July. Comments, suggestions for improving the workflow or any other comments welcome in the [issues](https://github.com/karthik/holepunch/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc).
+The ETA for the first release of this package is early July (after `renv` goes to CRAN). Comments, suggestions for improving the workflow or any other comments welcome in the [issues](https://github.com/karthik/holepunch/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc).
 
 ## Code of conduct
 

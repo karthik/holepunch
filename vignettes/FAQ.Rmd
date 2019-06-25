@@ -14,17 +14,15 @@ knitr::opts_chunk$set(
 )
 ```
 
-# FAQ
-
-1. What's the difference between Binder and MyBinder?
+## 1. What's the difference between Binder and MyBinder?
 
 MyBinder is a hosted instance (aka binder hub) of an open source project called Binder. It so happens that My Binder is also hosted by the creators of Binder. People often use Binder and MyBinder interchangeably but that's not correct.  There are several other binder hubs and more are likely to be available.
 
-2. What happens if mybinder goes away?
+## 2. What happens if mybinder goes away?
 
 You can just use the `hub` argument in various functions (`generate_badge`, `build_binder`) and swap out to another binder hub. If your org has the resources (funds + dev ops people), you can even host your own that has fewer resource limitations than the public Binder.
 
-3. What happens if all the public binder hubs go away?
+## 3. What happens if all the public binder hubs go away?
 
 All is not lost. The effort you put into creating a description and Dockerfile will make it easy for people to spin up a Docker instance locally on their machines. It's not as slick but still better than leaving your setup less documented.
  
