@@ -24,7 +24,7 @@ write_runtime <-
       )
     }
 
-    txt <- paste0("r-", r_date)
+    txt <- glue::glue("r-{r_date}")
     fs::dir_create(glue::glue("{path}/.binder"))
     fileConn <- file(glue::glue("{path}/.binder/runtime.txt"))
     writeLines(txt, fileConn)

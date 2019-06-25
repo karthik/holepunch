@@ -15,14 +15,13 @@ BugReports: https://github.com/karthik/holepunch/issues
 Depends:
   R(>= 2.10)
 Imports: 
-    curl,
     cliapp,
     desc,
     fs,
     future,
     gh,
+    git2r (>= 0.23),    
     glue,
-    git2r (>= 0.23),
     httr,
     lubridate,
     promises,
