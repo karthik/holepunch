@@ -15,4 +15,4 @@ holepunch.png
 ^appveyor\.yml$
 ^codemeta\.json$
 .coveralls.yml
-tests/testthat/dir_code/.binder
+tests/testthat/dir_code/.binder/*

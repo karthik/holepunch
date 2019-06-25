@@ -2,7 +2,7 @@ title: hole punch
 url: http://karthik.github.io/holepunch
 template:
   params:
-    bootswatch: flatly
+    bootswatch: cosmo
 reference:
   - title: Key Functions
     desc: Setting up your R project as a research compendium
