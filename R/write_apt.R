@@ -2,7 +2,7 @@
 
 
 
-#' Write a lsit of apt packages
+#' Write a list of apt packages
 #'
 #' Writes a list of Debian packages that should be installed.  Caution: If you have a Dockerfile,
 #' this file will be ignored.

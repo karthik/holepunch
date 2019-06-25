@@ -2,7 +2,7 @@
 % Please edit documentation in R/write_apt.R
 \name{write_apt}
 \alias{write_apt}
-\title{Write a lsit of apt packages}
+\title{Write a list of apt packages}
 \usage{
 write_apt(path = ".", apt_input = NULL)
 }
