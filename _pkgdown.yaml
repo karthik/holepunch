@@ -36,6 +36,8 @@ navbar:
       menu:
       -  text: Getting Started
          href: articles/getting_started.html
+      -  text: FAQ
+         href: articles/FAQ.html
     - icon: fa-newspaper-o
       text: "news"
       href: news/index.html
