@@ -1,18 +1,18 @@
 test_that("Writing Dockerfile works", {
   source(test_path("common.R"))
 
-  write_compendium_description(path = test_path)
-  write_dockerfile(path = test_path, maintainer = "Wes Anderson")
+  write_compendium_description(path = temp_path)
+  write_dockerfile(path = temp_path, maintainer = "Wes Anderson")
 
   reading_back_dockerfile <-
-    readLines(glue::glue("{test_path}/.binder/Dockerfile"))
+    readLines(glue::glue("{temp_path}/.binder/Dockerfile"))
 
   expect_identical(reading_back_dockerfile[2], "LABEL maintainer='Wes Anderson'")
   expect_identical(reading_back_dockerfile[3], "USER root")
   expect_identical(reading_back_dockerfile[4], "COPY . ${HOME}")
   expect_identical(reading_back_dockerfile[5], "RUN chown -R ${NB_USER} ${HOME}")
 
-  unlink(test_path)
+  unlink(temp_path)
   setwd(old_path)
 })
 
@@ -20,8 +20,8 @@ test_that("Writing Dockerfile works", {
 # test_that("Writing Dockerfile generates a error when there is no DESCRIPTION file", {
 #   
 #   source("common.R")
-#   expect_error(write_dockerfile(path = test_path))
-#   unlink(test_path)
+#   expect_error(write_dockerfile(path = temp_path))
+#   unlink(temp_path)
 #   setwd(old_path)
 # })
 
@@ -31,9 +31,9 @@ test_that("Writing Dockerfile works", {
 #   print(glue::glue("Current working directory is {getwd()}"))
 #    unlink(glue::glue("{getwd()}/.git"))
 #    # Cannot find a Git remote
-#   expect_error(write_dockerfile(path = test_path, maintainer = "Wes Anderson"))
+#   expect_error(write_dockerfile(path = temp_path, maintainer = "Wes Anderson"))
 # 
-#   unlink(test_path)
+#   unlink(temp_path)
 #   setwd(old_path)
 # })
 
