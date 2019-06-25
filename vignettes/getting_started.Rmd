@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, echo = FALSE}
 library(holepunch)
 ```
 
@@ -95,8 +95,9 @@ The function will try to automatically guess the date your code was last modifie
 ## Generating a Badge
 
 As long as your project has a Github username and root in the config files, it will generate a badge that you can copy into your README. If you don't have this project on GitHub, you can create a new repo at `github.com/new` and follow instructions to connect your local copy to a remote copy. The `usethis` package also provides some additional functionality to connect local folders to Git remotes.
-\
+
 ## Building the Binder image
+
 At this point a user should commit and push code to GitHub. If the repo is dirty, the function will throw an error. 
 
 ```
