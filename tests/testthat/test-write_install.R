@@ -60,3 +60,13 @@ test_that("A warning is generated if Dockerfile exists", {
   # Note: Should I use fs or just stick with unlink?
   unlink(test_path("dir_code/.binder"))
 })
+
+
+test_that("A .binder folder gets written", {
+  tpath <- test_path("dir_code")
+  write_install(path = tpath)
+  expect_true(fs::dir_exists(glue::glue("{tpath}/.binder")))
+  expect_true(fs::file_exists(glue::glue("{tpath}/.binder/install.R")))
+  unlink(glue::glue("{tpath}/.binder"))
+  
+})

@@ -239,7 +239,7 @@
   ],
   "releaseNotes": "https://github.com/karthik/holepunch/blob/master/NEWS.md",
   "readme": "https://github.com/karthik/holepunch/blob/master/README.md",
-  "fileSize": "18.671KB",
+  "fileSize": "18.702KB",
   "contIntegration": [
     "https://travis-ci.org/karthik/holepunch",
     "https://coveralls.io/r/karthik/holepunch?branch=master",
