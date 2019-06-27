@@ -47,7 +47,7 @@ build_binder <-
            hub = "mybinder.org",
            urlpath = "rstudio") {
     if (!is_clean(path)) {
-      stop(
+      warning(
         "Please commmit and push files to GitHub before building binder. Otherwise Binder cannot see these new files/changes",
         call. = FALSE
       )

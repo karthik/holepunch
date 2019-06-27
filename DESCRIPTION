@@ -1,6 +1,6 @@
 Package: holepunch
 Title: Configure Your R Project for 'binderhub'
-Version: 0.1.16.9000
+Version: 0.1.17.9000
 Authors@R: 
     person(given = "Karthik",
            family = "Ram",
