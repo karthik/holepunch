@@ -228,6 +228,7 @@
       "@type": "SoftwareApplication",
       "identifier": "usethis",
       "name": "usethis",
+      "version": ">= 1.4.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -239,7 +240,7 @@
   ],
   "releaseNotes": "https://github.com/karthik/holepunch/blob/master/NEWS.md",
   "readme": "https://github.com/karthik/holepunch/blob/master/README.md",
-  "fileSize": "18.897KB",
+  "fileSize": "18.901KB",
   "contIntegration": [
     "https://travis-ci.org/karthik/holepunch",
     "https://coveralls.io/r/karthik/holepunch?branch=master",
