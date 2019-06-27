@@ -26,3 +26,6 @@ You can just use the `hub` argument in various functions (`generate_badge`, `bui
 
 All is not lost. The effort you put into creating a description and Dockerfile will make it easy for people to spin up a Docker instance locally on their machines. It's not as slick but still better than leaving your setup less documented.
  
+## 4. I did everything right but the Binder wont launch.
+
+Sometimes the servers are down or overloaded. You can check out the [status dashboard](https://grafana.mybinder.org/d/3SpLQinmk/1-overview?refresh=1m&orgId=1). Refreshing the page will usually fix things if the launch doesn't automatically work. 

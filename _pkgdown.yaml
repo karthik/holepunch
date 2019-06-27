@@ -39,12 +39,12 @@ navbar:
       -  text: FAQ
          href: articles/FAQ.html
     - icon: fa-newspaper-o
-      text: "news"
+      text: "News"
       href: news/index.html
     - icon: fa-file-code-o
-      text: "functions"
+      text: "Functions"
       href: reference/index.html
     - icon: fa-github fa-lg
-      text: "github"
+      text: "GitHub"
       href: https://github.com/karthik/holepunch/
 

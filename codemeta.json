@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/karthik/holepunch",
   "issueTracker": "https://github.com/karthik/holepunch/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.1.14.9000",
+  "version": "0.1.15.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -239,7 +239,7 @@
   ],
   "releaseNotes": "https://github.com/karthik/holepunch/blob/master/NEWS.md",
   "readme": "https://github.com/karthik/holepunch/blob/master/README.md",
-  "fileSize": "18.702KB",
+  "fileSize": "18.897KB",
   "contIntegration": [
     "https://travis-ci.org/karthik/holepunch",
     "https://coveralls.io/r/karthik/holepunch?branch=master",

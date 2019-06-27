@@ -56,13 +56,16 @@ build_binder <-
     
     cliapp::cli_alert_info(
       glue::glue(
-        "Your Binder is being built in the background. Once built, your browser will automatically launch. You can also click the binder badge at a later time too"
+        "Your Binder is being built in the background. Once built, your browser will automatically launch. You can also click the binder badge on your README at any time."
       )
     )
     # nocov start
-    `%...>%` <- promises::`%...>%`
+    `%...>%` <- promises::`%...>%` 
+    binder_plan <- plan("list")
+    on.exit(plan(binder_plan))
     multisession <- "future" %:::% "multisession"
     future::plan(multisession, workers = 2)
+    
     future::future({
       binder_builder(path, hub, urlpath)
     }) %...>% utils::browseURL
