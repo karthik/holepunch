@@ -61,8 +61,8 @@ build_binder <-
     )
     # nocov start
     `%...>%` <- promises::`%...>%` 
-    binder_plan <- plan("list")
-    on.exit(plan(binder_plan))
+    binder_plan <- future::plan("list")
+    on.exit(future::plan(binder_plan))
     multisession <- "future" %:::% "multisession"
     future::plan(multisession, workers = 2)
     
