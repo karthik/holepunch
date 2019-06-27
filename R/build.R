@@ -67,7 +67,7 @@ build_binder <-
     future::plan(multisession, workers = 2)
     
     future::future({
-      holepunch:::binder_builder(path, hub, urlpath)
+      binder_builder(path, hub, urlpath)
     }) %...>% utils::browseURL
     # nocov end
   }
