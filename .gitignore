@@ -3,3 +3,5 @@
 .Rproj.user/*
 build.sh
 inst/doc
+.*
+!/.gitignore
