@@ -29,7 +29,7 @@ write_compendium_description <-
              description = "Compendium description",
              version = "0.0.1",
              path = ".") {
-    Depends <- get_dependencies(path)
+    Depends <- unique(get_dependencies(path))
     fields <-
       list(
         Type = type,
