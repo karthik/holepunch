@@ -1,6 +1,5 @@
 .Rhistory
 .RData
-.Rproj.user
-.binder/*
+.Rproj.user/*
 build.sh
 inst/doc
