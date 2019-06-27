@@ -7,7 +7,7 @@
 #' @param path path to local git controlled folder
 #' @template hub
 #' @template urlpath
-#'
+#' 
 #' @importFrom httr GET content
 #' @importFrom cliapp cli_alert_warning
 binder_builder <-
@@ -67,7 +67,7 @@ build_binder <-
     future::plan(multisession, workers = 2)
     
     future::future({
-      binder_builder(path, hub, urlpath)
+      holepunch:::binder_builder(path, hub, urlpath)
     }) %...>% utils::browseURL
     # nocov end
   }

@@ -1,6 +1,11 @@
 test_that("Badge works", {
   # Start of the block that needs to be a helper function
-  temp_path <- paste0(tempdir(), "/testcompendium")
+  rand_str_foo <- function() {
+    paste(sample(c(0:9, letters, LETTERS), 12, replace = TRUE), collapse = "")
+  }
+  
+  randdd <- rand_str_foo()
+  temp_path <- glue::glue("{tempdir()}/{randdd}/testcompendium")
   dir.create(temp_path, showWarnings = FALSE)
   old_path <- getwd()
   # Note: suppressing warnings here because if I don't I see this:
