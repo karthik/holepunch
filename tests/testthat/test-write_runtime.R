@@ -29,3 +29,4 @@ test_that("A warning is generated if Dockerfile exists", {
   expect_warning(write_runtime(path = tpath, r_date = "2019-03-02"))
   unlink(test_path("dir_code/.binder"))
 })
+teardown(unlink("tests/testthat/dir_code/.binder"))

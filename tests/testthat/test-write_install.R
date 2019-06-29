@@ -68,5 +68,6 @@ test_that("A .binder folder gets written", {
   expect_true(fs::dir_exists(glue::glue("{tpath}/.binder")))
   expect_true(fs::file_exists(glue::glue("{tpath}/.binder/install.R")))
   unlink(glue::glue("{tpath}/.binder"))
-  
 })
+
+teardown(unlink("tests/testthat/dir_code/.binder"))
