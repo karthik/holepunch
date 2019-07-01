@@ -6,9 +6,10 @@ test_that("Write install writes dependencies correctly", {
   library(holepunch)
   write_install(tpath)
   installer_file <- readLines(glue::glue("{tpath}/.binder/install.R"))
-  
-  packages_needed_here <- c("install.packages('purrr')", "install.packages('tidyr')", "install.packages('rmarkdown')", 
-                            "install.packages('dplyr')", "install.packages('ggplot2')", "install.packages('glue')"
+
+  packages_needed_here <- c(
+    "install.packages('purrr')", "install.packages('tidyr')", "install.packages('rmarkdown')",
+    "install.packages('dplyr')", "install.packages('ggplot2')", "install.packages('glue')"
   )
   expect_equal(installer_file, packages_needed_here)
   unlink(test_path("dir_code/.binder"))

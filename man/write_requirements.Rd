@@ -16,10 +16,12 @@ Writes a list of Debian packages that should be installed. Caution: If you have 
 this file will be ignored.
 }
 \examples{
-write_requirements(path = ".",
-requirements = "
+write_requirements(
+  path = ".",
+  requirements = "
 numpy==1.16.*
 matplotlib==3.*
 seaborn==0.8.1
-")
+"
+)
 }

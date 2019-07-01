@@ -17,13 +17,15 @@ Writes a list of Debian packages that should be installed.  Caution: If you have
 this file will be ignored.
 }
 \examples{
-write_apt(path = ".",
-apt_input = "
+write_apt(
+  path = ".",
+  apt_input = "
 texlive-latex-base
 texlive-latex-recommended
 texlive-science
 texlive-latex-extra
 texlive-fonts-recommended
 dvipng
-ghostscript")
+ghostscript"
+)
 }

@@ -18,7 +18,7 @@ test_that("Writing Dockerfile works", {
 
 
 # test_that("Writing Dockerfile generates a error when there is no DESCRIPTION file", {
-#   
+#
 #   source("common.R")
 #   expect_error(write_dockerfile(path = temp_path))
 #   unlink(temp_path)
@@ -32,7 +32,7 @@ test_that("Writing Dockerfile works", {
 #    unlink(glue::glue("{getwd()}/.git"))
 #    # Cannot find a Git remote
 #   expect_error(write_dockerfile(path = temp_path, maintainer = "Wes Anderson"))
-# 
+#
 #   unlink(temp_path)
 #   setwd(old_path)
 # })

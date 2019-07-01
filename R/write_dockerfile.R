@@ -1,26 +1,26 @@
-#'Write a minimal Dockerfile for a Binder
+#' Write a minimal Dockerfile for a Binder
 #'
-#'The file is written to a hidden folder called `.binder/`. This will not
-#'interfere with other Dockerfiles that you may have in your root to help with
-#'other services like CI.
+#' The file is written to a hidden folder called `.binder/`. This will not
+#' interfere with other Dockerfiles that you may have in your root to help with
+#' other services like CI.
 #'
-#'@param base Your Docker base. I recommend that you use a binder base from the
+#' @param base Your Docker base. I recommend that you use a binder base from the
 #'  \href{https://www.rocker-project.org/images/}{Rocker project}. This daily
 #'  image will contain all the Jupyter hub elements + Rstudio Server + the
 #'  Tidyverse (which cuts down on installation time). The only thing then left
 #'  to do is to install any additional packages listed in your DESCRIPTION file,
 #'  which will be done during the build_binder step.
-#'@param maintainer Maintainer of the Dockerfile. By default the function reads
+#' @param maintainer Maintainer of the Dockerfile. By default the function reads
 #'  `usethis.full_name` set in Options. The same information is used to set the
 #'  author on your DESCRIPTION file.  For more information on setting up default
 #'  values for Description files, read the
 #'  \href{https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences}{Rstudio
 #'  usethis documentation}.
-#'@template r_date
-#'@param path path to binder repo. Defaults to current location.
+#' @template r_date
+#' @param path path to binder repo. Defaults to current location.
 #'
-#'@importFrom glue glue
-#'@export
+#' @importFrom glue glue
+#' @export
 #'
 write_dockerfile <-
   function(base = NULL,

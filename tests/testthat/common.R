@@ -3,6 +3,8 @@ rand_str_foo <- function() {
 }
 
 randdd <- rand_str_foo()
+# Tempdir never goes away and I need to start clean each time
+# Hence the random dir
 temp_path <- glue::glue("{tempdir()}/{randdd}/testcompendium")
 dir.create(temp_path, showWarnings = FALSE)
 old_path <- getwd()

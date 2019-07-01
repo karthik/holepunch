@@ -13,8 +13,8 @@
 #' @importFrom cliapp cli_alert_warning
 binder_builder <-
   function(path = ".",
-           hub = "mybinder.org",
-           urlpath = "rstudio") {
+             hub = "mybinder.org",
+             urlpath = "rstudio") {
     path <- sanitize_path(path)
     if (!has_a_git_remote()) {
       stop(
@@ -45,21 +45,20 @@ binder_builder <-
 #' @export
 build_binder <-
   function(path = ".",
-           hub = "mybinder.org",
-           urlpath = "rstudio") {
-    
-    proceed <- TRUE  
-    
+             hub = "mybinder.org",
+             urlpath = "rstudio") {
+    proceed <- TRUE
+
     if (!is_clean(path)) {
       if (interactive()) {
         proceed <- usethis::ui_yeah(
           "There are uncommitted files in your repo. Until committed and pushed to GitHub, Binder cannot build from these files. Do you still wish to continue?"
         )
-      } else { # end if interactive 
-      warning("There are uncommitted files in your repo. Until committed and pushed to GitHub, Binder cannot build from these files.")
+      } else { # end if interactive
+        warning("There are uncommitted files in your repo. Until committed and pushed to GitHub, Binder cannot build from these files.")
       }
     } # end not is clean
-    
+
     if (proceed) {
       cliapp::cli_alert_info(
         glue::glue(
@@ -68,11 +67,12 @@ build_binder <-
       )
       # nocov start
       `%...>%` <- promises::`%...>%`
+      # TODO: Fix unbroken promises
       # binder_plan <- future::plan("list")
       # on.exit(future::plan(binder_plan))
       multisession <- "future" %:::% "multisession"
       future::plan(multisession, workers = 2)
-      
+
       future::future({
         binder_builder(path, hub, urlpath)
       }) %...>% utils::browseURL

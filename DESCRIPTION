@@ -7,7 +7,10 @@ Authors@R:
            role = c("aut", "cre"),
            email = "karthik.ram@gmail.com",
            comment = c(ORCID = "0000-0002-0233-1757")),
-           person("Anna", "Krystalli", role = "rev", email = "annakrystalli@googlemail.com")) 
+           person(given = "Anna", 
+                  family = "Krystalli", 
+                  role = "rev", 
+                  email = "annakrystalli@googlemail.com")) 
 Description: Provides a set of helper tools to
     set up Binder for a project or package.
 License: MIT + file LICENSE

@@ -3,7 +3,7 @@ test_that("Badge works", {
   rand_str_foo <- function() {
     paste(sample(c(0:9, letters, LETTERS), 12, replace = TRUE), collapse = "")
   }
-  
+
   randdd <- rand_str_foo()
   temp_path <- glue::glue("{tempdir()}/{randdd}/testcompendium")
   dir.create(temp_path, showWarnings = FALSE)
@@ -13,7 +13,7 @@ test_that("Badge works", {
   suppressWarnings(usethis::create_project(path = temp_path, open = FALSE))
   setwd(temp_path)
   git2r::init(temp_path)
-  
+
   # This is a horrifying way to write a config manually, but
   # . ¯\_(ツ)_/¯
   # I don't know a better way for now.
@@ -37,7 +37,7 @@ test_that("Badge works", {
   fileConn <- file(glue::glue("{temp_path}/.git/config"))
   writeLines(config, fileConn)
   close(fileConn)
-  
+
   cat(
     "```{r}\nlibrary(dplyr)\nrequire(ggplot2)\nglue::glue_collapse(glue::glue('{1:10}'))\n```\n",
     file = paste0(temp_path, "/test.Rmd")
@@ -63,6 +63,6 @@ test_that("Mybinder badge works", {
     "https://binder.pangeo.io/v2/gh/user/repo/master"
   )
 
-  
+
   setwd(old_path)
 })
