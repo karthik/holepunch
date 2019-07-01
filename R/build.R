@@ -1,3 +1,4 @@
+
 #' Builds binder
 #'
 #' This function kicks off the image build on Mybinder.org. Although it is not
@@ -52,10 +53,10 @@ build_binder <-
     if (!is_clean(path)) {
       if (interactive()) {
         proceed <- usethis::ui_yeah(
-          "There are uncommitted files in your repo. Until committed and pushed to GitHub, Binder cannot build from these files"
+          "There are uncommitted files in your repo. Until committed and pushed to GitHub, Binder cannot build from these files. Do you still wish to continue?"
         )
       } else { # end if interactive 
-      warning("There are uncommitted files in your repo. Until committed and pushed to GitHub, Binder cannot build from these files")
+      warning("There are uncommitted files in your repo. Until committed and pushed to GitHub, Binder cannot build from these files.")
       }
     } # end not is clean
     
