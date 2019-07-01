@@ -11,7 +11,8 @@ write_runtime(path = ".", r_date = lubridate::ymd(lubridate::today()))
 
 \item{r_date}{Date you need R to lock down to. By default it picks the most
 recent date a file was touched in this project but you can override this by
-specifying this explicitly. Date must be in ISO 8601 format.}
+specifying this explicitly. Date must be in ISO 8601 format, e.g.
+2019-06-27}
 }
 \description{
 This function writes the language (in this case R) and a date from which
