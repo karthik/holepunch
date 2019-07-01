@@ -20,3 +20,4 @@ expect_identical(require_contents[3], "seaborn==0.8.1")
 unlink(temp_path)
 
 })
+teardown(unlink("tests/testthat/dir_code/.binder"))

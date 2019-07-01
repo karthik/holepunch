@@ -1,3 +1,4 @@
+
 #' Builds binder
 #'
 #' This function kicks off the image build on Mybinder.org. Although it is not
@@ -7,7 +8,7 @@
 #' @param path path to local git controlled folder
 #' @template hub
 #' @template urlpath
-#' 
+#'
 #' @importFrom httr GET content
 #' @importFrom cliapp cli_alert_warning
 binder_builder <-
@@ -46,28 +47,35 @@ build_binder <-
   function(path = ".",
            hub = "mybinder.org",
            urlpath = "rstudio") {
+    
+    proceed <- TRUE  
+    
     if (!is_clean(path)) {
-      warning(
-        "Please commmit and push files to GitHub before building binder. Otherwise Binder cannot see these new files/changes",
-        call. = FALSE
+      if (interactive()) {
+        proceed <- usethis::ui_yeah(
+          "There are uncommitted files in your repo. Until committed and pushed to GitHub, Binder cannot build from these files. Do you still wish to continue?"
+        )
+      } else { # end if interactive 
+      warning("There are uncommitted files in your repo. Until committed and pushed to GitHub, Binder cannot build from these files.")
+      }
+    } # end not is clean
+    
+    if (proceed) {
+      cliapp::cli_alert_info(
+        glue::glue(
+          "Your Binder is being built in the background. Once built, your browser will automatically launch. You can also click the binder badge on your README at any time."
+        )
       )
-    }
-    
-    
-    cliapp::cli_alert_info(
-      glue::glue(
-        "Your Binder is being built in the background. Once built, your browser will automatically launch. You can also click the binder badge on your README at any time."
-      )
-    )
-    # nocov start
-    `%...>%` <- promises::`%...>%` 
-    # binder_plan <- future::plan("list")
-    # on.exit(future::plan(binder_plan))
-    multisession <- "future" %:::% "multisession"
-    future::plan(multisession, workers = 2)
-    
-    future::future({
-      binder_builder(path, hub, urlpath)
-    }) %...>% utils::browseURL
-    # nocov end
+      # nocov start
+      `%...>%` <- promises::`%...>%`
+      # binder_plan <- future::plan("list")
+      # on.exit(future::plan(binder_plan))
+      multisession <- "future" %:::% "multisession"
+      future::plan(multisession, workers = 2)
+      
+      future::future({
+        binder_builder(path, hub, urlpath)
+      }) %...>% utils::browseURL
+      # nocov end
+    } # end proceed
   }

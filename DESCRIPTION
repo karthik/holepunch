@@ -1,12 +1,13 @@
 Package: holepunch
 Title: Configure Your R Project for 'binderhub'
-Version: 0.1.18.9000
+Version: 0.1.19.9000
 Authors@R: 
-    person(given = "Karthik",
+    c(person(given = "Karthik",
            family = "Ram",
            role = c("aut", "cre"),
            email = "karthik.ram@gmail.com",
-           comment = c(ORCID = "0000-0002-0233-1757"))
+           comment = c(ORCID = "0000-0002-0233-1757")),
+           person("Anna", "Krystalli", role = "rev", email = "annakrystalli@googlemail.com")) 
 Description: Provides a set of helper tools to
     set up Binder for a project or package.
 License: MIT + file LICENSE

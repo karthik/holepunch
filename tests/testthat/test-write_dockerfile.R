@@ -37,4 +37,4 @@ test_that("Writing Dockerfile works", {
 #   setwd(old_path)
 # })
 
-
+teardown(unlink("tests/testthat/dir_code/.binder"))
