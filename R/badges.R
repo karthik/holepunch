@@ -22,7 +22,7 @@ generate_badge <-
       repo <- gh_tree_remote(path)$repo
       url <-
         glue("https://{hub}/v2/gh/{user}/{repo}/master?urlpath={urlpath}")
-      img <- glue("http://{hub}/badge.svg")
+      img <- glue("http://{hub}/badge_logo.svg")
       use_badge("Launch Rstudio Binder", url, img)
     }
 
