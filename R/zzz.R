@@ -8,6 +8,13 @@
 #'
 last_modification_date <- function(path = ".") {
   dir_list <- fs::dir_info(path)
+  # Remove Readme.md and readme.rmd from the search because my 
+  # rationale is that users will modify these files far more often
+  # and more frequently than the code.
+  pos <- grep("readme",
+            dir_list$path,
+            ignore.case = TRUE)
+dir_list <- dir_list[-pos, ]
   sorted_dir_list <-
     dir_list[order(dir_list$modification_time, decreasing = TRUE), ]
   last_mod <- sorted_dir_list[1, ]$modification_time
