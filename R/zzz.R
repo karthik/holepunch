@@ -14,7 +14,9 @@ last_modification_date <- function(path = ".") {
   pos <- grep("readme",
             dir_list$path,
             ignore.case = TRUE)
+  if(length(pos) > 0 ) {
 dir_list <- dir_list[-pos, ]
+}
   sorted_dir_list <-
     dir_list[order(dir_list$modification_time, decreasing = TRUE), ]
   last_mod <- sorted_dir_list[1, ]$modification_time
