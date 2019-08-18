@@ -1,6 +1,6 @@
 Package: holepunch
 Title: Configure Your R Project for 'binderhub'
-Version: 0.1.19.9000
+Version: 0.1.22.9000
 Authors@R: 
     c(person(given = "Karthik",
            family = "Ram",
@@ -29,6 +29,7 @@ Imports:
     httr,
     lubridate,
     promises,
+    remotes,
     renv,
     usethis (>= 1.4.0)
 Remotes: rstudio/renv
