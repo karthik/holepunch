@@ -20,3 +20,5 @@ test_that("Test that GitHub packages are installed in Dockerfiles", {
   unlink(temp_path)
   setwd(old_path)
 })
+
+teardown(unlink("tests/testthat/dir_code/.binder"))
