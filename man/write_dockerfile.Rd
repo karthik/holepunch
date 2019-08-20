@@ -5,7 +5,8 @@
 \title{Write a minimal Dockerfile for a Binder}
 \usage{
 write_dockerfile(base = NULL, path = ".",
-  maintainer = getOption("usethis.full_name"), r_date = NULL)
+  maintainer = getOption("usethis.full_name"), r_date = NULL,
+  install_github = FALSE)
 }
 \arguments{
 \item{base}{Your Docker base. I recommend that you use a binder base from the
@@ -28,6 +29,8 @@ usethis documentation}.}
 recent date a file was touched in this project but you can override this by
 specifying this explicitly. Date must be in ISO 8601 format, e.g.
 2019-06-27}
+
+\item{install_github}{If `TRUE`, it will install all packages listed in Remotes}
 }
 \description{
 The file is written to a hidden folder called `.binder/`. This will not

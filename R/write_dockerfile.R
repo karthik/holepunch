@@ -18,15 +18,18 @@
 #'  usethis documentation}.
 #' @template r_date
 #' @param path path to binder repo. Defaults to current location.
+#' @param install_github If `TRUE`, it will install all packages listed in Remotes
 #'
 #' @importFrom glue glue
+#' @importFrom desc desc_get_remotes
 #' @export
 #'
 write_dockerfile <-
   function(base = NULL,
              path = ".",
              maintainer = getOption("usethis.full_name"),
-             r_date = NULL) {
+             r_date = NULL,
+             install_github = FALSE) {
     if (!fs::file_exists("DESCRIPTION")) {
       stop(
         "Your compendium does not have a DESCRIPTION file.  Without one, this Dockerfile approach will not be able to install dependencies. Run write_compendium_description() before running this function",
@@ -53,6 +56,7 @@ write_dockerfile <-
     }
 
     cliapp::cli_alert("Setting R version to {version}")
+  
     R_VERSION <- version
     # Set the date for R packages I have a TODO here: If the user is not on R
     # latest, but has edited code today, then R_VERSION will be >
@@ -63,7 +67,17 @@ write_dockerfile <-
 
     version.string <- R.Version()$version.string
     users_R_version <- base::strsplit(version.string, " ")[[1]][3]
-
+    remote_cmd <- "" # Blank by default
+    
+    
+    if(install_github) {
+      remotes <- desc::desc_get_remotes("DESCRIPTION")
+      remote_list <- paste0(remotes, collapse = " ")
+      remote_cmd <- glue("RUN installGithub.r {remote_list}")
+    }
+    
+    # TODO: implement something similar for bioc packages here.
+    
     if (!identical(R_VERSION, users_R_version)) {
       warning(
         glue(
@@ -85,7 +99,8 @@ write_dockerfile <-
       maintainer <- "Unknown"
     }
     MAINTAINER <- maintainer
-
+    cliapp::cli_alert("Locking packages down at {DATE}")
+    
     # Set the binder base here. Users can override this by passing a base argument
     if (is.null(base)) {
       base <- glue("rocker/binder:{R_VERSION}")
@@ -101,7 +116,12 @@ USER root
 COPY . ${HOME}
 RUN chown -R ${NB_USER} ${HOME}
 USER ${NB_USER}
+
+[remote_cmd]
+
 RUN wget https://github.com/[user]/[repo]/raw/master/DESCRIPTION && R -e \"options(repos = list(CRAN = 'http://mran.revolutionanalytics.com/snapshot/[DATE]/')); devtools::install_deps()\"
+
+RUN rm DESCRIPTION.1
 ",
       .open = "[",
       .close = "]"

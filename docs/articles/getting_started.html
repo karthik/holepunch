@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hole punch</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.19.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.22.9000</span>
       </span>
     </div>
 
@@ -126,15 +126,15 @@
 <a href="#writing-a-description-file" class="anchor"></a>Writing a DESCRIPTION file</h2>
 <p>As Hadley Wickham describes in his <a href="http://r-pkgs.had.co.nz/description.html">R Packages book</a>, the role of this file is to store important metadata about a R package. These include general details like a title, description, and author but also critical information such as dependencies (both R and R packages), license, and a version number among other details. The file follows a Debian Control Format (DCF) and is made up of a list of key value pairs. The beautiful thing about a DESCRIPTION file is that you can have one in your folder even if its not a R package!</p>
 <p>At its most minimal, the DESCRIPTION file for a compendium can look like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">Type<span class="op">:</span><span class="st"> </span>Compendium</a>
-<a class="sourceLine" id="cb1-2" title="2">Package<span class="op">:</span><span class="st"> </span>name_of_package</a>
-<a class="sourceLine" id="cb1-3" title="3">Version<span class="op">:</span><span class="st"> </span><span class="dv">0</span>.<span class="fl">1.0</span></a>
-<a class="sourceLine" id="cb1-4" title="4">Depends<span class="op">:</span><span class="st"> </span>dplyr, ggplot2, wesanderson</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>Type<span class="op">:</span><span class="st"> </span>Compendium</span>
+<span id="cb1-2"><a href="#cb1-2"></a>Package<span class="op">:</span><span class="st"> </span>name_of_package</span>
+<span id="cb1-3"><a href="#cb1-3"></a>Version<span class="op">:</span><span class="st"> </span><span class="dv">0</span>.<span class="fl">1.0</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>Depends<span class="op">:</span><span class="st"> </span>dplyr, ggplot2, wesanderson</span></code></pre></div>
 <p>Once this file exists, a user can install all these dependencies using the <code>devtools</code> package. Like so:</p>
 <pre><code><a href="https://rdrr.io/pkg/devtools/man/install_deps.html">devtools::install_deps()</a></code></pre>
 <p>Holepunch makes it easy to write this file for any project. The syntax is:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="../reference/write_compendium_description.html">write_compendium_description</a></span>(<span class="dt">package =</span> <span class="st">"Your compendium name"</span>, </a>
-<a class="sourceLine" id="cb3-2" title="2">                             <span class="dt">description =</span> <span class="st">"Your compendium description"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="../reference/write_compendium_description.html">write_compendium_description</a></span>(<span class="dt">package =</span> <span class="st">"Your compendium name"</span>, </span>
+<span id="cb3-2"><a href="#cb3-2"></a>                             <span class="dt">description =</span> <span class="st">"Your compendium description"</span>)</span></code></pre></div>
 <p>Your project will now have this file with placeholders for author information, license and version. The package searches all of the code in your folder (including sub-folders) and writes a list of unique dependencies to this file as well. To save yourself time and effort here and for package development, you can pre-populate many of the description file fields with some code in your <code>rprofile</code></p>
 <pre><code><a href="https://rdrr.io/r/base/options.html">options(
   usethis.full_name = "Jane Doe",
@@ -151,7 +151,7 @@
 <h2 class="hasAnchor">
 <a href="#writing-a-dockerfile" class="anchor"></a>Writing a Dockerfile</h2>
 <p>Unless your project requires Debian or Python dependencies (more on this below), simply run <code><a href="../reference/write_dockerfile.html">write_dockerfile()</a></code> to have a Dockerfile created in your project.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw"><a href="../reference/write_dockerfile.html">write_dockerfile</a></span>(<span class="dt">maintainer =</span> <span class="st">"Karthik Ram"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="../reference/write_dockerfile.html">write_dockerfile</a></span>(<span class="dt">maintainer =</span> <span class="st">"Karthik Ram"</span>)</span></code></pre></div>
 <p>Except for the DESCRIPTION file, all binder specific files are stored in a hidden folder called <code>.binder</code>. <code>write_dockerfile</code> also searches option to pre-populate the maintainer but one can pass a name to override this.</p>
 <p>By default, this function will use a Rocker Project base image that contains Binder elements, Rstudio Server, and the Tidyverse ecosystem. This is a good default as it covers a wide range of use cases and a user will only have to install a few additional packages to be fully setup. If you have a more complex Docker setup, you can build from Rocker Binder and install other software and then make that your base. To override the package’s base choice:</p>
 <pre><code><a href="../reference/write_dockerfile.html">write_dockerfile(base = "user/base", maintainer = "Karthik Ram")</a></code></pre>
