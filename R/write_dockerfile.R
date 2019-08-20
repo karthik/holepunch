@@ -76,6 +76,7 @@ write_dockerfile <-
       remote_cmd <- glue("RUN installGithub.r {remote_list}")
     }
     
+    # TODO: implement something similar for bioc packages here.
     
     if (!identical(R_VERSION, users_R_version)) {
       warning(
