@@ -37,8 +37,10 @@ write_compendium_description <-
     
     remotes <- get_remotes(Depends)
     if(!is.null(remotes)) remote_pkgs <- unlist(strsplit(remotes, "/"))
-    if (length(remote_pkgs > 0))
-      Depends <- Depends[-which(Depends %in% remote_pkgs)]
+    # if (length(remote_pkgs > 0))
+    #  Depends <- Depends[-which(Depends %in% remote_pkgs)]
+    # Commenting lines above because stuff in Remotes should also 
+    # be in Depends.
     
     if (length(remote_pkgs > 0)) {
       fields <-

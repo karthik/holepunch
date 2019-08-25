@@ -39,7 +39,7 @@ r_version_lookup <- function(date = NULL) {
     df$dt <- date
     df$status <-
       apply(df, 1, function(x) {
-        (x[["dt"]] > x[["start"]] & x[["dt"]] < x[["end"]])
+        (x[["dt"]] >= x[["start"]] & x[["dt"]] < x[["end"]])
       })
     ver <- df[which(df$status == TRUE), ]$version
     ver

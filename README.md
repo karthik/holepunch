@@ -94,11 +94,15 @@ An easy way to test this package _without writing any code_ is to visit the [bin
 
 
 
-## Suggestions and review
+## Roadmap
 
-The ETA for the first release of this package is early July (after `renv` goes to CRAN). Comments, suggestions for improving the workflow or any other comments welcome in the [issues](https://github.com/karthik/holepunch/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc).
+The ETA for the first release of this package is fall 2019 (after `renv` goes to CRAN). Comments, suggestions for improving the workflow or any other comments welcome in the [issues](https://github.com/karthik/holepunch/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc). Other planned features include:
 
-## Code of conduct
+- Full support for GitHub packages
+- Support for Bioconductor packages
+
+## Code- Reference Binders to separate environment from code (still in early planning)
+ of conduct
 
 Please note that the 'holepunch' project is released with a
 [Contributor Code of Conduct](CODE_OF_CONDUCT.md).

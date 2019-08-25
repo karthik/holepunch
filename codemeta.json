@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/karthik/holepunch",
   "issueTracker": "https://github.com/karthik/holepunch/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.1.22.9000",
+  "version": "0.1.24.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.0",
+    "version": "3.6.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.0 (2019-04-26)",
+  "runtimePlatform": "R version 3.6.1 (2019-07-05)",
   "author": [
     {
       "@type": "Person",
@@ -252,7 +252,7 @@
   ],
   "releaseNotes": "https://github.com/karthik/holepunch/blob/master/NEWS.md",
   "readme": "https://github.com/karthik/holepunch/blob/master/README.md",
-  "fileSize": "20.663KB",
+  "fileSize": "20.85KB",
   "contIntegration": [
     "https://travis-ci.org/karthik/holepunch",
     "https://coveralls.io/r/karthik/holepunch?branch=master",
