@@ -17,6 +17,7 @@
 #'  \href{https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences}{Rstudio
 #'  usethis documentation}.
 #' @template r_date
+#' @param branch Default is master but you can pass other branches
 #' @param path path to binder repo. Defaults to current location.
 #' @param install_github If `TRUE`, it will install all packages listed in Remotes
 #'
@@ -29,6 +30,7 @@ write_dockerfile <-
              path = ".",
              maintainer = getOption("usethis.full_name"),
              r_date = NULL,
+             branch = "master",
              install_github = FALSE) {
     if (!fs::file_exists("DESCRIPTION")) {
       stop(
@@ -119,7 +121,7 @@ USER ${NB_USER}
 
 [remote_cmd]
 
-RUN wget https://github.com/[user]/[repo]/raw/master/DESCRIPTION && R -e \"options(repos = list(CRAN = 'http://mran.revolutionanalytics.com/snapshot/[DATE]/')); devtools::install_deps()\"
+RUN wget https://github.com/[user]/[repo]/raw/[branch]/DESCRIPTION && R -e \"options(repos = list(CRAN = 'http://mran.revolutionanalytics.com/snapshot/[DATE]/')); devtools::install_deps()\"
 
 RUN rm DESCRIPTION.1
 ",

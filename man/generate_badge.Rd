@@ -4,10 +4,13 @@
 \alias{generate_badge}
 \title{Generates a Binder badge to add to your README}
 \usage{
-generate_badge(path = ".", hub = "mybinder.org", urlpath = "rstudio")
+generate_badge(path = ".", branch = "master", hub = "mybinder.org",
+  urlpath = "rstudio")
 }
 \arguments{
 \item{path}{Assumes local folder unless you say otherwise}
+
+\item{branch}{Default is master but you can pass other branches}
 
 \item{hub}{mybinder.org (often used synonymously with Binder) is a single deployment of a BinderHub instance, managed by the creators of Binder. It serves as both a public service and a demonstration of the BinderHub technology but it is by no means the only BinderHub in existence. \href{https://binder.pangeo.io/}{Pangeo} (https://binder.pangeo.io/) is another instance of a BinderHub (pass "binder.pangeo.io" to the hub argument) that is hosted by the geoscience community and is free to use for anyone. It is quite likely that other BinderHubs will be available in the future. You can use the `hub` argument to set the BinderHub of your choice. If your organization wants to host one (with additional resources to serve your community), please read through the MyBinder documentation (https://mybinder.readthedocs.io )}
 
