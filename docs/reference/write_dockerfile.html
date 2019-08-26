@@ -68,7 +68,7 @@ other services like CI." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hole punch</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.24.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.25.9000</span>
       </span>
     </div>
 
@@ -149,7 +149,7 @@ other services like CI.</p>
 
     <pre class="usage"><span class='fu'>write_dockerfile</span>(<span class='kw'>base</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
   <span class='kw'>maintainer</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"usethis.full_name"</span>), <span class='kw'>r_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>install_github</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+  <span class='kw'>branch</span> <span class='kw'>=</span> <span class='st'>"master"</span>, <span class='kw'>install_github</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -182,6 +182,10 @@ usethis documentation</a>.</p></td>
 recent date a file was touched in this project but you can override this by
 specifying this explicitly. Date must be in ISO 8601 format, e.g.
 2019-06-27</p></td>
+    </tr>
+    <tr>
+      <th>branch</th>
+      <td><p>Default is master but you can pass other branches</p></td>
     </tr>
     <tr>
       <th>install_github</th>
