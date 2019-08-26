@@ -100,9 +100,9 @@ The ETA for the first release of this package is fall 2019 (after `renv` goes to
 
 - Full support for GitHub packages
 - Support for Bioconductor packages
+- Reference Binders to separate environment from code (still in early planning)
 
-## Code- Reference Binders to separate environment from code (still in early planning)
- of conduct
+## Code of conduct
 
 Please note that the 'holepunch' project is released with a
 [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
