@@ -123,7 +123,7 @@ USER ${NB_USER}
 
 RUN wget https://github.com/[user]/[repo]/raw/[branch]/DESCRIPTION && R -e \"options(repos = list(CRAN = 'http://mran.revolutionanalytics.com/snapshot/[DATE]/')); devtools::install_deps()\"
 
-RUN rm DESCRIPTION.1
+RUN rm DESCRIPTION.1; exit 0
 ",
       .open = "[",
       .close = "]"
