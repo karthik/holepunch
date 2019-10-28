@@ -4,10 +4,13 @@
 \alias{write_runtime}
 \title{Write runtime.txt}
 \usage{
-write_runtime(path = ".", r_date = lubridate::ymd(lubridate::today()))
+write_runtime(path = ".", version = NULL,
+  r_date = lubridate::ymd(lubridate::today()))
 }
 \arguments{
 \item{path}{Path to project}
+
+\item{version}{Version of R to lock down.}
 
 \item{r_date}{Date you need R to lock down to. By default it picks the most
 recent date a file was touched in this project but you can override this by
