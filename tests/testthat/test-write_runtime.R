@@ -17,6 +17,16 @@ test_that("Write runtime gets right date", {
   unlink(test_path("dir_code/.binder"))
 })
 
+
+test_that("Write runtime gets right date", {
+  tpath <- test_path("dir_code")
+  unlink(test_path("dir_code/.binder"))
+  write_runtime(path = tpath, version = "3.6", r_date = "2019-03-02")
+  runtime_file <- readLines(glue::glue("{tpath}/.binder/runtime.txt"))
+  expect_identical("r-3.6-2019-03-02", runtime_file)
+  unlink(test_path("dir_code/.binder"))
+})
+
 test_that("A warning is generated if Dockerfile exists", {
   tpath <- test_path("dir_code")
   unlink(test_path("dir_code/.binder"))

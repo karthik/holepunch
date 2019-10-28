@@ -6,12 +6,14 @@
 #'
 #' @param path Path to project
 #' @template r_date
+#' @param version Version of R to lock down.
 #' @importFrom lubridate ymd today
 #'
 #' @export
 #'
 write_runtime <-
   function(path = ".",
+          version = NULL,
              r_date = lubridate::ymd(lubridate::today())) {
     path <- sanitize_path(path) # To kill trailing slashes
     if (fs::file_exists(glue::glue("{path}/.binder/Dockerfile"))) {
@@ -23,8 +25,12 @@ write_runtime <-
         )
       )
     }
-
-    txt <- glue::glue("r-{r_date}")
+    if(is.null(version)) {
+      txt <- glue::glue("r-{r_date}")  
+    } else {
+      txt <- glue::glue("r-{version}-{r_date}")
+    }
+    
     fs::dir_create(glue::glue("{path}/.binder"))
     fileConn <- file(glue::glue("{path}/.binder/runtime.txt"))
     writeLines(txt, fileConn)
