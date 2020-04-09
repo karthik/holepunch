@@ -4,8 +4,12 @@
 \alias{generate_badge}
 \title{Generates a Binder badge to add to your README}
 \usage{
-generate_badge(path = ".", branch = "master", hub = "mybinder.org",
-  urlpath = "rstudio")
+generate_badge(
+  path = ".",
+  branch = "master",
+  hub = "mybinder.org",
+  urlpath = "rstudio"
+)
 }
 \arguments{
 \item{path}{Assumes local folder unless you say otherwise}

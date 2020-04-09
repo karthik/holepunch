@@ -4,9 +4,14 @@
 \alias{write_dockerfile}
 \title{Write a minimal Dockerfile for a Binder}
 \usage{
-write_dockerfile(base = NULL, path = ".",
-  maintainer = getOption("usethis.full_name"), r_date = NULL,
-  branch = "master", install_github = FALSE)
+write_dockerfile(
+  base = NULL,
+  path = ".",
+  maintainer = getOption("usethis.full_name"),
+  r_date = NULL,
+  branch = "master",
+  install_github = FALSE
+)
 }
 \arguments{
 \item{base}{Your Docker base. I recommend that you use a binder base from the

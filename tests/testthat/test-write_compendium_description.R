@@ -1,5 +1,5 @@
 test_that("A Description is written correctly", {
-  source("common.R")
+  source(testthat::test_path("common.R"))
   write_compendium_description(package = "FOOBAR", description = "BARFOO")
 
   rendered_file <- readLines(glue::glue("{temp_path}/DESCRIPTION"))
@@ -28,5 +28,5 @@ test_that("Write Compendium Description", {
   close(fileConn)
   write_compendium_description(path = temp_path)
   expect_true(fs::file_exists(glue("{temp_path}/DESCRIPTION")))
-  unlink(temp_path)
+   unlink(temp_path)
 })

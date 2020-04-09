@@ -6,3 +6,4 @@ inst/doc
 .*
 !/.gitignore
 .Rproj.user
+generate_version_dates.R

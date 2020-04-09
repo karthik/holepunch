@@ -1,14 +1,19 @@
-source('test-fns.R')
+source(test_path('test-fns.R'))
 
-randdd <- rand_str_foo()
-# Tempdir never goes away and I need to start clean each time
-# Hence the random dir
-temp_path <- glue::glue("{tempdir()}/{randdd}/testcompendium")
-dir.create(temp_path, showWarnings = FALSE)
+
+# randdd <- rand_str_foo()
+# # Tempdir never goes away and I need to start clean each time
+# # Hence the random dir
+# temp_path <- glue::glue("{tempdir()}/{randdd}/testcompendium")
+# dir.create(temp_path, showWarnings = FALSE)
 old_path <- getwd()
+temp_path <- tempfile()
+dir_empty(temp_path)
 # Note: suppressing warnings here because if I don't I see this:
 # warning: `recursive` is deprecated, please use `recurse` instead
-suppressWarnings(usethis::create_project(path = temp_path, open = FALSE))
+#usethis::create_project(path = temp_path, open = FALSE)
+# TODO: Problem above:
+# ----------------------------------------------------
 setwd(temp_path)
 git2r::init(temp_path)
 
@@ -41,4 +46,4 @@ cat(
   "```{r}\nlibrary(dplyr)\nrequire(ggplot2)\nglue::glue_collapse(glue::glue('{1:10}'))\n```\n",
   file = paste0(temp_path, "/test.Rmd")
 )
-setwd(temp_path)
+on.exit(setwd(temp_path))

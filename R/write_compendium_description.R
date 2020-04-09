@@ -29,6 +29,8 @@ write_compendium_description <-
            description = "Compendium description",
            version = "0.0.1",
            path = ".") {
+    
+    # browser()
 
     Depends <- unique(get_dependencies(path))
     if(is.null(Depends))
@@ -45,7 +47,7 @@ write_compendium_description <-
     if (length(remote_pkgs > 0)) {
       fields <-
         list(
-          Type = type,
+          Type = "Compendium",
           Package = package,
           Version = version,
           Description = description,
@@ -59,7 +61,7 @@ write_compendium_description <-
     } else {
       fields <-
         list(
-          Type = type,
+          Type = "Compendium",
           Package = package,
           Version = version,
           Description = description,
@@ -81,6 +83,7 @@ write_compendium_description <-
     
     desc <- build_desc(fields)
     desc <- desc::description$new(text = desc)
+    
     
     tidy_desc(desc)
     lines <-

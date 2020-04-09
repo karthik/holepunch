@@ -4,8 +4,11 @@
 \alias{write_runtime}
 \title{Write runtime.txt}
 \usage{
-write_runtime(path = ".", version = NULL,
-  r_date = lubridate::ymd(lubridate::today()))
+write_runtime(
+  path = ".",
+  version = NULL,
+  r_date = lubridate::ymd(lubridate::today())
+)
 }
 \arguments{
 \item{path}{Path to project}
