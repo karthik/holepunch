@@ -1,7 +1,6 @@
 # Hole punch 
 
 [![Travis build status](https://travis-ci.org/karthik/holepunch.svg?branch=master)](https://travis-ci.org/karthik/holepunch) 
-[![Build status](https://ci.appveyor.com/api/projects/status/iowqitu84h9dquro?svg=true)](https://ci.appveyor.com/project/karthik/holepunch)
 [![Coveralls test coverage](https://coveralls.io/repos/github/karthik/holepunch/badge.svg)](https://coveralls.io/r/karthik/holepunch?branch=master)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN status](http://www.r-pkg.org/badges/version/holepunch)](https://www.r-pkg.org/badges/version/holepunch)
