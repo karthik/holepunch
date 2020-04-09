@@ -1,1 +1,1 @@
-unlink("tests/testthat/dir_code/.binder")
+unlink(test_path("dir_code/.binder"), recursive = TRUE)

@@ -4,9 +4,13 @@
 \alias{write_compendium_description}
 \title{Creates a description file for a compendium}
 \usage{
-write_compendium_description(type = "Compendium",
-  package = "Compendium title", description = "Compendium description",
-  version = "0.0.1", path = ".")
+write_compendium_description(
+  type = "Compendium",
+  package = "Compendium title",
+  description = "Compendium description",
+  version = "0.0.1",
+  path = "."
+)
 }
 \arguments{
 \item{type}{Default here is compendium}
