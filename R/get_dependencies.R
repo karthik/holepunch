@@ -9,7 +9,7 @@ get_dependencies <- function(path = ".") {
   # Check to see path is valid
   path <- sanitize_path(path)
   packages <- renv::dependencies(path)
-  packages$Package
+  unique(packages$Package)
 }
 
 # WIP

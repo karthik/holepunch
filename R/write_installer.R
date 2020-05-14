@@ -17,10 +17,10 @@ write_install <- function(path = ".") {
     )
   }
   path <- sanitize_path(path) # To kill trailing slashes
-  packages <- get_dependencies(path)
-  res <-
-    lapply(packages, function(x)
-      paste0("install.packages('", x, "')"))
+  packages <- unique(get_dependencies(path))
+  res <- paste0("  \"", packages)
+  res <- paste0(res, collapse =  "\",\n")
+  res <- paste0("install.packages(\n", res, "\"\n)")
   fs::dir_create(glue("{path}/.binder"))
-  usethis::write_over(glue("{path}/.binder/install.R"), unlist(res))
+  usethis::write_over(glue("{path}/.binder/install.R"), res)
 }
