@@ -17,7 +17,7 @@ write_install <- function(path = ".") {
     )
   }
   path <- sanitize_path(path) # To kill trailing slashes
-  packages <- unique(get_dependencies(path))
+  packages <- get_dependencies(path)
   res <- paste0("  \"", packages)
   res <- paste0(res, collapse =  "\",\n")
   res <- paste0("install.packages(\n", res, "\"\n)")
