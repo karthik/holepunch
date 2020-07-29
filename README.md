@@ -8,7 +8,7 @@
 [![CRAN status](http://www.r-pkg.org/badges/version/holepunch)](https://www.r-pkg.org/badges/version/holepunch)
 
 ## What this package does
-holepunch will read the contents of your R project on GitHub, create a [DESCRIPTION file](http://r-pkgs.had.co.nz/description.html) with all dependencies, write a Dockerfile, add a badge to your README, and build a Docker image. Once these 4 steps are complete, any reader can click the badge and within minutes, be dropped into a free, live, RStudio server. Here they can run your scripts and notebooks and see how everything works.
+holepunch will read the contents of your R project on GitHub, create a [DESCRIPTION file](https://r-pkgs.org/description.html#description) with all dependencies, write a Dockerfile, add a badge to your README, and build a Docker image. Once these 4 steps are complete, any reader can click the badge and within minutes, be dropped into a free, live, RStudio server. Here they can run your scripts and notebooks and see how everything works.
  
 ## Motivation 
 [Binder](https://mybinder.org/) is an open source project that can take ~~any~~ most GitHub repos of notebooks (R or Jupyter) and turn them into a free, live instance that not only has all dependencies ready to go but also provides [Jupyter](https://jupyter.org/) or [Rstudio server](https://www.rstudio.com/products/rstudio/download-server/) to run the code on. The instances are small and should not be used to demonstrate resource intensive computation. However they are ideal for reproducing papers/figures/examples and make a great addition to any public analysis project that is being hosted on GitHub.
