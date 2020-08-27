@@ -26,7 +26,20 @@
       "@id": "https://orcid.org/0000-0002-0233-1757"
     }
   ],
-  "contributor": {},
+  "contributor": [
+    {
+      "@type": "Person",
+      "givenName": "Dennis",
+      "familyName": "Irorere",
+      "email": "denironyx@gmail.com"
+    },
+    {
+      "@type": "Person",
+      "givenName": "John",
+      "familyName": "Blischak",
+      "email": "jdblischak@uchicago.edu"
+    }
+  ],
   "copyrightHolder": {},
   "funder": {},
   "maintainer": [
@@ -292,7 +305,7 @@
   ],
   "releaseNotes": "https://github.com/karthik/holepunch/blob/master/NEWS.md",
   "readme": "https://github.com/karthik/holepunch/blob/master/README.md",
-  "fileSize": "64.955KB",
+  "fileSize": "70.343KB",
   "contIntegration": "https://coveralls.io/r/karthik/holepunch?branch=master",
   "developmentStatus": "https://www.tidyverse.org/lifecycle/#maturing"
 }
