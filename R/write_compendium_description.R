@@ -32,7 +32,7 @@ write_compendium_description <-
     
     # browser()
 
-    Depends <- unique(get_dependencies(path))
+    Depends <- get_dependencies(path)
     if(is.null(Depends))
         stop("No packages found in any script or notebook", call. = FALSE)
     remote_pkgs <- NULL
