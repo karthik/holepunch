@@ -71,21 +71,21 @@ write_compendium_description <-
         )
     }
     
-    # TO-FIX
+    # TO-FIX-SOMEDAY
     # Using an internal function here
     # A silly hack from Yihui to stop the internal function use warning.
     # Not sure this is a good thing to do, but for now YOLO.
     # %:::% is in zzz.R
     
-    tidy_desc <- "usethis" %:::% "tidy_desc"
-    build_desc <- "usethis" %:::% "build_description"
+   #  tidy_desc <- "usethis" %:::% "tidy_desc"
+   #build_desc <- "build_description"
     
     
-    desc <- build_desc(fields)
+    desc <- build_description_internal(fields)
     desc <- desc::description$new(text = desc)
     
     
-    tidy_desc(desc)
+    tidy_desc_internal(desc)
     lines <-
       desc$str(by_field = TRUE,
                normalize = FALSE,

@@ -1,6 +1,4 @@
 
-
-
 #' Generates a Binder badge to add to your README
 #'
 #' @template hub
@@ -25,7 +23,7 @@ generate_badge <-
       url <-
         glue("https://{hub}/v2/gh/{user}/{repo}/{branch}?urlpath={urlpath}")
       img <- glue("http://{hub}/badge_logo.svg")
-      use_badge("Launch Rstudio Binder", url, img)
+      usethis::use_badge("Launch Rstudio Binder", url, img)
     }
 
     invisible(TRUE)

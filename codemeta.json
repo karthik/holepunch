@@ -10,14 +10,13 @@
   "codeRepository": "https://github.com/karthik/holepunch",
   "issueTracker": "https://github.com/karthik/holepunch/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.1.26.9000",
+  "version": "0.1.28.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.1 (2019-07-05)",
+  "runtimePlatform": "R version 4.0.2 (2020-06-22)",
   "author": [
     {
       "@type": "Person",
@@ -184,6 +183,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "here",
+      "name": "here",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=here"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "httr",
       "name": "httr",
       "provider": {
@@ -240,13 +251,36 @@
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://github.com/rstudio/renv"
+      "sameAs": "https://CRAN.R-project.org/package=renv"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rlang",
+      "name": "rlang",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rlang"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rprojroot",
+      "name": "rprojroot",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rprojroot"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "usethis",
       "name": "usethis",
-      "version": ">= 1.4.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -258,11 +292,7 @@
   ],
   "releaseNotes": "https://github.com/karthik/holepunch/blob/master/NEWS.md",
   "readme": "https://github.com/karthik/holepunch/blob/master/README.md",
-  "fileSize": "21.058KB",
-  "contIntegration": [
-    "https://travis-ci.org/karthik/holepunch",
-    "https://coveralls.io/r/karthik/holepunch?branch=master",
-    "https://ci.appveyor.com/project/karthik/holepunch"
-  ],
+  "fileSize": "64.955KB",
+  "contIntegration": "https://coveralls.io/r/karthik/holepunch?branch=master",
   "developmentStatus": "https://www.tidyverse.org/lifecycle/#maturing"
 }
