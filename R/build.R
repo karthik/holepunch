@@ -13,8 +13,9 @@
 #' @importFrom cliapp cli_alert_warning
 binder_builder <-
   function(path = ".",
-             hub = "mybinder.org",
-             urlpath = "rstudio") {
+           hub = "mybinder.org",
+           urlpath = "rstudio",
+           branch = "master") {
     path <- sanitize_path(path)
     if (!has_a_git_remote()) {
       stop(
@@ -28,7 +29,7 @@ binder_builder <-
       glue::glue("https://{hub}/build/gh/{user}/{repo}/master")
     res <- httr::GET(binder_runtime)
     url <-
-      glue("https://{hub}/v2/gh/{user}/{repo}/master?urlpath={urlpath}")
+      glue("https://{hub}/v2/gh/{user}/{repo}/{branch}?urlpath={urlpath}")
     return(url)
     # nocov end
   }
@@ -45,8 +46,9 @@ binder_builder <-
 #' @export
 build_binder <-
   function(path = ".",
-             hub = "mybinder.org",
-             urlpath = "rstudio") {
+           hub = "mybinder.org",
+           urlpath = "rstudio",
+           branch = "master") {
     proceed <- TRUE
 
     if (!is_clean(path)) {
@@ -74,7 +76,7 @@ build_binder <-
       future::plan(multisession, workers = 2)
 
       future::future({
-        binder_builder(path, hub, urlpath)
+        binder_builder(path, hub, urlpath, branch)
       }) %...>% utils::browseURL
       # nocov end
     } # end proceed
