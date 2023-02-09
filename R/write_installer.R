@@ -20,7 +20,7 @@ write_install <- function(path = ".") {
   packages <- get_dependencies(path)
   res <- paste0("  \"", packages)
   res <- paste0(res, collapse =  "\",\n")
-  res <- paste0("install.packages(\n", res, "\"\n)")
+  res <- paste0("install.packages(\n c( \n", res, "\")\n)")
   fs::dir_create(glue("{path}/.binder"))
   usethis::write_over(glue("{path}/.binder/install.R"), res)
 }
