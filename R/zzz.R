@@ -183,23 +183,14 @@ last_modification_date <- function(path = ".") {
 #' @noRd
 r_version_lookup <- function(date = NULL) {
   if (!is.null(date)) {
-    date <- as.Date(date)
-    # df <- holepunch:::r_version_table # This works
-    df <- r_version_table
+    date <- as.character(date)
+    
+    df <- rversions::r_versions()
     
     if (date < df[1, 2]) {
       stop("Canot find R version for this date", call. = FALSE)
     }
-    
-    # This below is ugly and makes me unhappy
-    # Don't want to use dplyr in this package so the ugly apply it is for now. Sadnesss.
-    df$dt <- date
-    df$status <-
-      apply(df, 1, function(x) {
-        (x[["dt"]] >= x[["start"]] & x[["dt"]] < x[["end"]])
-      })
-    ver <- df[which(df$status == TRUE),]$version
-    ver
+    ver <- tail(df$version[date > df$date], 1)
   } else {
     "latest"
   }
