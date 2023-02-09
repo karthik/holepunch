@@ -32,7 +32,7 @@ Imports:
     fs,
     future,
     gh,
-    git2r (>= 0.23),    
+    git2r (>= 0.23),
     glue,
     here,
     httr,
@@ -42,6 +42,7 @@ Imports:
     renv,
     rlang,
     rprojroot,
+    rversions,
     usethis
 Encoding: UTF-8
 LazyData: true
