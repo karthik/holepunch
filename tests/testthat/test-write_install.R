@@ -44,12 +44,13 @@ glue::glue_collapse(glue::glue('{1:10}'))
   # Problem here. Write install is not finding all packages.
   packages_needed_here <- c(
     "install.packages(",
+    " c( ",
     "  \"dplyr\",",
     "  \"ggplot2\",",
     "  \"glue\",",
     "  \"purrr\",",
     "  \"rmarkdown\",",
-    "  \"tidyr\"", 
+    "  \"tidyr\")", 
     ")"
   )
   
