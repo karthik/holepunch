@@ -114,9 +114,7 @@ write_dockerfile <-
       "
 FROM [base]
 LABEL maintainer='[MAINTAINER]'
-USER root
-COPY . ${HOME}
-RUN chown -R ${NB_USER} ${HOME}
+COPY --chown=${NB_USER} . ${HOME}
 USER ${NB_USER}
 
 [remote_cmd]
