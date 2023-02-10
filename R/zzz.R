@@ -190,7 +190,7 @@ r_version_lookup <- function(date = NULL) {
     if (date < df[1, 2]) {
       stop("Canot find R version for this date", call. = FALSE)
     }
-    ver <- tail(df$version[date > df$date], 1)
+    ver <- utils::tail(df$version[date > df$date], 1)
   } else {
     "latest"
   }
