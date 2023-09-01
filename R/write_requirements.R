@@ -3,9 +3,9 @@
 
 
 
-#' write a list of Python requirements
+#' Write a list of Python requirements
 #'
-#' Writes a list of Debian packages that should be installed. Caution: If you have a Dockerfile,
+#' Writes a list of Python packages that should be installed. Caution: If you have a Dockerfile,
 #' this file will be ignored.
 #'
 #' @param path Path to project
